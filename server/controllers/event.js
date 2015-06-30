@@ -1,5 +1,5 @@
 var Event = require('../models/Event');
-
+var User = require('../models/User');
 exports.getAddEvent = function(req,res){
         if(req.user)
         {
@@ -19,16 +19,25 @@ exports.postAddEvent = function(req,res){
             organizerEmail:req.user.email,
             attendees:[(req.user._id)],
             profile:{
-                title:req.body.eventName,
-                location:req.body.eventLocation,
-                startdate:req.body.eventStartDate,
-                enddate:req.body.eventEndDate,
-                time:req.body.eventStartTime,
+                    title:req.body.eventName,
+                    location:req.body.eventLocation,
+                    startdate:req.body.eventStartDate,
+                    enddate:req.body.eventEndDate,
+                    time:req.body.eventStartTime,
                 duration:req.body.eventDuration,
                 desc:req.body.eventDescription,
                 category:req.body.eventCategory
     
             }});
+
+        // changing account type
+        User.update({ _id:req.user._id }, { type: 'eventAdmin' });
+
+    User.update({ _id:req.user._id }, { type: 'eventAdmin' }, function (err, raw) {
+      if (err) return handleError(err);
+      console.log('The raw response from Mongo was ', raw);
+    });
+
         //The Magic!
         eve.save(function(err){
         Event.find(function(err,events){
