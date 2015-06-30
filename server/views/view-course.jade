@@ -1,0 +1,15 @@
+extends ./includes/layout
+block main
+  .container
+    .row
+      .col-md-6.col-md-offset-4.text-center
+        form(action="/addcourse")
+          button.btn.btn-primary(type='submit') Add Course
+    each val in courses
+      .row
+        .col-md-6.col-md-offset-4.jumbotron
+          p= val.name
+          p= val.featured
+          p= val.published
+          form(action="/deletecourse/"+val._id method="post")
+              button.btn.btn-default(type='submit') Delete        

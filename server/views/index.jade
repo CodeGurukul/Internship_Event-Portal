@@ -1,0 +1,25 @@
+extends ./includes/layout
+block main
+  .container
+      .jumbotron
+        h1 Welcome to our Mini Web Application
+        h2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis necessitatibus suscipit corrupti, qui molestiae animi saepe temporibus est facere enim? Nostrum nulla eaque ducimus perspiciatis culpa, autem maxime rem sint.
+
+      .row
+        .col-md-6
+          .panel.panel-primary
+            .panel-heading.text-center Featured Courses
+            .panel-body
+              each val in courseList
+                if val.featured
+                  .row
+                    .col-md-12
+                      p= val.name
+        .col-md-6
+          .panel.panel-primary
+            .panel-heading.text-center New Courses
+            .panel-body
+              each val in courseList
+                .row
+                  .col-md-3 Published : #{val.published}
+                  .col-md-9 #{val.name}

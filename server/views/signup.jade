@@ -1,0 +1,11 @@
+extends ./includes/layout
+block main
+  .container
+    .row
+      .col-md-6.col-md-offset-4
+        form(action='/signup' method='post')
+          input.form-control(type='text' placeholder='Name' name="name")
+          input.form-control(type='email' placeholder='Email' name="email")
+          input.form-control(type='password' placeholder='Password' name="password")
+          button.btn.btn-default(type='submit') Signup
+          

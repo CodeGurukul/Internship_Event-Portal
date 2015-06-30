@@ -1,0 +1,22 @@
+extends ./includes/layout
+block main
+  .container
+    .row
+      .col-md-6.col-md-offset-4
+        form(action='/addevent' method='post')
+          input.form-control(type='text' placeholder='Event Name' name="eventName")
+          input.form-control(type='text' placeholder='Event Location' name="eventLocation")
+          input.form-control(type='date' placeholder='Start Date' name="eventStartDate")
+          input.form-control(type='date' placeholder='End Date' name="eventEventDate")
+          input.form-control(type='text' placeholder='Start Time' name="eventStartTime")
+          input.form-control(type='text' placeholder='Duration' name="eventDuration")
+          input.form-control(type='text' placeholder='description' name="eventDescription")
+          input.form-control(type='text' placeholder='Category' name="eventCategory")
+          
+
+          .checkbox
+            label
+              input(type="checkbox" name="featuredName") 
+              |Featured
+          button.btn.btn-default(type='submit') Submit
+          
