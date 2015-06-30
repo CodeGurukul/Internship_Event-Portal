@@ -3,14 +3,7 @@ var Event = require('../models/Event');
 exports.getAddEvent = function(req,res){
         if(req.user)
         {
-            if(req.user.type=="eventadmin")
-            {
-              res.render('add-course');
-            }
-            else
-            {
-                res.send("You are not an Admin");
-            }
+              res.render('add-event');
         }
         else
         {
@@ -20,14 +13,26 @@ exports.getAddEvent = function(req,res){
     }
 
 exports.postAddEvent = function(req,res){
-        if(req.body.featuredName)
-            var featured = true;
-        //Create a new course
-        var course = new Course ({name: req.body.courseName, featured:featured, published:req.body.date});
+        //Create a event
+        // var course = new Course ({name: req.body.courseName, featured:featured, published:req.body.date});
+        var eve = new Event({organizerId:req.user._id,
+            organizerEmail:req.user.email,
+            attendees:[(req.user._id)],
+            profile:{
+                title:req.body.eventName,
+                location:req.body.eventLocation,
+                startdate:req.body.eventStartDate,
+                enddate:req.body.eventEndDate,
+                time:req.body.eventStartTime,
+                duration:req.body.eventDuration,
+                desc:req.body.eventDescription,
+                category:req.body.eventCategory
+    
+            }});
         //The Magic!
-        course.save(function(err){
-                Course.find(function(err,courses){
-            res.render('view-course',{courses:courses});
+        eve.save(function(err){
+        Event.find(function(err,events){
+            res.render('view-event',{events:events});
         });
         });
 
@@ -36,7 +41,7 @@ exports.postAddEvent = function(req,res){
 exports.getViewEvents = function(req,res){
 
         Event.find(function(err,events){
-            res.render('view-course',{courses:events});
+            res.render('view-course',{event:events});
         });
 
     }

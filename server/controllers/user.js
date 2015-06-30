@@ -1,5 +1,5 @@
 var User = require('../models/User');
-var Course = require('../models/Course');
+var Course = require('../models/Event');
 var passport=require('passport');
 
 exports.getSignUp = function(req,res){

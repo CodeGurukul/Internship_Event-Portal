@@ -4,7 +4,7 @@ var mongoose= require('mongoose');
 var eventSchema = new mongoose.Schema({
    organizerId:String,
    organizerEmail:String,
-   attendees:[{id:String}],
+   attendees:[String],
 
 profile:{
     tilte:String,
@@ -15,7 +15,7 @@ profile:{
     duration:String,
     desc:String,
     category:String
-       }
+    }
 
 });
 

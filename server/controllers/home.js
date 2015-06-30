@@ -1,4 +1,4 @@
-var Course = require('../models/Course');
+var Course = require('../models/Event');
 
 exports.getIndex = function(req,res){
         Course.find(function(err,courses){
