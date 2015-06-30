@@ -1,5 +1,5 @@
 var User = require('../models/User');
-var Course = require('../models/Event');
+var Event = require('../models/Event');
 var passport=require('passport');
 
 exports.getSignUp = function(req,res){
@@ -9,12 +9,14 @@ exports.getSignUp = function(req,res){
 exports.postSignUp = function(req,res){
         var user = new User({profile:{name:req.body.name}, email:req.body.email, password:req.body.password})
             user.save();
-          Course.find(function(err,courses){
-            res.render('index',{courseList:courses});
+            Event.find(function(err,events){
+            res.render('index',{eventList:events});
         });
             }
 
 exports.getDashBoard=function(req,res){
+
+
 res.render('dashboard');
 };
 

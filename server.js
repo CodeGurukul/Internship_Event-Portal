@@ -58,13 +58,17 @@ console.log('local mongodb opened');
 app.get('/', homeController.getIndex);
 app.get('/add-event', eventController.getAddEvent);
 app.post('/add-event', eventController.postAddEvent);
-// app.get('/viewevents', eventController.getViewEvents);
+app.post('/display-event/:id', eventController.postDisplayEvent);
+app.post('/add-invite/:id', eventController.postAddInvite);
+
+app.get('/view-event', eventController.getViewEvents);
 // app.post('/deleteevent/:id', eventController.postDeleteEvent);
-// app.get('/signup', userController.getSignUp);
-// app.post('/signup', userController.postSignUp);
-// app.post('/signin', userController.postSignIn);
-// app.get('/signout',userController.getSignOut);
-// app.get('/dashboard',userController.getDashBoard);
+app.get('/signup', userController.getSignUp);
+app.post('/signup', userController.postSignUp);
+app.post('/signin', userController.postSignIn);
+app.get('/signout',userController.getSignOut);
+app.get('/dashboard',userController.getDashBoard);
+
 
 app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email', 'user_location'] }));
 app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/' }), function(req, res) {

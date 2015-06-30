@@ -24,16 +24,14 @@ exports.postAddEvent = function(req,res){
                     startdate:req.body.eventStartDate,
                     enddate:req.body.eventEndDate,
                     time:req.body.eventStartTime,
-                duration:req.body.eventDuration,
+                   duration:req.body.eventDuration,
                 desc:req.body.eventDescription,
                 category:req.body.eventCategory
     
             }});
 
         // changing account type
-        User.update({ _id:req.user._id }, { type: 'eventAdmin' });
-
-    User.update({ _id:req.user._id }, { type: 'eventAdmin' }, function (err, raw) {
+           User.update({ _id:req.user._id }, { type: 'eventAdmin' }, function (err, raw) {
       if (err) return handleError(err);
       console.log('The raw response from Mongo was ', raw);
     });
@@ -41,7 +39,7 @@ exports.postAddEvent = function(req,res){
         //The Magic!
         eve.save(function(err){
         Event.find(function(err,events){
-            res.render('view-event',{events:events});
+            res.render('view-event',{event:events});
         });
         });
 
@@ -50,7 +48,7 @@ exports.postAddEvent = function(req,res){
 exports.getViewEvents = function(req,res){
 
         Event.find(function(err,events){
-            res.render('view-course',{event:events});
+            res.render('view-event',{event:events});
         });
 
     }
@@ -61,4 +59,20 @@ exports.postDeleteCourse = function(req,res){
             res.render('view-course',{courses:courses});
         });
     });
+}
+
+exports.postAddInvite = function(req,res){
+        User.find({email:req.body.eventInvite},function(err,user){
+            User.findByIdAndUpdate(user[0]._id,{$push: {"invites": req.params.id}},
+            function(err, model)
+             {
+                
+            });
+        });
+    }
+
+exports.postDisplayEvent = function(req,res){
+        Event.find({ _id:req.params.id },function(err,eve){
+            res.render('displayevent',{eve:eve});
+        });
 }

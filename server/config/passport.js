@@ -69,6 +69,7 @@ passport.use(new FacebookStrategy(facebook, function(req, accessToken, refreshTo
           user.profile.name = user.profile.name || profile.displayName;
           user.profile.gender = user.profile.gender || profile._json.gender;
           user.profile.picture = user.profile.picture || 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
+          user.invites=[];
           user.save(function(err) {
             console.log('Facebook account has been linked.');
             done(err, user);

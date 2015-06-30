@@ -39,8 +39,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top
           ul.nav.navbar-nav.navbar-left
             li
               a(href='/') Home
-            if(user)
-              if(user.type == "admin") 
+            if(user)            
                 li
                   a(href='/add-event') Add a event
             li

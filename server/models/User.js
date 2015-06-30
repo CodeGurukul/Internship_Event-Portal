@@ -9,6 +9,7 @@ var userSchema = new mongoose.Schema({
   google: String,
   tokens: Array,
   type:String,
+  invites:[String],
   profile: {
     name: { type: String, default: '' },
     gender: { type: String, default: '' },

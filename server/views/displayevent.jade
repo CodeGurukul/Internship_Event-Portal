@@ -1,0 +1,22 @@
+extends ./includes/layout
+block main
+	.container
+		.row
+			.col-md-6.col-md-offset-4.jumbotron
+				each val in eve
+					p= val.profile.title
+					p= val.profile.location
+					p= val.profile.startdate
+					p= val.profile.enddate
+					p= val.profile.time
+					p= val.profile.duration
+					p= val.profile.desc
+					p= val.profile.category
+					form(action='/add-invite/'+val._id method='post')
+						h2 Invite
+						input.form-control(type='text' placeholder='One Email at a time' name="eventInvite")
+						button.btn.btn-default(type='submit') Add User       	
+						
+
+
+
