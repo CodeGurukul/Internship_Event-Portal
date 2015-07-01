@@ -4,8 +4,10 @@ block main
     .row
       .col-md-6.col-md-offset-4
         form(action='/signup' method='post')
-          input.form-control(type='text' placeholder='Name' name="name")
-          input.form-control(type='email' placeholder='Email' name="email")
-          input.form-control(type='password' placeholder='Password' name="password")
+          input.form-control(type='email' placeholder='Email' name="userEmail")
+          input.form-control(type='text' placeholder='Name' name="userName")
+          input.form-control(type='password' placeholder='Password' name="userPassword")
+          input.form-control(type='text' placeholder='Gender' name="userGender")
+          input.form-control(type='text' placeholder='Location' name="userLocation")
           button.btn.btn-default(type='submit') Signup
           

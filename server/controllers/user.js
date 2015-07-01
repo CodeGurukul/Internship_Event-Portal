@@ -7,7 +7,17 @@ exports.getSignUp = function(req,res){
     }
 
 exports.postSignUp = function(req,res){
-        var user = new User({profile:{name:req.body.name}, email:req.body.email, password:req.body.password})
+        var user = new User(
+          {
+            profile:{
+              name:req.body.userName,
+              gender:req.body.userGender,
+              location:req.body.userLocation
+                    }, 
+            email:req.body.userEmail, 
+            password:req.body.userPassword});
+            
+
             user.save();
             Event.find(function(err,events){
             res.render('index',{eventList:events});

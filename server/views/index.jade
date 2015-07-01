@@ -8,18 +8,13 @@ block main
       .row
         .col-md-6
           .panel.panel-primary
-            .panel-heading.text-center Featured Courses
+            .panel-heading.text-center Featured Events
             .panel-body
-              each val in courseList
-                if val.featured
+              each val in eventList
                   .row
                     .col-md-12
-                      p= val.name
-        .col-md-6
-          .panel.panel-primary
-            .panel-heading.text-center New Courses
-            .panel-body
-              each val in courseList
-                .row
-                  .col-md-3 Published : #{val.published}
-                  .col-md-9 #{val.name}
+                      p= val.profile.title
+                      p= val.profile.location
+                      p= val.profile.category
+                      p= val.profile.desc
+        
