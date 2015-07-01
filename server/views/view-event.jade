@@ -8,9 +8,10 @@ block main
     each val in event
       .row
         .col-md-6.col-md-offset-4.jumbotron
-          p= val.name
-          p= val.featured
-          p= val.published
+          p= val.profile.title
+          p= val.profile.location
+          p= val.profile.category
+          p= val.profile.desc
           form(action="/display-event/"+val._id method="post")
               button.btn.btn-default(type='submit') Details        
           form(action="/deletecourse/"+val._id method="post")
