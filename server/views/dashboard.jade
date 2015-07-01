@@ -11,3 +11,9 @@ block main
 					li Email:#{user.email}
 					li Gender:#{user.profile.gender}
 					li location:#{user.profile.location}
+			//- -console.log(events)
+				h2 You are invited to the following events
+				each val in events
+					.jumbotron
+						ul
+							li Name:#{val.profile.title}

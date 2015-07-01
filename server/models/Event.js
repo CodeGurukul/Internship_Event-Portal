@@ -5,7 +5,7 @@ var eventSchema = new mongoose.Schema({
    organizerId:String,
    organizerEmail:String,
    attendees:[String],
-   invites:[String],
+   
 
 profile:{
     title:String,

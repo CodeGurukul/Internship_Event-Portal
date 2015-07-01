@@ -15,7 +15,24 @@ exports.postSignUp = function(req,res){
             }
 
 exports.getDashBoard=function(req,res){
-
+ var eventList=[];
+    for(var i=0;i<req.user.invites.length;i++)
+    {
+                Event.find({_id:req.user.invites[i]},function(err,events){
+                if(err)
+                {
+                console.log(err);  
+                }
+                else
+                {
+                 eventList.push(events[0]);
+                 console.log(eventList);
+                 // shows value inside the array as wanted
+                }
+              });
+    }
+ console.log(eventList);
+             // shows null value why? the variable is in the scope as its declaration 
 
 res.render('dashboard');
 };
