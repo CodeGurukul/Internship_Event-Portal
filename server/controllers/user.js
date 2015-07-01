@@ -26,6 +26,9 @@ exports.postSignUp = function(req,res){
 
 exports.getDashBoard=function(req,res){
  var eventList=[];
+
+// ALSO add eventsCreated Same logic
+ // sAme logic for unregister 
     for(var i=0;i<req.user.invites.length;i++)
     {
                 Event.find({_id:req.user.invites[i]},function(err,events){
