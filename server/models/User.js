@@ -11,7 +11,7 @@ var userSchema = new mongoose.Schema({
   type:String,
   invites:[String],
   eventsCreated:[String],
-  profile: {
+  profile: {  
     name: { type: String, default: '' },
     gender: { type: String, default: '' },
     location: { type: String, default: '' },

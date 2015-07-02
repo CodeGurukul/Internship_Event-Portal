@@ -25,49 +25,25 @@ exports.postSignUp = function(req,res){
             }
 
 exports.getDashBoard=function(req,res){
- var eventList=[];
 
-// ALSO add eventsCreated Same logic
- // sAme logic for unregister 
-    for(var i=0;i<req.user.invites.length;i++)
-    {
-                Event.find({_id:req.user.invites[i]},function(err,events){
+                Event.find({
+                '_id': { $in: req.user.invites}
+              },function(err,events){
                 if(err)
                 {
                 console.log(err);  
                 }
                 else
                 {
-                 eventList.push(events[0]);
-                 console.log(eventList);
+                 res.render('dashboard',{events:events});
                  // shows value inside the array as wanted
                 }
               });
-    }
- console.log(eventList);
+
              // shows null value why? the variable is in the scope as its declaration 
 
-res.render('dashboard');
-};
 
-// exports.postSignIn = function(req,res){
-//         User.findOne({email:req.body.email},function(err, user){
-//             if(err)
-//             {
-//                 console.log(err);
-//             }
-//             if(user){
-//                 if(user.password == req.body.password)
-//                     {
-//                         res.send("Valid User");
-//                     }
-//                 else
-//                      {
-//                         res.send("Invalid User");
-//                     }
-//             }
-//         })
-//     }
+};
 
 
 exports.postSignIn = function(req,res, next){

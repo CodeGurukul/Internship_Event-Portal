@@ -11,9 +11,24 @@ block main
 					li Email:#{user.email}
 					li Gender:#{user.profile.gender}
 					li location:#{user.profile.location}
-			//- -console.log(events)
+
+			-console.log(events)
 				h2 You are invited to the following events
 				each val in events
 					.jumbotron
 						ul
-							li Name:#{val.profile.title}
+							p= val.profile.title
+							p= val.profile.location
+							p= val.profile.category
+							p= val.profile.desc
+						form(action="/confirm-event/"+val._id method="post")
+							.btn-group(data-toggle='buttons')
+								label.btn.btn-primary.active
+									input#option1(type='radio', name='options', autocomplete='off', checked='' value='confirm')
+									|  Confirm-event
+								label.btn.btn-primary
+									input#option2(type='radio', name='options', autocomplete='off' value='reject')
+									|  Reject Event
+							button.btn.btn-default(type='submit') Submit
+							
+

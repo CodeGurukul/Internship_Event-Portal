@@ -55,13 +55,6 @@ exports.getViewEvents = function(req,res){
 
     }
 
-exports.postDeleteCourse = function(req,res){
-        Course.remove({ _id:req.params.id }, function (err) {
-            Course.find(function(err,courses){
-            res.render('view-course',{courses:courses});
-        });
-    });
-}
 
 exports.postAddInvite = function(req,res){
         User.find({email:req.body.eventInvite},function(err,user){
@@ -76,6 +69,39 @@ exports.postAddInvite = function(req,res){
             });
         });
     }
+exports.postConfirmEvent = function(req,res){
+        
+        if(req.body.options=='confirm')
+        {
+            Event.findByIdAndUpdate(req.params.id,{$push: {"attendees": req.user._id}},
+                function(err, model)
+                 {
+                    res.redirect('/dashboard'); 
+                });
+           
+        }
+        
+        else if (req.body.options=='reject')
+        {
+           
+            User.findByIdAndUpdate(req.user._id,{$pull: {"invites": req.params.id}},
+                function(err, model)
+                 {
+                    res.redirect('/dashboard'); 
+                });
+
+        }          
+
+    
+
+
+
+    }
+
+
+
+
+
 
 exports.postDisplayEvent = function(req,res){
         Event.find({ _id:req.params.id },function(err,eve){

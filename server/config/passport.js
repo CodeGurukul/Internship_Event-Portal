@@ -7,15 +7,17 @@ var GooglePlusStrategy = require('passport-google-plus');
 // var googleapis = require('googleapis');  
 
 var facebook= {
-  clientID: '1629714087269294',
+  clientID: '1629714087269294  ',
   clientSecret: '41c29af8d503b89c6d5ef2da2686ed79',
   callbackURL: '/auth/facebook/callback',
   passReqToCallback: true
 };
 var googlePlus={
   
-    clientId: '374775521102-ofq7hns0al7apg0adidsf5iir2gfqr33.apps.googleusercontent.com',
-    clientSecret: 'sSx2YTPZHLzDCip0omqXwxsu'
+    clientID: '374775521102-ofq7hns0al7apg0adidsf5iir2gfqr33.apps.googleusercontent.com',
+    clientSecret: 'sSx2YTPZHLzDCip0omqXwxsu',
+    callbackURL:'/auth/google/callback',
+      passReqToCallback: true
   
 };
 
@@ -107,7 +109,7 @@ passport.use(new FacebookStrategy(facebook, function(req, accessToken, refreshTo
 /*Sign in using google pluss*/
 
 passport.use(new GooglePlusStrategy(googlePlus,
-  function(tokens, profile, done) {
+  function(req, accessToken, refreshToken, profile, done){
     // Create or update user, call done() when complete...
     console.log("howdy im google plus inside passport");
     done(null, profile, tokens);

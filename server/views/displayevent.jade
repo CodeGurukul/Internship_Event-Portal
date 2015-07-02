@@ -11,7 +11,7 @@ block main
 					p= val.profile.time
 					p= val.profile.duration
 					p= val.profile.desc
-					p= val.profile.category
+					p= val.profile.categorys
 					form(action='/add-invite/'+val._id method='post')
 						h2 Invite
 						input.form-control(type='text' placeholder='One Email at a time' name="eventInvite")

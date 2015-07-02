@@ -60,6 +60,7 @@ app.get('/add-event', eventController.getAddEvent);
 app.post('/add-event', eventController.postAddEvent);
 app.post('/display-event/:id', eventController.postDisplayEvent);
 app.post('/add-invite/:id', eventController.postAddInvite);
+app.post('/confirm-event/:id', eventController.postConfirmEvent);
 
 app.get('/view-event', eventController.getViewEvents);
 // app.post('/deleteevent/:id', eventController.postDeleteEvent);
@@ -74,21 +75,22 @@ app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email', '
 app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/' }), function(req, res) {
   res.redirect(req.session.returnTo || '/');
 });
-
+//app.get('/events/:id',eventController.getEventById);
 
 //req=request =>HTTP REQUEST object
 //res=response =>HTTP RESPONSE object
+// app.get('/auth/google', passport.authenticate('google', {scope: profile.email}), function(req, res) {
+//     // Return user back to client
+//     // res.send(req.user);
+//     console.log("howdy im inside serv.js file");
+// });
+
+
 app.post('/auth/google/callback', passport.authenticate('google'), function(req, res) {
-    // Return user back to client
-    // res.send(req.user);
-    console.log("howdy im inside serv.js file");
-});
-
-
-app.all('/auth/google/callback', passport.authenticate('google'), function(req, res) {
   req.session.googleCredentials = req.authInfo;
   // Return user profile back to client
-  res.send(req.user);
+  console.log(req.user);
+   res.redirect(req.session.returnTo || '/');
 });
 
 
