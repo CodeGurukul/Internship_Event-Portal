@@ -1,5 +1,9 @@
-var mongoose= require('mongoose');
+var mongoose = require('mongoose');
 var bcrypt= require('bcrypt-nodejs');
+var Event = require('./Event');
+// var eventSchema=Event.schema;
+
+
 
 //User Schema
 var userSchema = new mongoose.Schema({

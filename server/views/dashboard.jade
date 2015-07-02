@@ -12,7 +12,6 @@ block main
 					li Gender:#{user.profile.gender}
 					li location:#{user.profile.location}
 
-			-console.log(events)
 				h2 You are invited to the following events
 				each val in events
 					.jumbotron
@@ -21,14 +20,27 @@ block main
 							p= val.profile.location
 							p= val.profile.category
 							p= val.profile.desc
+							if(val.profile.status)
+								P Status :Cancelled
+							p=val._id
+						form(action="/unregister-event/"+val._id method="post")
+							button.btn.btn-primary(type='submit') Unregister-Event
+						form(action="/cancel-event/"+val._id method="post")
+							button.btn.btn-primary(type='submit') Cancel-Event
 						form(action="/confirm-event/"+val._id method="post")
 							.btn-group(data-toggle='buttons')
+								h2 Invitations:
 								label.btn.btn-primary.active
 									input#option1(type='radio', name='options', autocomplete='off', checked='' value='confirm')
 									|  Confirm-event
 								label.btn.btn-primary
 									input#option2(type='radio', name='options', autocomplete='off' value='reject')
 									|  Reject Event
-							button.btn.btn-default(type='submit') Submit
-							
+								button.btn.btn-primary(type='submit') Submit
+						
+						
+
+
+
+
 

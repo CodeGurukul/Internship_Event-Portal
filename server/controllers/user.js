@@ -24,21 +24,38 @@ exports.postSignUp = function(req,res){
         });
             }
 
-exports.getDashBoard=function(req,res){
+exports.getDashBoard=function(req,res)
+  {
 
-                Event.find({
-                '_id': { $in: req.user.invites}
-              },function(err,events){
-                if(err)
+  Event.find({'_id': { $in: req.user.invites}},function(err,events)
+    {
+                  if(err)
                 {
                 console.log(err);  
                 }
                 else
                 {
-                 res.render('dashboard',{events:events});
+
+                  Event.find({'_id': { $in: req.user.eventsCreated}},function(err,eventsCreated)
+                      {
+                          if(err)
+                          {
+                            console.log(err);             
+                          }
+                          else
+                          {
+                                    // console.log(eventsCreated);
+                                   events=(events.concat(eventsCreated));
+                                    // console.log(events);
+                                   res.render('dashboard',{events:events});
+                           }
+                      });
+
                  // shows value inside the array as wanted
+
+
                 }
-              });
+    });
 
              // shows null value why? the variable is in the scope as its declaration 
 

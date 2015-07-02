@@ -1,4 +1,6 @@
-var mongoose= require('mongoose');
+var mongoose = require('mongoose')
+, Schema = mongoose.Schema
+, ObjectId = Schema.ObjectId;
 
 //A mongoose Schema
 var eventSchema = new mongoose.Schema({

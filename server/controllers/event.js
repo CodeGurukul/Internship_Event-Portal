@@ -92,10 +92,6 @@ exports.postConfirmEvent = function(req,res){
 
         }          
 
-    
-
-
-
     }
 
 
@@ -108,3 +104,29 @@ exports.postDisplayEvent = function(req,res){
             res.render('displayevent',{eve:eve});
         });
 }
+exports.postCancelEvent = function(req,res){
+       Event.findByIdAndUpdate(req.params.id,{ profile:{"status": "Cancel"}},
+                function(err, model)
+                 {
+                    res.redirect('/dashboard'); 
+                });
+   }
+        
+exports.postUnregisterEvent= function(req,res){
+       Event.findByIdAndUpdate(req.params.id,{$pull: {"attendees":req.user._id}},
+                function(err, model)
+                 {
+                   
+                        User.findByIdAndUpdate(req.user._id,{$pull: {"invites": req.params.id}},
+                            function(err, model)
+                            {
+                                res.redirect('/dashboard'); 
+                            });
+
+                });
+
+       
+        
+}
+
+

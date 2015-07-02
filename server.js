@@ -61,6 +61,8 @@ app.post('/add-event', eventController.postAddEvent);
 app.post('/display-event/:id', eventController.postDisplayEvent);
 app.post('/add-invite/:id', eventController.postAddInvite);
 app.post('/confirm-event/:id', eventController.postConfirmEvent);
+app.post('/cancel-event/:id', eventController.postCancelEvent);
+app.post('/unregister-event/:id', eventController.postUnregisterEvent);
 
 app.get('/view-event', eventController.getViewEvents);
 // app.post('/deleteevent/:id', eventController.postDeleteEvent);
