@@ -13,19 +13,6 @@ html(lang='en')
     block main
     include ../partials/footer
     script(type="text/javascript", src="/vendor/jquery/dist/jquery.js")
-    script(type="text/javascript").
-      function signInCallback(authResult) {
-        console.log('Im in layoutpage function');
-        if (authResult.code) {
-          $.post('/auth/google/callback', { id_token: authResult.id_token})
-          .done(function(data) {
-            $('#signinButton').hide();
-            $('#profile > pre').text(JSON.stringify(data, true, "\t"));
-          });
-        } else if (authResult.error) {
-          console.log('There was an error: ' + authResult.error);
-        }
-      };
     script(type="text/javascript", src="/vendor/bootstrap/dist/js/bootstrap.js")
     script(type="text/javascript", src="/vendor/toastr/toastr.min.js")
     script(src="//apis.google.com/js/client:plusone.js")
