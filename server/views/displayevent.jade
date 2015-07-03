@@ -12,11 +12,12 @@ block main
 					p= val.profile.duration
 					p= val.profile.desc
 					p= val.profile.categorys
-					form(action='/add-invite/'+val._id method='post')
-						h2 Invite
-						input.form-control(type='text' placeholder='One Email at a time' name="eventInvite")
-						button.btn.btn-default(type='submit') Add User       	
-						
+					if(val.organizerId ==user._id)
+						form(action='/add-invite/'+val._id method='post')
+							h2 Invite
+							input.form-control(type='text' placeholder='One Email at a time' name="eventInvite")
+							button.btn.btn-default(type='submit') Add User       	
+							
 
 
 

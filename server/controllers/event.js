@@ -18,6 +18,7 @@ exports.postAddEvent = function(req,res){
         var eve = new Event({organizerId:req.user._id,
             organizerEmail:req.user.email,
             attendees:[(req.user._id)],
+            status:false,
             profile:{
                     title:req.body.eventName,
                     location:req.body.eventLocation,
@@ -26,8 +27,7 @@ exports.postAddEvent = function(req,res){
                     time:req.body.eventStartTime,
                     duration:req.body.eventDuration,
                     desc:req.body.eventDescription,
-                    category:req.body.eventCategory
-    
+                    category:req.body.eventCategory,
             }});
 
             //The Magic!
@@ -37,10 +37,7 @@ exports.postAddEvent = function(req,res){
              User.findByIdAndUpdate(req.user._id,{$push: {"eventsCreated": eve._id},type:'eventAdmin'},
             function(err, model)
              {
-                 Event.find(function(err,events)
-                 {
-                    res.render('view-event',{event:events});
-                });
+                 res.redirect('/view-event');
             });
        
         });     
@@ -57,18 +54,38 @@ exports.getViewEvents = function(req,res){
 
 
 exports.postAddInvite = function(req,res){
-        User.find({email:req.body.eventInvite},function(err,user){
-            User.findByIdAndUpdate(user[0]._id,{$push: {"invites": req.params.id}},
-            function(err, model)
-             {
-                Event.find(function(err,events)
-                 {
-                    res.render('view-event',{event:events});
-                });
+    var index =req.user.eventsCreated.indexOf(req.params.id)
+    console.log(index);
+            if(index!=-1)
+             {       
+                console.log(index);
+                User.find({email:req.body.eventInvite},function(err,user){
+                    if(user[0])
+                    {
+                        User.findByIdAndUpdate(user[0]._id,{$push: {"invites": req.params.id}},
+                        function(err, model)
+                         {
+                            res.redirect('/view-event');
+                        });
+                    }
+                    else
+                    {
+                        console.log('User not found');
+                        res.redirect('/view-event');
+                    }
 
-            });
-        });
+
+
+                });
+            }
+            else
+            {
+                console.log("Not Authorized to Invite");
+                res.redirect('/view-event');
+            }
+
     }
+
 exports.postConfirmEvent = function(req,res){
         
         if(req.body.options=='confirm')
@@ -105,7 +122,7 @@ exports.postDisplayEvent = function(req,res){
         });
 }
 exports.postCancelEvent = function(req,res){
-       Event.findByIdAndUpdate(req.params.id,{ profile:{"status": "Cancel"}},
+       Event.findByIdAndUpdate(req.params.id,{"status": true},
                 function(err, model)
                  {
                     res.redirect('/dashboard'); 
@@ -117,7 +134,7 @@ exports.postUnregisterEvent= function(req,res){
                 function(err, model)
                  {
                    
-                        User.findByIdAndUpdate(req.user._id,{$pull: {"invites": req.params.id}},
+                        User.findByIdAndUpdate(req.user._id,{$pull: {"invites": req.params.id},$pull: {"eventsCreated": req.params.id}},
                             function(err, model)
                             {
                                 res.redirect('/dashboard'); 

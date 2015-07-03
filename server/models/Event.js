@@ -7,7 +7,7 @@ var eventSchema = new mongoose.Schema({
    organizerId:String,
    organizerEmail:String,
    attendees:[String],
-
+   status:Boolean,
 
 profile:{
     title:String,
@@ -17,8 +17,8 @@ profile:{
     time:String,
     duration:String,
     desc:String,
-    category:String,
-    status:String
+    category:String
+    
     }
 
 });

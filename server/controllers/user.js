@@ -43,11 +43,24 @@ exports.getDashBoard=function(req,res)
                             console.log(err);             
                           }
                           else
-                          {
-                                    // console.log(eventsCreated);
-                                   events=(events.concat(eventsCreated));
-                                    // console.log(events);
-                                   res.render('dashboard',{events:events});
+                          { 
+                              var attending=[];
+                              var invites=[];
+                              for(var i=0;i<events.length;i++)
+                              {
+                                var index=events[i].attendees.indexOf(req.user._id); 
+                                if(index!=-1)
+                                {
+                                    attending.push(events[i]);
+                                }
+                                else
+                                {
+                                  invites.push(events[i]);            
+                                } 
+                              }
+
+                                  
+                                   res.render('dashboard',{invites:invites,eventsCreated:eventsCreated,attending:attending});
                            }
                       });
 
