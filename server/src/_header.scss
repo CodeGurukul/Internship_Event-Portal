@@ -1,6 +1,118 @@
+#signin
+{
+	.butpos
+	{
+		text-align: center;
+	}
+}
 .navbar-form{
 
-  .form-group, button{
-    margin-left: 10px;
+ .form-group, button{
+   margin-left: 10px;
+ }
+}
+#navbarid
+{
+    background-color:transparent;
+}
+#navimg
+{
+    img{ 
+          align-self: center;
+      height: 30px;
+          padding-bottom: 10px;
+      padding-left: 10px;
+    }
+      margin-left: -115px;
+}
+#navmodal
+{
+	float: right;
+	align:center;
+	position: relative;
+	top:4px;
+}
+#navbutton
+{
+	  position: relative;
+  top: 10px;
+}
+#navdropdown
+{
+	position: relative;
+  top: 8px;
+  font-size: 22px;
+  border-left: 2px solid grey;
+  padding-left: 15px;
+  /* width: 100%	*/
   }
+  #viewEvent
+  {
+  	  font-size: 22px;
+  position: relative;
+  top: 10px;
+  border-left: 2px solid gray;  	
+  
+
+}
+      #locationField, #controls {
+        position: relative;
+        width: 480px;
+        text-align: left;
+      }
+      #autocomplete {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 55%;
+        z-index:1050;
+      }
+      .label {
+        text-align: right;
+        font-weight: bold;
+        width: 100px;
+        color: #303030;
+      }
+      #address {
+        border: 1px solid #000090;
+        background-color: #f0f0ff;
+        width: 480px;
+        padding-right: 2px;
+      }
+      
+     
+      #locationField {
+        height: 20px;
+        margin-bottom: 2px;
+      }
+.pac-container
+{
+	z-index: 1200;
+}
+#locationName
+{
+	text-align: left;
+}
+#gender
+{
+	position: relative;
+		left: 15px;
+}
+#confirmsignup
+{
+	padding-top: 10px;
+}
+#fbid
+{
+	margin-bottom: 10px;
+}
+#googleid
+{
+	margin-bottom: 5px;
+	font-size: 13px;
+}
+.block1
+{
+	text-align: center;
+	font-size: 20px;
 }

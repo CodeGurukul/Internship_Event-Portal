@@ -1,38 +1,140 @@
-nav.navbar.navbar-inverse.navbar-fixed-top
-    .container-fluid
-        .navbar-header
-          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
-            span.sr-only Toggle navigation         
-            span.icon-bar         
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='/') CodeGurukul
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          if (!user)
-            form.navbar-form.navbar-right(action="/signup")
-              button.btn.btn-primary Sign Up
-            form.navbar-form.navbar-right(action="/signin" method="post")
-              .form-group
-                input.form-control(type="email" placeholder="Email" name="email")
-              .form-group
-                input.form-control(type="password" placeholder="Password" name="password")       
-              button.btn.btn-primary Sign In
-              a.button.btn.btn-primary(href="/auth/facebook") Sign Up with Facebook
-              a.button.btn.btn-primary(href="/auth/google") Sign Up with Google
-          else
-              ul.navbar-right
-                li 
-                  h3 #{user.email}
-                li
-                  a(href='/signout') Signout
-                li
-                a.button.btn.btn-primary(href="/dashboard") dashboard
-                  //- img(src="#{user.profile.picture}")
-          ul.nav.navbar-nav.navbar-left
+nav#navbarid.navbar.navbar-invers.navbar-top(role='navigation')
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='#')
+        img.img-responsive( src='./images/header.png')
+    // Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li
+          a#viewEvent(href="") View Event
+          
+        li.dropdown
+          a#navdropdown.dropdown-toggle(href='#', data-toggle='dropdown')
+            | Categories 
+            b.caret
+          ul#navdropdrown.dropdown-menu
+            .container
+              .row
+                .col-md-3
+                  a(href='#') Upcoming Workshops
+                  
+                .col-md-3
+                  a(href='#') Conferences
+                .col-md-3
+                  a(href='#') Hackathon
+                .col-md-3
+                  a(href='#') Meet Up
+
+
+
+                  
+        
+      ul.nav.navbar-nav.navbar-right
+        if(!user)
             li
-              a(href='/') Home
-            if(user)            
+                button#navbutton.btn.btn-primary.btn-lg(href='#signup', data-toggle='modal', data-target='.bs-modal-sm') Sign In/Register
+           
+                #myModal.modal.fade.bs-modal-sm(tabindex='-1', role='dialog', aria-labelledby='mySmallModalLabel', aria-hidden='true' onload='initialize()')
+                    .modal-dialog.modal-sm
+                      .modal-content
+                        br
+                        .bs-example.bs-example-tabs
+                          ul#myTab.nav.nav-tabs
+                            li.active
+                              a(href='#signin', data-toggle='tab') Sign In
+                            li
+                              a(href='#signup', data-toggle='tab') Register
+                            li
+                              a(href='#why', data-toggle='tab') Why?
+                        .modal-body
+                          #myTabContent.tab-content
+                            #why.tab-pane.fade.in
+                              p
+                                | We need this information so that you can receive access to the site and its content. Rest assured your information will not be sold, traded, or given to anyone.
+                              p
+                              br
+                              |  Please contact 
+                              a(mailto:href='info@explara.com')
+                              | info@explara.com for any other inquiries.
+                              p
+                            #signin.tab-pane.fade.active.in
+                              .block1
+                                a#fbid.button.btn.btn-primary.butpos(href="/auth/facebook") Sign in with Facebook
+                                a#googleid.button.btn.btn-primary.butpos(href="/auth/google") Sign in with Google plus
+                                form.form-horizontal(action="/signin" method="post")
+                              fieldset
+                                // Sign In Form
+                                // Text input
+                                .control-group
+                                  label.control-label(for='userid') User:
+                                  .controls
+                                    input#userid.form-control(required='', name='email', type='email', placeholder='Email')
+                                // Password input
+                                .control-group
+                                  label.control-label(for='passwordinput') Password:
+                                  .controls
+                                    input#passwordinput.form-control(required='', name='password', type='password', placeholder='password')
+                                .control-group
+                                  label.control-label(for='signin')
+                                  .controls
+                                    button#signin.btn.btn-success(name='signin') Sign In
+                            #signup.tab-pane.fade
+                              form.form-horizontal(action='/signup' method='post')
+                                fieldset
+                                  // Sign Up Form
+                                  // Text input
+                                  .control-group
+                                    label.control-label(for='Email') Email:
+                                    .controls
+                                      input#Email.form-control(name='userEmail', type='email', placeholder='example@example.com', required='')
+                                  // Text input
+                                  .control-group
+                                    label.control-label(for='userName') Name:
+                                    .controls
+                                      input#userid.form-control(name='userName', type='text', placeholder='John Doe', required='')
+                                  // Password input
+                                  .control-group
+                                    label.control-label(for='password') Password:
+                                    .controls
+                                      input#password.form-control(name='userPassword', type='password', placeholder='********', required='')
+                                  // Text input
+                                  br
+                                  .control-group
+                                    label.control-label(for='gender') Gender:
+                                    #gender.controls
+                                      label.radio.inline(for='Male')
+                                        input#Male(type='radio', name='userGender', value='Male', checked='checked')
+                                        | Male
+                                      label.radio.inline(for='Female')
+                                        input#Female(type='radio', name='userGender', value='Female')
+                                        | Female
+                                  .control-group
+                                    label.control-label(for='Location')
+                                      #locationField
+                                        input#autocomplete(placeholder='Enter your address', onfocus='geolocate()', type='text',name="userLocation")
+
+                                  // Button
+                                  #confirmsignup.control-group
+                                    label.control-label(for='confirmsignup')
+                                    .controls
+                                      button.btn.btn-success(name='confirmsignup') Sign Up
+                        .modal-footer
+                          center
+                            button.btn.btn-default(type='button', data-dismiss='modal') Close
+        else
+              li 
+                h3 #{user.email}
+              li
+                a(href='/signout') Signout
+              li
+                a.button.btn.btn-primary(href="/dashboard") dashboard
+              if(user)            
                 li
                   a(href='/add-event') Add a event
-            li
-              a(href='/view-event') View event
+                  //- img(src="#{user.profile.picture}") 
