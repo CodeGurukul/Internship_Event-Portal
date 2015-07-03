@@ -65,7 +65,7 @@ app.post('/cancel-event/:id', eventController.postCancelEvent);
 app.post('/unregister-event/:id', eventController.postUnregisterEvent);
 
 app.get('/view-event', eventController.getViewEvents);
-// app.post('/deleteevent/:id', eventController.postDeleteEvent);
+app.post('/delete-event/:id', eventController.postDeleteEvent);
 app.get('/signup', userController.getSignUp);
 app.post('/signup', userController.postSignUp);
 app.post('/signin', userController.postSignIn);

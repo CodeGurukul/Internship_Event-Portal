@@ -14,84 +14,61 @@ block main
 
 				h2 You are invited to the following events
 				each val in invites
-					.jumbotron
-						ul
-							p= val.profile.title
-							p= val.profile.location
-							p= val.profile.category
-							p= val.profile.desc
-							if(val.status)
-								P Status :Cancelled
-						form(action="/unregister-event/"+val._id method="post")
-							button.btn.btn-primary(type='submit') Unregister-Event
-						form(action="/cancel-event/"+val._id method="post")
-							button.btn.btn-primary(type='submit') Cancel-Event
-						form(action="/confirm-event/"+val._id method="post")
-							.btn-group(data-toggle='buttons')
-								h2 Invitations:
-								label.btn.btn-primary.active
-									input#option1(type='radio', name='options', autocomplete='off', checked='' value='confirm')
-									|  Confirm-event
-								label.btn.btn-primary
-									input#option2(type='radio', name='options', autocomplete='off' value='reject')
-									|  Reject Event
+					if(val)
+						.jumbotron
+							ul
+								p= val.profile.title
+								p= val.profile.location
+								p= val.profile.category
+								p= val.profile.desc
+								if(val.status)
+									P Status :Cancelled
+							form(action="/confirm-event/"+val._id method="post")
+								.btn-group(data-toggle='buttons')
+									h2 Invitations:
+									label.btn.btn-primary.active
+										input#option1(type='radio', name='options', autocomplete='off', checked='' value='confirm')
+										|  Confirm-event
+									label.btn.btn-primary
+										input#option2(type='radio', name='options', autocomplete='off' value='reject')
+										|  Reject-Event
 								button.btn.btn-primary(type='submit') Submit
-						form(action="/display-event/"+val._id method="post")
-              					button.btn.btn-default(type='submit') Details 		
+							form(action="/display-event/"+val._id method="post")
+								button.btn.btn-default(type='submit') Details 		
 
 				h2 You are attending to the following events
 				each val in attending
-					.jumbotron
-						ul
-							p= val.profile.title
-							p= val.profile.location
-							p= val.profile.category
-							p= val.profile.desc
-							if(val.status)
-								P Status :Cancelled
-						form(action="/unregister-event/"+val._id method="post")
-							button.btn.btn-primary(type='submit') Unregister-Event
-						form(action="/cancel-event/"+val._id method="post")
-							button.btn.btn-primary(type='submit') Cancel-Event
-						form(action="/confirm-event/"+val._id method="post")
-							.btn-group(data-toggle='buttons')
-								h2 Invitations:
-								label.btn.btn-primary.active
-									input#option1(type='radio', name='options', autocomplete='off', checked='' value='confirm')
-									|  Confirm-event
-								label.btn.btn-primary
-									input#option2(type='radio', name='options', autocomplete='off' value='reject')
-									|  Reject Event
-								button.btn.btn-primary(type='submit') Submit
-						form(action="/display-event/"+val._id method="post")
-              					button.btn.btn-default(type='submit') Details 							
+					if(val)
+						.jumbotron
+							ul
+								p= val.profile.title
+								p= val.profile.location
+								p= val.profile.category 
+								p= val.profile.desc
+								if(val.status)
+									P Status :Cancelled
+							form(action="/unregister-event/"+val._id method="post")
+								button.btn.btn-primary(type='submit') Unregister-Event
+							form(action="/display-event/"+val._id method="post")
+								button.btn.btn-default(type='submit') Details 							
 				h2 You created the following events
 				each val in eventsCreated
-					.jumbotron
-						ul
-							p= val.profile.title
-							p= val.profile.location
-							p= val.profile.category
-							p= val.profile.desc
-							if(val.status)
-								P Status :Cancelled
-						form(action="/unregister-event/"+val._id method="post")
-							button.btn.btn-primary(type='submit') Unregister-Event
-						form(action="/cancel-event/"+val._id method="post")
-							button.btn.btn-primary(type='submit') Cancel-Event
-						form(action="/confirm-event/"+val._id method="post")
-							.btn-group(data-toggle='buttons')
-								h2 Invitations:
-								label.btn.btn-primary.active
-									input#option1(type='radio', name='options', autocomplete='off', checked='' value='confirm')
-									|  Confirm-event
-								label.btn.btn-primary
-									input#option2(type='radio', name='options', autocomplete='off' value='reject')
-									|  Reject Event
-								button.btn.btn-primary(type='submit') Submit
-						form(action="/display-event/"+val._id method="post")
-              					button.btn.btn-default(type='submit') Details 		
-						
+					if(val)
+						.jumbotron
+							ul
+								p= val.profile.title
+								p= val.profile.location
+								p= val.profile.category
+								p= val.profile.desc
+								if(val.status)
+									P Status :Cancelled
+							form(action="/unregister-event/"+val._id method="post")
+								button.btn.btn-primary(type='submit') Unregister-Event
+							form(action="/cancel-event/"+val._id method="post")
+								button.btn.btn-primary(type='submit') Cancel-Event
+							form(action="/display-event/"+val._id method="post")
+								button.btn.btn-default(type='submit') Details 		
+							
 						
 
 

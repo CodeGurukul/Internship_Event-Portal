@@ -13,6 +13,8 @@ block main
           p= val.profile.category
           p= val.profile.desc
           form(action="/display-event/"+val._id method="post")
-              button.btn.btn-default(type='submit') Details        
-          form(action="/deletecourse/"+val._id method="post")
-              button.btn.btn-default(type='submit') Delete        
+              button.btn.btn-default(type='submit') Details
+          if(user)
+             if(user.type=="admin")           
+                form(action="/delete-event/"+val._id method="post")
+                    button.btn.btn-default(type='submit') Delete        

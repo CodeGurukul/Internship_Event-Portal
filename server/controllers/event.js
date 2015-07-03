@@ -88,6 +88,7 @@ exports.postAddInvite = function(req,res){
 
 exports.postConfirmEvent = function(req,res){
         
+        // console.log("hkau na=asdjgAJKS");
         if(req.body.options=='confirm')
         {
             Event.findByIdAndUpdate(req.params.id,{$push: {"attendees": req.user._id}},
@@ -140,10 +141,18 @@ exports.postUnregisterEvent= function(req,res){
                                 res.redirect('/dashboard'); 
                             });
 
-                });
+                });      
+}
 
-       
-        
+
+exports.postDeleteEvent=function(req,res)
+{
+    
+    Event.remove({ _id:req.params.id }, function (err) {
+
+            res.redirect('/view-event');
+        });
+
 }
 
 
