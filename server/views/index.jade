@@ -1,55 +1,59 @@
 extends ./includes/layout
 block main
-  -console.log("asd in index");
-   #ninja-slider
-      ul
-        li
-          a(data-image='1/img/1-s.jpg', href='http://www.menucool.com/responsive-slider')
-            h3 Conferences
-        li
-          div(data-image='1/img/2-s.jpg')
-        li
-          div(data-image='1/img/3-s.jpg')
-            h3 MeetUps
-        li
-          div(data-image='1/img/4-s.jpg')
-        li
-          div(data-image='1/img/5-s.jpg')
-            h3 Hackathons
-        li
-          div(data-image='1/img/6-s.jpg')
-      h2 EXPLARA
-    nav#nav-wrap
-    a.mobile-btn(href='#nav-wrap', title='Show navigation') Show navigation
-      | &#x9;      
-      a.mobile-btn(href='#', title='Hide navigation') Hide navigation
-      |          
-      ul#nav.nav
-        li.current
-          a.smoothscroll(href='#home') Home
-        |             
-        li
-          a.smoothscroll(href='#about') About
-        | &#x9;         
-        li
-          a.smoothscroll(href='#resume') Events
-        |             
-        li
-          a.smoothscroll(href='#contact') Contact
-      // end #nav   
-  .container
-    -console.log("asdsdbjsdgjasghdfkhjgsaa");
-    each val in ['Conference','Hackathon','Meet Ups','Workshops']
-      .row
-        h2= val
-        hr(style="  border-top: 1px solid #D85858")
-        each item in events
-          if(item.profile.category==val)
-            .col-md-3(href='/display-event/'+item._id)
-              p= item.profile.title
-              p= item.profile.location
-              p= item.profile.category
-              p= item.profile.desc
-              form(action="/display-event/"+item._id method="post")
-                button.btn.btn-default(type='submit') Details 
-              
+  //- -console.log("asd in index");
+  //-  #ninja-slider
+  //-     ul
+  //-       li
+  //-         a(data-image='1/img/1-s.jpg', href='http://www.menucool.com/responsive-slider')
+  //-           h3 Conferences
+  //-       li
+  //-         div(data-image='1/img/2-s.jpg')
+  //-       li
+  //-         div(data-image='1/img/3-s.jpg')
+  //-           h3 MeetUps
+  //-       li
+  //-         div(data-image='1/img/4-s.jpg')
+  //-       li
+  //-         div(data-image='1/img/5-s.jpg')
+  //-           h3 Hackathons
+  //-       li
+  //-         div(data-image='1/img/6-s.jpg')
+  //-     h2 EXPLARA
+  //-   nav#nav-wrap
+  //-   a.mobile-btn(href='#nav-wrap', title='Show navigation') Show navigation
+  //-     | &#x9;      
+  //-     a.mobile-btn(href='#', title='Hide navigation') Hide navigation
+  //-     |          
+  //-     ul#nav.nav
+  //-       li.current
+  //-         a.smoothscroll(href='#home') Home
+  //-       |             
+  //-       li
+  //-         a.smoothscroll(href='#about') About
+  //-       | &#x9;         
+  //-       li
+  //-         a.smoothscroll(href='#resume') Events
+  //-       |             
+  //-       li
+  //-         a.smoothscroll(href='#contact') Contact
+  //-     // end #nav   
+  //- .container
+  //-   -console.log("asdsdbjsdgjasghdfkhjgsaa");
+  //-   each val in ['Conference','Hackathon','Meet Ups','Workshops']
+  //-     .row
+  //-       h2= val
+  //-       hr(style="  border-top: 1px solid #D85858")
+  //-       each item in events
+  //-         if(item.profile.category==val)
+  //-           .col-md-3(href='/display-event/'+item._id)
+  //-             p= item.profile.title
+  //-             p= item.profile.location
+  //-             p= item.profile.category
+  //-             p= item.profile.desc
+  //-             form(action="/display-event/"+item._id method="post")
+  //-               button.btn.btn-default(type='submit') Details 
+      
+
+  //- -console.log(user.profile.picture);
+  
+                

@@ -23,6 +23,8 @@ var userController = require('./server/controllers/user');
 var eventController = require('./server/controllers/event');
 var homeController = require('./server/controllers/home');
 //initailaze express
+var multer     =       require('multer');
+var done       =       false;
 var app =express();
 
 app.set('views', __dirname + '/server/views');
@@ -89,15 +91,33 @@ app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRe
 // });
 
 
-app.get('/auth/google',passport.authenticate('google', { 
-    scope: 'https://www.googleapis.com/auth/plus.login'
-     }));
-
-app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }),
-  function(req, res) {
-    // Successful authentication, redirect Ride share home.
-    res.redirect(req.session.returnTo || '/');
+app.get('/auth/google', passport.authenticate('google',  { scope:  ['profile' , 'email' , 'https://www.googleapis.com/auth/plus.login']}));
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }), function(req, res) {
+res.redirect(req.session.returnTo || '/');
   });
+
+app.use(multer({ dest: './uploads/',
+ rename: function (fieldname, filename) {
+    return filename+Date.now();
+  },
+onFileUploadStart: function (file) {
+  console.log(file.originalname + ' is starting ...')
+},
+onFileUploadComplete: function (file) {
+  console.log(file.fieldname + ' uploaded to  ' + file.path)
+  done=true;
+}
+}));
+
+
+app.post('/api/photo',function(req,res){
+  
+});
+
+
+
+
+
 
 
 app.listen(3000);

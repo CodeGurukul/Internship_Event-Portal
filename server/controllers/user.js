@@ -11,10 +11,14 @@ exports.postSignUp = function(req,res){
 User.find({email:req.body.userEmail},function(err,user){
   if(user)
   {
-  console.log("User Already Created");
+  console.log(user);
   res.redirect('/');
   }
 else{
+  if(done==true){
+    console.log(req.files);
+    res.end("File uploaded.");
+  }
         var user = new User(
           {
             profile:{
