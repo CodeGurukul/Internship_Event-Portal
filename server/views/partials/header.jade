@@ -129,13 +129,13 @@ nav#navbarid.navbar.navbar-invers.navbar-top(role='navigation')
                             button.btn.btn-default(type='button', data-dismiss='modal') Close
         else
               li 
-                h3 #{user.profile.name}
+                h3#name #{user.profile.name}
               li
-                a(href="/dashboard") dashboard
+                a#dash(href="/dashboard") Dashboard
               if(user)            
                 li
-                  a(href='/add-event') Add a event
+                  a#addevent(href='/add-event') Add a event
                   //- img(src="#{user.profile.picture}") 
               li
-                a(href='/signout') Signout
+                a#signout(href='/signout') Signout
       

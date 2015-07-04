@@ -123,3 +123,44 @@
   height: 64px;
   }
 }
+.current
+{
+  a:hover {
+
+  color: blue ;
+  background-color: #def ;
+}
+}
+#dash
+  {
+      font-size: 22px;
+  position: relative;
+  top: 10px;
+  border-left: 2px solid gray;    
+  
+
+}
+#addevent
+  {
+      font-size: 22px;
+  position: relative;
+  top: 10px;
+  border-left: 2px solid gray;    
+  
+
+}
+#signout
+  {
+      font-size: 22px;
+  position: relative;
+  top: 10px;
+  border-left: 2px solid gray;    
+  
+
+}
+#name{
+  position: relative;
+  font-size: 24px;
+  right: 12px;
+  top: 2px;
+}

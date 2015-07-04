@@ -113,13 +113,6 @@ onFileUploadComplete: function (file) {
 app.post('/api/photo',function(req,res){
   
 });
-
-
-
-
-
-
-
 app.listen(3000);
 console.log("Express server is listening at port 3000");
 
