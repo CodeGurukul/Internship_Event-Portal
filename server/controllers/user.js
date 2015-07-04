@@ -7,6 +7,14 @@ exports.getSignUp = function(req,res){
     }
 
 exports.postSignUp = function(req,res){
+       
+User.find({email:req.body.userEmail},function(err,user){
+  if(user)
+  {
+  console.log("User Already Created");
+  res.redirect('/');
+  }
+else{
         var user = new User(
           {
             profile:{
@@ -22,7 +30,14 @@ exports.postSignUp = function(req,res){
             Event.find(function(err,events){
             res.render('index',{events:events});
         });
-            }
+
+}
+});
+
+}
+
+
+
 
 exports.getDashBoard=function(req,res)
   {
