@@ -15,21 +15,30 @@ nav#navbarid.navbar.navbar-invers.navbar-top(role='navigation')
           a#viewEvent(href="/view-event") View Event
           
         li.dropdown
+
           a#navdropdown.dropdown-toggle(href='#', data-toggle='dropdown')
             | Categories 
             b.caret
           ul#navdropdrown.dropdown-menu
-            .container
+            #drop.container
               .row
                 .col-md-3
                   a(href='#') Upcoming Workshops
+                  seperator
+                    span |
                   
                 .col-md-3
                   a(href='#') Conferences
+                  seperator
+                    span |
                 .col-md-3
                   a(href='#') Hackathon
+                  seperator
+                    span |
                 .col-md-3
                   a(href='#') Meet Up
+                  seperator
+                    span |
 
 
 
