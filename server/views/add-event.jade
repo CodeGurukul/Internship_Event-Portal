@@ -11,7 +11,8 @@ block main
       .col-md-6.col-md-offset-4
 
         form(action='/add-event' method='post')
-          input#autocomplete(placeholder='Enter Location', onfocus='geolocate()', type='text',name="eventLocation")
+          .loc
+            input#autocomplete(placeholder='Enter Location', onfocus='geolocate()', type='text',name="eventLocation")
           input.form-control(type='text' placeholder='Event Name' name="eventName")
           //- input.form-control(type='text' placeholder='Event Location' name="eventLocation")
          
@@ -22,7 +23,4 @@ block main
           input.form-control(type='text' placeholder='description' name="eventDescription")
           input.form-control(type='text' placeholder='Category' name="eventCategory")
           //- input.form-control.input-group-btn(type='text' placeholder='Category' name="eventCategory")
-          
-
-          
-          button.btn.btn-default(type='submit') Submit
+          #submitaddevent.button.btn.btn-default(type='submit') Submit
