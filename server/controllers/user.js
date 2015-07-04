@@ -7,18 +7,7 @@ exports.getSignUp = function(req,res){
     }
 
 exports.postSignUp = function(req,res){
-       
-User.find({email:req.body.userEmail},function(err,user){
-  if(user)
-  {
-  console.log(user);
-  res.redirect('/');
-  }
-else{
-  if(done==true){
-    console.log(req.files);
-    res.end("File uploaded.");
-  }
+          
         var user = new User(
           {
             profile:{
@@ -28,20 +17,11 @@ else{
                     }, 
             email:req.body.userEmail, 
             password:req.body.userPassword});
-            
-
             user.save();
-            Event.find(function(err,events){
-            res.render('index',{events:events});
-        });
-
+          res.redirect('/');
+        
+            
 }
-});
-
-}
-
-
-
 
 exports.getDashBoard=function(req,res)
   {
