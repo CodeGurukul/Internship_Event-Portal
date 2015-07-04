@@ -1,0 +1,157 @@
+/* Visit http://www.menucool.com/responsive-slider for instructions */
+
+#ninja-slider
+{
+    width:100%;
+    margin:0 auto; /*center aligned*/
+    background:#222;
+}
+#ninja-slider > ul
+{
+    padding:0;
+    margin:0;
+}
+
+/* slide */
+#ninja-slider li > div, #ninja-slider li > a
+{
+    /*max-width:960px;*/
+    margin:0 auto; /* center each slide */
+    /*border-radius:6px;
+    background:#333;*/
+    position: relative;
+    display:block;
+    box-shadow: 0 1px 5px rgba(0,0,0,.8),inset 0 0 1px rgba(255,255,255,.4);
+    transition:none!important;
+}
+
+/* loading image indicator */    
+#ninja-slider div.preload 
+{
+    background: black url(loading.gif) no-repeat center 25%;
+}
+
+/*----- video -----*/
+#ninja-slider a.video 
+{
+	position:absolute;
+    border:0;top:0;left:0;
+	width:100%;height:100%;
+	background:transparent url(video.png) no-repeat 50% 50%;
+    transition:none!important;
+}
+  
+/*------ pager ------*/      
+/* The pager id should be: slider id + "-pager" */    
+#ninja-slider-pager
+{
+    display:none;
+}
+ 
+/* --------- navigation controls ------- */   
+/* The nav id should be: slider id + ("-prev", "-next", and "-pause-play") */    
+#ninja-slider-prev, #ninja-slider-next
+{
+    position: absolute;
+    width:70px;
+    height:140px;
+    line-height:140px;
+    top: 50%;
+    margin-top:-70px;
+    display:inline-block;
+    background-image: url(navs.png);
+    background-repeat:no-repeat;
+    background-color:rgba(0,0,0,0.0);
+    transition:width 0.5s, background-color 1s;
+    color:white;
+    overflow:hidden;
+    opacity:0.4;
+    font-size:14px;
+}
+#ninja-slider-prev {
+    left: 0;
+    border-radius:0 5px 5px 0;
+    background-position:0 0;
+}
+
+#ninja-slider-next {
+    right: 0;
+    border-radius:5px 0 0 5px;
+    background-position:100% -140px;
+}
+
+#ninja-slider-prev:hover, #ninja-slider-next:hover {width:110px;background-color:rgba(0,0,0,0.5);cursor:pointer;}
+
+/*pagination within the prev/next buttons*/
+#ninja-slider-prev div {margin-left:74px;white-space:nowrap;}
+#ninja-slider-next div {float:right;margin-right:74px;white-space:nowrap;}
+
+
+#ninja-slider-pause-play { display:none;}
+
+/* Other settings
+-------------------------------------------- */   
+#ninja-slider h2 {
+    position:absolute;font-size:100px;width:100%;font-family:"Helvetica Neue", Helvetica, Arial;font-weight:bold;top:20%;text-align:center;color:#FFF;
+}
+
+#ninja-slider h3 {
+    position:absolute;font-size:50px;width:100%;font-family:"Helvetica Neue", Helvetica, Arial;font-weight:lighter;top:20%;text-align:center;color:#FFF;padding-top:140px;
+}
+
+/*styles for mobile*/
+@media only screen and (max-width: 900px) { 
+    #ninja-slider h2 {
+        top:22%;
+        font-size:40px;
+    }
+
+    #ninja-slider h3 {
+        top:22%;
+        font-size:20px;
+        padding-top:60px;
+    }
+}
+
+/* Usually you don't need to change the following settings
+---------------------------------------------------------- */   
+#ninja-slider > ul
+{
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    backface-visibility: hidden;
+    perspective: 1000px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#ninja-slider-pager, #ninja-slider-prev, #ninja-slider-next, #ninja-slider-pause-play
+{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+#ninja-slider
+{
+    position: relative;
+    overflow: hidden;
+    /*visibility: hidden;*/
+    padding:0;
+}
+#ninja-slider > ul
+{
+    overflow: hidden;
+    position: relative;
+    list-style:none;
+    margin:0;
+}
+
+#ninja-slider > ul > li
+{
+    float: left;
+    width: 100%;
+    position: relative;
+    list-style:none;
+    padding:0;margin:0;
+}

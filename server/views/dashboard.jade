@@ -11,31 +11,33 @@ block main
 					li Email:#{user.email}
 					li Gender:#{user.profile.gender}
 					li location:#{user.profile.location}
-
+				
 				h2 You are invited to the following events
-				each val in invites
-					if(val)
-						.jumbotron
-							ul
-								p= val.profile.title
-								p= val.profile.location
-								p= val.profile.category
-								p= val.profile.desc
-								if(val.status)
-									P Status :Cancelled
-							form(action="/confirm-event/"+val._id method="post")
-								.btn-group(data-toggle='buttons')
-									h2 Invitations:
-									label.btn.btn-primary.active
-										input#option1(type='radio', name='options', autocomplete='off', checked='' value='confirm')
-										|  Confirm-event
-									label.btn.btn-primary
-										input#option2(type='radio', name='options', autocomplete='off' value='reject')
-										|  Reject-Event
-								button.btn.btn-primary(type='submit') Submit
-							form(action="/display-event/"+val._id method="post")
-								button.btn.btn-default(type='submit') Details 		
-
+				if(!invites)
+					h1 no invites
+				else
+					each val in invites
+						if(val)
+							.jumbotron
+								ul
+									p= val.profile.title
+									p= val.profile.location
+									p= val.profile.category
+									p= val.profile.desc
+									if(val.status)
+										P Status :Cancelled
+								form(action="/confirm-event/"+val._id method="post")
+									.btn-group(data-toggle='buttons')
+										h2 Invitations:
+										label.btn.btn-primary.active
+											input#option1(type='radio', name='options', autocomplete='off', checked='' value='confirm')
+											|  Confirm-event
+										label.btn.btn-primary
+											input#option2(type='radio', name='options', autocomplete='off' value='reject')
+											|  Reject-Event
+									button.btn.btn-primary(type='submit') Submit
+								form(action="/display-event/"+val._id method="post")
+									button.btn.btn-default(type='submit') Details 
 				h2 You are attending to the following events
 				each val in attending
 					if(val)

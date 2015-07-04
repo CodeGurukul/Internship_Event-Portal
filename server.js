@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var passport=require('passport');
 
 // var googleapis = require('googleapis');
-var GooglePlusStrategy = require('passport-google-plus');
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 //used for session
 var session=require('express-session');
 var MongoStore=require('connect-mongo')(session);
@@ -59,6 +59,7 @@ app.get('/', homeController.getIndex);
 app.get('/add-event', eventController.getAddEvent);
 app.post('/add-event', eventController.postAddEvent);
 app.post('/display-event/:id', eventController.postDisplayEvent);
+app.get('/display-event/:id', eventController.postDisplayEvent);
 app.post('/add-invite/:id', eventController.postAddInvite);
 app.post('/confirm-event/:id', eventController.postConfirmEvent);
 app.post('/cancel-event/:id', eventController.postCancelEvent);
@@ -88,21 +89,17 @@ app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRe
 // });
 
 
-app.post('/auth/google/callback', passport.authenticate('google'), function(req, res) {
-  req.session.googleCredentials = req.authInfo;
-  // Return user profile back to client
-  console.log(req.user);
-   res.redirect(req.session.returnTo || '/');
-});
+app.get('/auth/google',passport.authenticate('google', { 
+    scope: 'https://www.googleapis.com/auth/plus.login'
+     }));
 
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }),
+  function(req, res) {
+    // Successful authentication, redirect Ride share home.
+    res.redirect(req.session.returnTo || '/');
+  });
 
 
 app.listen(3000);
 console.log("Express server is listening at port 3000");
 
-function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect('/');
-}

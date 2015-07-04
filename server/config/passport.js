@@ -3,7 +3,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy =require('passport-facebook').Strategy;
 var googleapis = require('googleapis');
-var GooglePlusStrategy = require('passport-google-plus');
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 // var googleapis = require('googleapis');  
 
 var facebook= {
@@ -12,14 +12,11 @@ var facebook= {
   callbackURL: '/auth/facebook/callback',
   passReqToCallback: true
 };
-var googlePlus={
-  
+var google ={
     clientID: '374775521102-ofq7hns0al7apg0adidsf5iir2gfqr33.apps.googleusercontent.com',
     clientSecret: 'sSx2YTPZHLzDCip0omqXwxsu',
-    callbackURL:'/auth/google/callback',
-      passReqToCallback: true
-  
-};
+    callbackURL: "http://localhost:3000/auth/google/callback"
+  };
 
 
 
@@ -108,13 +105,54 @@ passport.use(new FacebookStrategy(facebook, function(req, accessToken, refreshTo
 
 /*Sign in using google pluss*/
 
-passport.use(new GooglePlusStrategy(googlePlus,
-  function(req, accessToken, refreshToken, profile, done){
-    // Create or update user, call done() when complete...
-    console.log("howdy im google plus inside passport");
-    done(null, profile, tokens);
+/** Implemented google login..Check with Ui **/
+passport.use(new GoogleStrategy(google, function(req, accessToken, refreshToken, profile, done) {
+  if (req.user) {
+    User.findOne({ google: profile.id }, function(err, existingUser) {
+      if (existingUser) {
+        console.log('There is already a Google+ account that belongs to you. Sign in with that account or delete it, then link it with your current account.' );
+        done(err);
+      } else {
+        User.findById(req.user.id, function(err, user) {
+          console.log()
+          user.google = profile.id;
+          user.tokens.push({ kind: 'google', accessToken: accessToken });
+          user.profile.name = user.profile.name || profile.displayName;
+          user.profile.gender = user.profile.gender || profile._json.gender;
+          // user.profile.picture = user.profile.picture || 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
+          user.invites=[];
+          user.save(function(err) {
+            console.log('Google account has been linked.');
+            done(err, user);          
+          });
+        });
+      }
+    });
+  } else {
+    User.findOne({ google: profile.id }, function(err, existingUser) {
+      if (existingUser) return done(null, existingUser);
+      User.findOne({ email: profile._json.email }, function(err, existingEmailUser) {
+        if (existingEmailUser) {
+           console.log('There is already an account using this email address. Sign in to that account and link it with Google manually from Account Settings.' );
+          done(err);
+        } else {
+          var user = new User();
+          user.email = profile._json.email;
+          user.google = profile.id;
+          user.tokens.push({ kind: 'google', accessToken: accessToken });
+          user.profile.name = profile.displayName;
+          user.profile.gender = profile._json.gender;
+          // user.profile.picture = 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
+          user.profile.location = (profile._json.location) ? profile._json.location.name : '';
+          user.save(function(err) {
+            done(err, user);
+          });
+        }
+      });
+    });
   }
-));
+}));
+
 
 /**
  * Login Required middleware.

@@ -20,7 +20,7 @@ exports.postSignUp = function(req,res){
 
             user.save();
             Event.find(function(err,events){
-            res.render('index',{eventList:events});
+            res.render('index',{events:events});
         });
             }
 
@@ -74,7 +74,7 @@ exports.getDashBoard=function(req,res)
                                         if(eventsCreated[i].attendees.indexOf(users[j]._id)!=-1)
                                         {
                                           eventsCreated[i].att.push(users[j]);
-                                          console.log(eventsCreated[i].att);
+    
                                         }
                                       }
 
@@ -85,7 +85,7 @@ exports.getDashBoard=function(req,res)
 
 
 
-                                 res.render('dashboard',{invites:invites,eventsCreated:eventsCreated,attending:attending,att:users});
+                                 res.render('dashboard',{invites:invites,eventsCreated:eventsCreated,attending:attending});
                                 });  
 
 
