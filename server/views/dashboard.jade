@@ -58,19 +58,22 @@ block main
 					if(val)
 						.jumbotron
 							ul
+								p Location:
 								p= val.profile.title
 								p= val.profile.location
+								p Cateory:
 								p= val.profile.category
+								p Description:
 								p= val.profile.desc
 								if(val.status)
 									P Status :Cancelled
-							form(action="/unregister-event/"+val._id method="post")
+							#unregeve.form(action="/unregister-event/"+val._id method="post")
 								button.btn.btn-primary(type='submit') Unregister-Event
-							form(action="/cancel-event/"+val._id method="post")
+							#canceleve.form(action="/cancel-event/"+val._id method="post")
 								button.btn.btn-primary(type='submit') Cancel-Event
-							form(action="/display-event/"+val._id method="post")
+							#details.form(action="/display-event/"+val._id method="post")
 								button.btn.btn-default(type='submit') Details 		
-							button.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#myModal') Attendees
+							#attendi.button.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#myModal') Attendees
 							#myModal.modal.fade.bs-modal-xs(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
 								.modal-dialog
 									.modal-content
