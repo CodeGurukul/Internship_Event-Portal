@@ -57,10 +57,43 @@ exports.getDashBoard=function(req,res)
                                 {
                                   invites.push(events[i]);            
                                 } 
+                              }    
+                              var att=[];
+                              for(var i=0;i<eventsCreated.length;i++)
+                              {
+                                  
+                                att=att.concat(eventsCreated[i].attendees);
                               }
+                              User.find({'_id': { $in: att}} ,function(err,users){
+                                
+                                  for(var i=0;i<eventsCreated.length;i++)
+                                    {
+                                      eventsCreated[i]["att"]=[];
+                                      for(var j=0;j<users.length;j++)
+                                      {
+                                        if(eventsCreated[i].attendees.indexOf(users[j]._id)!=-1)
+                                        {
+                                          eventsCreated[i].att.push(users[j]);
+                                          console.log(eventsCreated[i].att);
+                                        }
+                                      }
+
+                                    }
+
+
+
+
+
+
+                                 res.render('dashboard',{invites:invites,eventsCreated:eventsCreated,attending:attending,att:users});
+                                });  
+
+
+
+                              
 
                                   
-                                   res.render('dashboard',{invites:invites,eventsCreated:eventsCreated,attending:attending});
+                                  
                            }
                       });
 

@@ -68,22 +68,21 @@ nav#navbarid.navbar.navbar-invers.navbar-top(role='navigation')
                                 a#fbid.button.btn.btn-primary.butpos(href="/auth/facebook") Sign in with Facebook
                                 a#googleid.button.btn.btn-primary.butpos(href="/auth/google") Sign in with Google plus
                                 form.form-horizontal(action="/signin" method="post")
-                              fieldset
-                                // Sign In Form
-                                // Text input
-                                .control-group
-                                  label.control-label(for='userid') User:
-                                  .controls
-                                    input#userid.form-control(required='', name='email', type='email', placeholder='Email')
-                                // Password input
-                                .control-group
-                                  label.control-label(for='passwordinput') Password:
-                                  .controls
-                                    input#passwordinput.form-control(required='', name='password', type='password', placeholder='password')
-                                .control-group
-                                  label.control-label(for='signin')
-                                  .controls
-                                    button#signin.btn.btn-success(name='signin') Sign In
+                                  fieldset
+                                    // Sign In Form
+                                    // Text input
+                                    .control-group
+                                      label.control-label(for='userid') User:
+                                      .controls
+                                        input#userid.form-control(required='', name='email', type='email', placeholder='Email')
+                                    // Password input
+                                    .control-group
+                                      label.control-label(for='passwordinput') Password:
+                                      .controls
+                                        input#passwordinput.form-control(required='', name='password', type='password', placeholder='password')
+                                    .control-group
+                                      .controls
+                                        button#signin.btn.btn-success(name='signin' type='submit') Sign In
                             #signup.tab-pane.fade
                               form.form-horizontal(action='/signup' method='post')
                                 fieldset
