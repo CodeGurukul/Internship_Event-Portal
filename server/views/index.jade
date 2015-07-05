@@ -41,8 +41,8 @@ block main
     -console.log("ankit");
     each val in ['Conference','Hackathon','Meet Ups','Workshops']
       .row
-        h2= val
-        hr(style="  border-top: 1px solid #D85858")
+        h2#heading= val
+        hr(style="  border-top: 5px solid #D8585F")
         each item in events
           if(item.profile.category==val)
             .col-md-3(href='/display-event/'+item._id)

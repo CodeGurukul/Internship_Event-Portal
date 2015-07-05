@@ -126,4 +126,25 @@ ul#nav li.current a { color: #F06000; }
         padding: 10px;
     }
   }
-
+   #heading
+   {
+      font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        position: relative;
+  text-align: right;
+  color: red;
+   }
+   #status
+   {
+      color:red;
+   }
+   #option2
+   {
+   position: relative;
+  left: 11px;
+}
+#option3
+{
+   position: relative;
+  top: 31px;
+  left: 25px;
+}
