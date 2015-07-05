@@ -12,7 +12,7 @@ block main
 
         form(action='/add-event' method='post')
           .loc
-            //- input#autocomplete(placeholder='Enter Location', onfocus='geolocate()', type='text',name="eventLocation")
+            input#autocomplete(placeholder='Enter Location', onfocus='geolocate()', type='text',name="eventLocation")
           input.form-control(type='text' placeholder='Event Name' name="eventName" required)
           input.form-control(type='date' placeholder='Start Date' name="eventStartDate")
           input.form-control(type='date' placeholder='End Date' name="eventEndDate")
