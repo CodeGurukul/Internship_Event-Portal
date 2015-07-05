@@ -40,8 +40,8 @@ block main
   .container
     each val in ['Conference','Hackathon','Meet Ups','Workshops']
       .row
-        h2= val
-        hr(style="  border-top: 1px solid #D85858")
+        h2#headingin= val
+        hr(style="  border-top: 5px solid #D85858")
 
 
         each item in events
