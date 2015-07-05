@@ -59,7 +59,6 @@ console.log('local mongodb opened');
 //Routes
 app.get('/', homeController.getIndex);
 app.get('/contactus', homeController.getContactUs);
-app.get('/aboutus', homeController.getAboutUs);
 app.get('/add-event', eventController.getAddEvent);
 app.post('/add-event', eventController.postAddEvent);
 app.post('/display-event/:id', eventController.postDisplayEvent);
@@ -68,7 +67,7 @@ app.post('/add-invite/:id', eventController.postAddInvite);
 app.post('/confirm-event/:id', eventController.postConfirmEvent);
 app.post('/cancel-event/:id', eventController.postCancelEvent);
 app.post('/unregister-event/:id', eventController.postUnregisterEvent);
-
+app.get('/aboutus', homeController.getAboutUs);
 app.get('/view-event', eventController.getViewEvents);
 app.post('/delete-event/:id', eventController.postDeleteEvent);
 app.get('/signup', userController.getSignUp);
@@ -117,4 +116,3 @@ app.post('/api/photo',function(req,res){
 });
 app.listen(3000);
 console.log("Express server is listening at port 3000");
-

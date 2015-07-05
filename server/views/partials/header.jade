@@ -3,9 +3,9 @@ nav#navbarid.navbar.navbar-invers.navbar-top(role='navigation')
     .navbar-header
       button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
         span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
+        span(style='background-color:black').icon-bar
+        span(style='background-color:black').icon-bar
+        span(style='background-color:black').icon-bar
       a.navbar-brand(href='/')
         img.img-responsive( src='/logo.png')
     // Collect the nav links, forms, and other content for toggling
@@ -23,20 +23,20 @@ nav#navbarid.navbar.navbar-invers.navbar-top(role='navigation')
             #drop.container
               .row
                 .col-md-3
-                  a(href='#') Upcoming Workshops
+                  a(href='/view-event') Workshops
                   seperator
                     span |
                   
                 .col-md-3
-                  a(href='#') Conferences
+                  a(href='/view-event') Conferences
                   seperator
                     span |
                 .col-md-3
-                  a(href='#') Hackathon
+                  a(href='/view-event') Hackathon
                   seperator
                     span |
                 .col-md-3
-                  a(href='#') Meet Up
+                  a(href='/view-event') Meet Up
                   seperator
                     span |
 

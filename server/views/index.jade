@@ -31,13 +31,15 @@ block main
           a.smoothscroll(href='/aboutus') About
         | &#x9;         
         li
-          a.smoothscroll(href='/view-events') Events
+          a.smoothscroll(href='/view-event') Events
         |             
         li
           a.smoothscroll(href='/contactus') Contact
         br
       // end #nav   
   .container
+    p #[contactAck]
+    -console.log("ankit");
     each val in ['Conference','Hackathon','Meet Ups','Workshops']
       .row
         h2#headingin= val

@@ -1,6 +1,6 @@
-var mongoose = require('mongoose')
-, Schema = mongoose.Schema
-, ObjectId = Schema.ObjectId;
+var mongoose = require('mongoose'), 
+Schema = mongoose.Schema, 
+ObjectId = Schema.ObjectId;
 
 //A mongoose Schema
 var eventSchema = new mongoose.Schema({
@@ -17,7 +17,8 @@ profile:{
     time:String,
     duration:String,
     desc:String,
-    category:String
+    category:String,
+    img: String
     
     }
 

@@ -5,15 +5,15 @@ block main
 			#jumbo3.col-md-6.col-md-offset-4.jumbotron
 			
 				each val in events
-					-console.log(val.profile);
-					p= val.profile.title
-					p= val.profile.location
-					p= val.profile.startdate
-					p= val.profile.enddate
-					p= val.profile.time
-					p= val.profile.duration
-					p= val.profile.desc
-					p= val.profile.categorys
+					//- -console.log(val.profile);
+					p Title:#{val.profile.title}
+					p Location: #{val.profile.location}
+					p StartDate: #{val.profile.startdate}
+					p EndDate: #{val.profile.enddate}
+					p Start Time: #{val.profile.time}
+					p Duration: #{val.profile.duration}
+					p Description: #{val.profile.desc}
+					p Category: #{val.profile.categorys}
 					if(user)
 						if(val.organizerId ==user._id)
 							form(action='/add-invite/'+val._id method='post')

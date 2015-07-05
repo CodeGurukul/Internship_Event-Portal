@@ -109,7 +109,6 @@ exports.getDashBoard=function(req,res)
 
 
 exports.postSignIn = function(req,res, next){
-  console.log('asa');
     passport.authenticate('local',function(err, user, info) {
       if (err) return next(err);
       if (!user) {

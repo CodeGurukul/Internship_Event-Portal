@@ -155,5 +155,3 @@ exports.postDeleteEvent=function(req,res)
         });
 
 }
-
-

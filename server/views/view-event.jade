@@ -1,18 +1,20 @@
 extends ./includes/layout
 block main
+  hr
   .container
     .row
       .col-md-6.col-md-offset-4.text-center
     each val in event
       .row
         #jumboview.col-md-6.col-md-offset-4.jumbotron
-          p= val.profile.title
-          p= val.profile.location
-          p= val.profile.category
-          p= val.profile.desc
+          p Title:#{val.profile.title}
+          p Location: #{val.profile.location}
+          p Description: #{val.profile.desc}
+          p Category: #{val.profile.categorys}
           form(action="/display-event/"+val._id method="post")
               button.btn.btn-default(type='submit') Details
           if(user)
              if(user.type=="admin")           
                 form(action="/delete-event/"+val._id method="post")
-                    button.btn.btn-default(type='submit') Delete        
+                    button.btn.btn-default(type='submit') Delete    
+    hr    

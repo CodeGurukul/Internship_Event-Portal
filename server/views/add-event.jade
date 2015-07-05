@@ -6,9 +6,10 @@ block main
   br
   br
 
-  #jumboadd.container.jumbotron
+  #jumbo3.container.jumbotron
     .row
       .col-md-6.col-md-offset-4
+
         form(action='/add-event' method='post')
           .loc
             input#autocomplete(placeholder='Enter Location', onfocus='geolocate()', type='text',name="eventLocation")

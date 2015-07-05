@@ -17,7 +17,7 @@ block main
 				
 				h2#heading1 You are invited to the following events:
 				if(invites.length==0)
-					h3.jumbotron No Invitations
+					h3#jumbo3.jumbotron No Invitations
 				else
 					each val in invites
 						if(val)
@@ -75,11 +75,11 @@ block main
 										P Status :Cancelled
 								form#unregeve(action="/unregister-event/"+val._id method="post")
 									button.btn.btn-primary(type='submit') Unregister-Event
-								#canceleve.form(action="/cancel-event/"+val._id method="post")
+								form#canceleve(action="/cancel-event/"+val._id method="post")
 									button.btn.btn-primary(type='submit') Cancel-Event
-								#details.form(action="/display-event/"+val._id method="post")
+								form#details(action="/display-event/"+val._id method="post")
 									button.btn.btn-default(type='submit') Details 		
-								#attendi.button.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#myModal') Attendees
+								button#attendi.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#myModal') Attendees
 								#myModal.modal.fade.bs-modal-xs(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
 									.modal-dialog
 										.modal-content
@@ -99,7 +99,19 @@ block main
 														hr(style="height:1px;border:none;color:#333;background-color:#333;") 
 												.modal-footer
 													button.btn.btn-default(type='button', data-dismiss='modal')| Close
-													
+				if(user.type=="admin")
+					h2 You have the following messages 
+					each val in homes
+						if(val)
+							.panel.panel-primary
+								.panel-heading
+									h1.panel-title #{val.firstName} #{val.lastName}
+								.panel-body
+									ul
+										p email : #{val.email}
+										p phone : #{val.phone}
+										p message : #{val.message}
+														
 
 
 
