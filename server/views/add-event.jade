@@ -19,7 +19,7 @@ block main
           input.form-control(type='text' placeholder='Start Time' name="eventStartTime")
           input.form-control(type='text' placeholder='Duration' name="eventDuration")
           input.form-control(type='text' placeholder='description' name="eventDescription")
-          select(name="eventCategory" required)
+          select#dropcat(name="eventCategory" required)
             option(value='Conference' ) Conference
               |   
               option(value='Hackathon') Hackathon
