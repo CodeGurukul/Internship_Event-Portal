@@ -13,17 +13,17 @@ block main
 				hr
 				
 				h2 You are invited to the following events:
-				if(!invites)
-					h1.jumbotron no invites
+				if(invites.length==0)
+					h3.jumbotron No Invitations
 				else
 					each val in invites
 						if(val)
 							.jumbotron
 								ul
-									p= val.profile.title
-									p= val.profile.location
-									p= val.profile.category
-									p= val.profile.desc
+									p Name :#{val.profile.title}
+									p Location: #{val.profile.location}
+									p Cateory: #{val.profile.category}
+									p Description: #{val.profile.desc}
 									if(val.status)
 										P Status :Cancelled
 								form(action="/confirm-event/"+val._id method="post")
@@ -37,63 +37,66 @@ block main
 											|  Reject-Event
 									button.btn.btn-primary(type='submit') Submit
 								form(action="/display-event/"+val._id method="post")
-									button.btn.btn-default(type='submit') Details 
+									button.btn.btn-default(type='submit') Details
 				h2 You are attending to the following events:
-				each val in attending
-					if(val)
-						.jumbotron
-							ul
-								p= val.profile.title
-								p= val.profile.location
-								p= val.profile.category 
-								p= val.profile.desc
-								if(val.status)
-									P Status :Cancelled
-							form(action="/unregister-event/"+val._id method="post")
-								button.btn.btn-primary(type='submit') Unregister-Event
-							form(action="/display-event/"+val._id method="post")
-								button.btn.btn-default(type='submit') Details 							
+				if(attending.length==0)
+					h3.jumbotron You are Not attending  any events
+				else
+					each val in attending
+						if(val)
+							.jumbotron
+								ul
+									p Name :#{val.profile.title}
+									p Location: #{val.profile.location}
+									p Cateory: #{val.profile.category}
+									p Description: #{val.profile.desc}
+									if(val.status)
+										P Status :Cancelled
+								form(action="/unregister-event/"+val._id method="post")
+									button.btn.btn-primary(type='submit') Unregister-Event
+								form(action="/display-event/"+val._id method="post")
+									button.btn.btn-default(type='submit') Details 							
 				h2 You created the following events:
-				each val in eventsCreated
-					if(val)
-						.jumbotron
-							ul
-								p Location:
-								p= val.profile.title
-								p= val.profile.location
-								p Cateory:
-								p= val.profile.category
-								p Description:
-								p= val.profile.desc
-								if(val.status) 
-									P Status :Cancelled
-							#unregeve.form(action="/unregister-event/"+val._id method="post")
-								button.btn.btn-primary(type='submit') Unregister-Event
-							#canceleve.form(action="/cancel-event/"+val._id method="post")
-								button.btn.btn-primary(type='submit') Cancel-Event
-							#details.form(action="/display-event/"+val._id method="post")
-								button.btn.btn-default(type='submit') Details 		
-							#attendi.button.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#myModal') Attendees
-							#myModal.modal.fade.bs-modal-xs(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
-								.modal-dialog
-									.modal-content
-										.modal-header
-											button.close(type='button', data-dismiss='modal', aria-hidden='true')
-											| ×
-											h4#myModalLabel.modal-title
-											| People Attending My Event
-											.modal-body
-												each item in val.att 
-													.container-fluid
-														.row
-															.col-md-6.attendeesimg
-																img.img-circle(src=item.profile.picture)
-															.col-md-6
-																h3= item.profile.name
-													hr(style="height:1px;border:none;color:#333;background-color:#333;") 
-											.modal-footer
-												button.btn.btn-default(type='button', data-dismiss='modal')| Close
-												
+				if(eventsCreated.length==0)
+					h3.jumbotron You have not created any events
+				else
+					each val in eventsCreated
+						if(val)
+							.jumbotron
+								ul
+									p Name :#{val.profile.title}
+									p Location: #{val.profile.location}
+									p Cateory: #{val.profile.category}
+									p Description: #{val.profile.desc}
+									if(val.status) 
+										P Status :Cancelled
+								form#unregeve(action="/unregister-event/"+val._id method="post")
+									button.btn.btn-primary(type='submit') Unregister-Event
+								form#canceleve(action="/cancel-event/"+val._id method="post")
+									button.btn.btn-primary(type='submit') Cancel-Event
+								form#details(action="/display-event/"+val._id method="post")
+									button.btn.btn-default(type='submit') Details 		
+								button#attendi.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#myModal') Attendees
+								#myModal.modal.fade.bs-modal-xs(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+									.modal-dialog
+										.modal-content
+											.modal-header
+												button.close(type='button', data-dismiss='modal', aria-hidden='true')
+												| ×
+												h4#myModalLabel.modal-title
+												| People Attending My Event
+												.modal-body
+													each item in val.att 
+														.container-fluid
+															.row
+																.col-md-6.attendeesimg
+																	img.img-circle(src=item.profile.picture)
+																.col-md-6
+																	h3= item.profile.name
+														hr(style="height:1px;border:none;color:#333;background-color:#333;") 
+												.modal-footer
+													button.btn.btn-default(type='button', data-dismiss='modal')| Close
+													
 
 
 

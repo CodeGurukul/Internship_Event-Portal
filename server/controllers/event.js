@@ -119,7 +119,8 @@ exports.postConfirmEvent = function(req,res){
 
 exports.postDisplayEvent = function(req,res){
         Event.find({ _id:req.params.id },function(err,eve){
-            res.render('displayevent',{eve:eve});
+            console.log(eve);
+            res.render('displayevent',{events:eve});
         });
 }
 exports.postCancelEvent = function(req,res){

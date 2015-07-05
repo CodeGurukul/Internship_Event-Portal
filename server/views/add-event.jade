@@ -12,15 +12,20 @@ block main
 
         form(action='/add-event' method='post')
           .loc
-            input#autocomplete(placeholder='Enter Location', onfocus='geolocate()', type='text',name="eventLocation")
-          input.form-control(type='text' placeholder='Event Name' name="eventName")
-          //- input.form-control(type='text' placeholder='Event Location' name="eventLocation")
-         
+            //- input#autocomplete(placeholder='Enter Location', onfocus='geolocate()', type='text',name="eventLocation")
+          input.form-control(type='text' placeholder='Event Name' name="eventName" required)
           input.form-control(type='date' placeholder='Start Date' name="eventStartDate")
           input.form-control(type='date' placeholder='End Date' name="eventEndDate")
           input.form-control(type='text' placeholder='Start Time' name="eventStartTime")
           input.form-control(type='text' placeholder='Duration' name="eventDuration")
           input.form-control(type='text' placeholder='description' name="eventDescription")
-          input.form-control(type='text' placeholder='Category' name="eventCategory")
-          //- input.form-control.input-group-btn(type='text' placeholder='Category' name="eventCategory")
-          #submitaddevent.button.btn.btn-default(type='submit') Submit
+          select(name="eventCategory" required)
+            option(value='Conference' ) Conference
+              |   
+              option(value='Hackathon') Hackathon
+              |   
+              option(value='Meet Ups') Meet Ups
+              |   
+              option(value='Workshops') Workshops
+
+          button#submitaddevent.btn.btn-default(type='submit') Submit

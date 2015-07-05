@@ -3,7 +3,9 @@ block main
 	.container
 		.row
 			.col-md-6.col-md-offset-4.jumbotron
-				each val in eve
+			
+				each val in events
+					-console.log(val.profile);
 					p= val.profile.title
 					p= val.profile.location
 					p= val.profile.startdate
