@@ -28,17 +28,17 @@ block main
 									p Cateory: #{val.profile.category}
 									p Description: #{val.profile.desc}
 									if(val.status)
-										P Status :Cancelled
+										P#status1 Status :Cancelled
 								form(action="/confirm-event/"+val._id method="post")
 									.btn-group(data-toggle='buttons')
 										h2 Invitations:
-										label.btn.btn-primary.active
-											input#option1(type='radio', name='options', autocomplete='off', checked='' value='confirm')
+										label#option1.btn.btn-primary.active
+											input(type='radio', name='options', autocomplete='off', checked='' value='confirm')
 											|  Confirm-event
-										label.btn.btn-primary
-											input#option2(type='radio', name='options', autocomplete='off' value='reject')
+										label#option2.btn.btn-primary
+											input(type='radio', name='options', autocomplete='off' value='reject')
 											|  Reject-Event
-									button.btn.btn-primary(type='submit') Submit
+									button#option3.btn.btn-primary(type='submit') Submit
 								form(action="/display-event/"+val._id method="post")
 									button.btn.btn-default(type='submit') Details
 				h2 You are attending to the following events:

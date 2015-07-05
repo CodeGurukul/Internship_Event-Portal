@@ -127,6 +127,7 @@ ul#nav li.current a { color: #F06000; }
     }
   }
 
+
   .box1{
     width: 300px;
     margin: 20px;
@@ -189,5 +190,29 @@ a{
     text-decoration: none;
     color: #4A4A4A !important;
 }
+}
+
+
+   #heading
+   {
+      font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        position: relative;
+  text-align: right;
+  color: red;
+   }
+   #status
+   {
+      color:red;
+   }
+   #option2
+   {
+   position: relative;
+  left: 11px;
+}
+#option3
+{
+   position: relative;
+  top: 31px;
+  left: 25px;
 }
 

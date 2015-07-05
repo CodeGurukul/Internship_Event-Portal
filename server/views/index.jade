@@ -43,6 +43,7 @@ block main
         h2= val
         hr(style="  border-top: 1px solid #D85858")
 
+
         each item in events
           if(item.profile.category==val)
             .box1.col-md-3(href='/display-event/'+item._id)
