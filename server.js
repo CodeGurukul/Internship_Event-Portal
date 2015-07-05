@@ -58,6 +58,7 @@ console.log('local mongodb opened');
 
 //Routes
 app.get('/', homeController.getIndex);
+app.get('/contactus', homeController.getContactUs);
 app.get('/add-event', eventController.getAddEvent);
 app.post('/add-event', eventController.postAddEvent);
 app.post('/display-event/:id', eventController.postDisplayEvent);

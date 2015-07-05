@@ -1,0 +1,59 @@
+extends ./includes/layout
+block main
+ .contactusform.container
+    .row
+        .col-md-6
+          .well.well-sm
+            form.form-horizontal(method='post')
+              fieldset
+                legend.text-center.header Contact us
+                |                         
+                .form-group
+                  .col-md-10.col-md-offset-1
+                    input#fname.form-control(name='name', type='text', placeholder='First Name')
+                |                         
+                .form-group
+                  .col-md-10.col-md-offset-1
+                    input#lname.form-control(name='name', type='text', placeholder='Last Name')
+                |                         
+                .form-group
+                  .col-md-10.col-md-offset-1
+                    input#email.form-control(name='email', type='text', placeholder='Email Address')
+                |                         
+                .form-group
+                  .col-md-10.col-md-offset-1
+                    input#phone.form-control(name='phone', type='text', placeholder='Phone')
+                |                         
+                .form-group
+                  .col-md-10.col-md-offset-1
+                    textarea#message.form-control(name='message', placeholder='Enter your massage for us here. We will get back to you within 2 business days.', rows='7')
+                |                         
+                .form-group
+                  .col-md-12.text-center
+                    button.btn.btn-primary.btn-lg(type='submit') Submit
+        |         
+        .col-md-6
+          div
+            .panel.panel-default
+              .text-center.header Our Office
+              |                     
+              .panel-body.text-center
+                h4 Address
+                |                         
+                div
+                  | 875 Oshiwara Royal Sand Chs
+                  br
+                  |                        Link Road,Andheri West
+                  br
+                  |                         Mumbai -400064
+                  br
+                  |                         9821748021
+                  br
+                  |                        	dhongadeaakash@hotmail.com
+                  br
+                |                         
+                hr
+                |                         
+                iframe(frameborder='0', style='border:0', src='https://www.google.com/maps/embed/v1/place?key=AIzaSyAm2xP7rgGcOeGaZ2yDrM8nDPGYmEnrT08\
+  &q=Near+Lotus+Petrol+Pump,+Adarsh+Nagar,+ Link+road,+Andheri+west', allowfullscreen='')
+

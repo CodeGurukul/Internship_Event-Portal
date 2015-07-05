@@ -6,3 +6,8 @@ exports.getIndex = function(req,res){
              res.render('index',{events:events});
         });
 }
+exports.getContactUs = function(req,res){
+        
+
+             res.render('contactus');
+}
