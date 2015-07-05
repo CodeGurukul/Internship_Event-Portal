@@ -28,6 +28,7 @@ exports.postAddEvent = function(req,res){
                     duration:req.body.eventDuration,
                     desc:req.body.eventDescription,
                     category:req.body.eventCategory,
+                    img: file.path
             }});
 
             //The Magic!

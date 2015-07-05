@@ -56,9 +56,11 @@ app.use(bodyParser.urlencoded({extended:true}));// assuming POST: name=foo&color
 mongoose.connect('mongodb://localhost/explara');
 console.log('local mongodb opened');
 
+
 //Routes
 app.get('/', homeController.getIndex);
 app.get('/contactus', homeController.getContactUs);
+app.post('/contactus', homeController.postContactUs);
 app.get('/add-event', eventController.getAddEvent);
 app.post('/add-event', eventController.postAddEvent);
 app.post('/display-event/:id', eventController.postDisplayEvent);
@@ -112,7 +114,7 @@ onFileUploadComplete: function (file) {
 
 
 app.post('/api/photo',function(req,res){
-  
+
 });
 app.listen(3000);
 console.log("Express server is listening at port 3000");

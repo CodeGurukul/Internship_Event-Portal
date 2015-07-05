@@ -39,10 +39,6 @@ nav#navbarid.navbar.navbar-invers.navbar-top(role='navigation')
                   a(href='#') Meet Up
                   seperator
                     span |
-
-
-
-                  
         
       ul.nav.navbar-nav.navbar-right
         if(!user)
@@ -125,8 +121,10 @@ nav#navbarid.navbar.navbar-invers.navbar-top(role='navigation')
                                   .control-group
                                     label.control-label(for='Location')
                                       #locationField
-                                        input#autocomplete(placeholder='Enter your address', onfocus='geolocate()', type='text',name="userLocation")
-                                  input(type='file', name='userPhoto')
+                                        input.form-control#autocomplete(placeholder='Enter your address', onfocus='geolocate()', type='text',name="userLocation")
+                                  br
+                                  br
+                                  input.form-control(type='file', name='userPhoto')
                                   
                                   // Button
                                   #confirmsignup.control-group
@@ -141,9 +139,8 @@ nav#navbarid.navbar.navbar-invers.navbar-top(role='navigation')
                 h3#name #{user.profile.name}
               li
                 a#dash(href="/dashboard") Dashboard
-              if(user)            
-                li
-                  a#addevent(href='/add-event') Add a event
+              li
+                a#addevent(href='/add-event') Add an event
                   //- img(src="#{user.profile.picture}") 
               li
                 a#signout(href='/signout') Signout

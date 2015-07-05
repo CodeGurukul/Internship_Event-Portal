@@ -99,7 +99,19 @@ block main
 														hr(style="height:1px;border:none;color:#333;background-color:#333;") 
 												.modal-footer
 													button.btn.btn-default(type='button', data-dismiss='modal')| Close
-													
+				if(user.type=="admin")
+					h2 You have the following messages 
+					each val in homes
+						if(val)
+							.panel.panel-primary
+								.panel-heading
+									h1.panel-title #{val.firstName} #{val.lastName}
+								.panel-body
+									ul
+										p email : #{val.email}
+										p phone : #{val.phone}
+										p message : #{val.message}
+														
 
 
 

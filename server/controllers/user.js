@@ -1,5 +1,6 @@
 var User = require('../models/User');
 var Event = require('../models/Event');
+var Home = require('../models/Home');
 var passport=require('passport');
 
 exports.getSignUp = function(req,res){
@@ -78,13 +79,16 @@ exports.getDashBoard=function(req,res)
                                       }
 
                                     }
+                                  Home.find(function(err,homes){
+
+                                 res.render('dashboard',{invites:invites,eventsCreated:eventsCreated,attending:attending, homes:homes});
+                                    
+                                });
 
 
 
 
 
-
-                                 res.render('dashboard',{invites:invites,eventsCreated:eventsCreated,attending:attending});
                                 });  
 
 
