@@ -1,6 +1,25 @@
 footer.container.text-center
 	.container-fluid
-		.row
+		.row.jumbotron
+			.col-md-3
+				h4
+					h3#fa Connect to us at:
+						a(href='https://www.facebook.com/codegurukul?ref=br_rs')
+							span.fa-stack.fa-lg
+								i.fa.fa-circle.fa-stack-2x
+								i.fa.fa-facebook.fa-stack-1x.fa-inverse
+						a(href='https://plus.google.com/')
+							span.fa-stack.fa-lg
+								i.fa.fa-circle.fa-stack-2x
+								i.fa.fa-google-plus.fa-stack-1x.fa-inverse
+						a(href='https://github.com/CodeGurukul')
+							span.fa-stack.fa-lg
+								i.fa.fa-circle.fa-stack-2x
+								i.fa.fa-github.fa-stack-1x.fa-inverse
+				.seperator
+					.span
+						hr
+						
 			.col-md-3
 				h4
 					a(href="") Help Center 
@@ -11,19 +30,6 @@ footer.container.text-center
 				h4
 					a(href="") About us 
 			.col-md-3
-				h4
-					a(href="") Contact Us 
-			.col-md-3
-				h4
-					a(href='#', target='_blank')
-						i.fa.fa-facebook
-						i.fa.fa-facebook
-					a(href='#', target='_blank')
-						i.fa.fa-google-plus
-					a(href='#', target='_blank')
-						i.fa.fa-linkedin
-					a(href='#', target='_blank')
-						i.fa.fa-instagram
-					a(href='#', target='_blank')
-						i.fa.fa-github
+				h4#conto
+					a(href="/contactus") Contact Us 
 	p &copy; 2015 Bit Brothers Tech Pvt. Ltd.
