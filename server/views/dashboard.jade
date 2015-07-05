@@ -5,11 +5,14 @@ block main
 	#userdet.container
 		.row
 			.col-md-12
-				ul
-					li Name:#{user.profile.name}
-					li Email:#{user.email}
-					li Gender:#{user.profile.gender}
-					li location:#{user.profile.location}
+				.panel.panel-primary
+					.panel-heading
+						h1.panel-title #{user.profile.name}
+					.panel-body
+						ul
+							li Email:   #{user.email}
+							li Gender:  #{user.profile.gender}
+							li location:#{user.profile.location}
 				hr
 				
 				h2 You are invited to the following events:
@@ -72,11 +75,11 @@ block main
 										P Status :Cancelled
 								form#unregeve(action="/unregister-event/"+val._id method="post")
 									button.btn.btn-primary(type='submit') Unregister-Event
-								form#canceleve(action="/cancel-event/"+val._id method="post")
+								#canceleve.form(action="/cancel-event/"+val._id method="post")
 									button.btn.btn-primary(type='submit') Cancel-Event
-								form#details(action="/display-event/"+val._id method="post")
+								#details.form(action="/display-event/"+val._id method="post")
 									button.btn.btn-default(type='submit') Details 		
-								button#attendi.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#myModal') Attendees
+								#attendi.button.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#myModal') Attendees
 								#myModal.modal.fade.bs-modal-xs(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
 									.modal-dialog
 										.modal-content
