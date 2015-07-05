@@ -10,4 +10,10 @@ exports.getContactUs = function(req,res){
         
 
              res.render('contactus');
+
+}
+exports.getAboutUs = function(req,res){
+        
+
+             res.render('aboutus');
 }

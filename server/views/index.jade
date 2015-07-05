@@ -3,7 +3,7 @@ block main
   #ninja-slider
       ul
         li
-          a(data-image='1/img/1-s.jpg', href='/')
+          a(data-image='1/img/1-s.jpg')
             h3 Conferences
         li
           div(data-image='1/img/2-s.jpg')
@@ -25,34 +25,44 @@ block main
       |          
       ul#nav.nav
         li.current
-          a.smoothscroll(href='#home') Home
+          a.smoothscroll(href='#nav-wrap') Home
         |             
         li
-          a.smoothscroll(href='#about') About
+          a.smoothscroll(href='/aboutus') About
         | &#x9;         
         li
-          a.smoothscroll(href='#resume') Events
+          a.smoothscroll(href='/view-events') Events
         |             
         li
           a.smoothscroll(href='/contactus') Contact
         br
       // end #nav   
   .container
-    -console.log("ankit");
     each val in ['Conference','Hackathon','Meet Ups','Workshops']
       .row
         h2= val
         hr(style="  border-top: 1px solid #D85858")
+
         each item in events
           if(item.profile.category==val)
-            .col-md-3(href='/display-event/'+item._id)
-              p= item.profile.title
-              p= item.profile.location
-              p= item.profile.category
-              p= item.profile.desc
-              form(action="/display-event/"+item._id method="post")
-                button.btn.btn-default(type='submit') Details 
+            .box1.col-md-3(href='/display-event/'+item._id)
+                h1= item.profile.title
+                  |    
+                  img(src='http://www.wpthemegenerator.com/wp-content/uploads/2012/06/Image.jpg')
+                  |         
+                  p= item.profile.location
+                  p= item.profile.category
+                  p= item.profile.desc
+                  form(action="/display-event/"+item._id method="post")
+                    button.btn.btn-default(type='submit') Details 
 
+                  |  
+                  |        
+                  br
+          
+            //- 
+            //-  
+            //-  
   
   
   
