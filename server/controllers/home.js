@@ -24,4 +24,10 @@ exports.postContactUs = function(req, res){
 	msg.save(function(err){
 		res.redirect('/');
 	});
+
+}
+exports.getAboutUs = function(req,res){
+        
+
+             res.render('aboutus');
 }
