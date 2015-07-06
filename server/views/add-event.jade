@@ -11,21 +11,46 @@ block main
       .col-md-6.col-md-offset-4
 
         form(action='/add-event' method='post')
-          .loc
-            input#autocomplete(placeholder='Enter Location', onfocus='geolocate()', type='text',name="eventLocation")
-          input.form-control(type='text' placeholder='Event Name' name="eventName" required)
-          input.form-control(type='date' placeholder='Start Date' name="eventStartDate")
-          input.form-control(type='date' placeholder='End Date' name="eventEndDate")
-          input.form-control(type='text' placeholder='Start Time' name="eventStartTime")
-          input.form-control(type='text' placeholder='Duration' name="eventDuration")
-          input.form-control(type='text' placeholder='description' name="eventDescription")
-          select#dropcat(name="eventCategory" required)
-            option(value='Conference' ) Conference
-              |   
-              option(value='Hackathon') Hackathon
-              |   
-              option(value='Meet Ups') Meet Ups
-              |   
-              option(value='Workshops') Workshops
 
-          button#submitaddevent.btn.btn-default(type='submit') Submit
+          .form-group
+            label(for='eventName') Event Name:
+            input.form-control(type='text' placeholder='Event Name' name="eventName" required)
+          
+          .form-group
+            label(for='') Event starts on:
+            input.form-control(type='date' placeholder='Start Date' name="eventStartDate")
+          
+          .form-group
+            label(for='') Event ends on:
+            input.form-control(type='date' placeholder='End Date' name="eventEndDate")
+          
+          .form-group
+            label(for='') Event start Time:
+            input.form-control(type='text' placeholder='Start Time' name="eventStartTime")
+          
+          .form-group
+            label(for='') Duration of event
+            input.form-control(type='text' placeholder='Duration' name="eventDuration")
+          
+          .form-group
+            label(for='') Describe the event:
+            textarea.form-control(rows='3' placeholder='description' name="eventDescription")
+            //- input.form-control(type='text' rows ='3' placeholder='description' name="eventDescription")
+          br
+          
+          .form-group
+            .loc
+              input#autocomplete.form-control(placeholder='Enter Location', onfocus='geolocate()', type='text',name="eventLocation")
+
+          label(for='dropdown') Type of event
+          select.form-control#dropcat(name="eventCategory" required)
+            option(value='Conference') Conference
+            |   
+            option(value='Hackathon') Hackathon
+            |   
+            option(value='Meet Ups') Meet Ups
+            |   
+            option(value='Workshops') Workshops
+
+        
+          button#submitaddevent.btn.btn-success(type='submit') Submit
