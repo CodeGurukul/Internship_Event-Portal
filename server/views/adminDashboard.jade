@@ -83,6 +83,11 @@ block main
 													button.btn.btn-default(type='button', data-dismiss='modal')| Close	
 
 	h2 All Users
-		
+		each user in allUsers
+			p= user.profile.name
+			p= user.email
+			form#details(action="/delete-user/"+user._id method="post")
+				button.btn.btn-default(type='submit') Delete 	
+
 
 

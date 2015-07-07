@@ -70,6 +70,7 @@ app.post('/unregister-event/:id', eventController.postUnregisterEvent);
 app.get('/aboutus', homeController.getAboutUs);
 app.get('/view-event', eventController.getViewEvents);
 app.post('/delete-event/:id', eventController.postDeleteEvent);
+app.post('/delete-user/:id', userController.postDeleteUser);
 app.get('/signup', userController.getSignUp);
 app.post('/signup', userController.postSignUp);
 app.post('/signin', userController.postSignIn);

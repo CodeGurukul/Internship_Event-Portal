@@ -138,6 +138,7 @@ else
 
 
 
+
 exports.postSignIn = function(req,res, next){
     passport.authenticate('local',function(err, user, info) {
       if (err) return next(err);
@@ -156,4 +157,14 @@ exports.postSignIn = function(req,res, next){
 exports.getSignOut = function(req,res, next){
   req.logout();
   res.redirect('/');
+}
+
+exports.postDeleteUser=function(req,res)
+{
+    
+    User.remove({ _id:req.params.id }, function (err) {
+
+            res.redirect('/adminDashboard');
+        });
+
 }
