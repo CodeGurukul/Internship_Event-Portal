@@ -14,7 +14,8 @@ exports.postSignUp = function(req,res){
             profile:{
               name:req.body.userName,
               gender:req.body.userGender,
-              location:req.body.userLocation
+              location:req.body.userLocation,
+              picture:"defaultimg.png",
                     }, 
             email:req.body.userEmail, 
             password:req.body.userPassword});

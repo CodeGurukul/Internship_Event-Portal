@@ -33,11 +33,22 @@ exports.postAddEvent = function(req,res){
             //The Magic!
         eve.save(function(err)
         {
-             User.findByIdAndUpdate(req.user._id,{$push: {"eventsCreated": eve._id},type:'eventAdmin'},
-            function(err, model)
-             {
-                 res.redirect('/view-event');
-            });
+                   if(req.user.type!='admin')
+                {
+                     User.findByIdAndUpdate(req.user._id,{$push: {"eventsCreated": eve._id},type:'eventAdmin'},
+                    function(err, model)
+                     {
+                         res.redirect('/view-event');
+                    });
+                 }
+                 else
+                 {
+                   User.findByIdAndUpdate(req.user._id,{$push: {"eventsCreated": eve._id}},
+                    function(err, model)
+                     {
+                         res.redirect('/view-event');
+                    }); 
+                 }
        
         });     
         
