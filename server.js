@@ -6,6 +6,8 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 //passport is used for login
 var passport=require('passport');
+//nodemailer is used for sending mails
+var nodemailer=require('nodemailer');
 
 // var googleapis = require('googleapis');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -22,10 +24,23 @@ var passportConf = require('./server/config/passport');
 var userController = require('./server/controllers/user');
 var eventController = require('./server/controllers/event');
 var homeController = require('./server/controllers/home');
+
 //initailaze express
+var app =express();
+
 var multer     =       require('multer');
 var done       =       false;
-var app =express();
+
+
+// for nodemailer
+// create reusable transporter object using SMTP transport 
+var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: 'explara.event.invite@gmail.com',
+        pass: 'aakashankitchintan'
+    }
+});
 
 app.set('views', __dirname + '/server/views');
 app.set('view engine','jade');
@@ -114,5 +129,30 @@ onFileUploadComplete: function (file) {
 app.post('/api/photo',function(req,res){
   
 });
+
+// ===================================== nodemailer code starts =====================================
+// setup e-mail data with unicode symbols 
+var mailOptions = {
+    from: 'Explara <foo@blurdybloop.com>', // sender address 
+    to: 'chintanmistry.00@gmail.com, chintanmistry.00@live.com', // list of receivers 
+    subject: 'Hello this is fromm explara', // Subject line 
+    text: 'Hello world this is sucessful', // plaintext body 
+    html: '<b>Hello world ✔</b>' // html body 
+};
+
+// send mail with defined transport object 
+transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+        return console.log(error);
+    }
+    console.log('Message sent: ' + info.response);
+});
+
+// ====================================== nodemailer code ends ======================================
+
+
+//to confirm that the abpve code runs perfectly
 app.listen(3000);
 console.log("Express server is listening at port 3000");
+
+

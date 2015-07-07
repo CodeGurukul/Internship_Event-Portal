@@ -35,6 +35,8 @@
     "jade": "^1.11.0",
     "mongoose": "^4.0.6",
     "multer": "^0.1.8",
+    "node-mailer": "^0.1.1",
+    "nodemailer": "^1.4.0",
     "passport": "^0.2.2",
     "passport-facebook": "^2.0.0",
     "passport-google-oauth": "^0.2.0",
