@@ -80,13 +80,25 @@ exports.getDashBoard=function(req,res)
                                       }
 
                                     }
-                                  res.render('dashboard',{invites:invites,eventsCreated:eventsCreated,attending:attending});
+                                  // res.render('dashboard',{invites:invites,eventsCreated:eventsCreated,attending:attending});
+                                  Home.find(function(err,homes){
+                                    res.render('dashboard',{invites:invites,eventsCreated:eventsCreated,attending:attending,homes:homes,events:events});
+                                  });
                                 });  
                            }
                       });
                 }
     });
 };
+                                /*Event.find(function(err,events)
+                                {
+                                });
+*/
+                                    // res.render('view-event',{event:events});
+
+
+
+
 
 exports.getAdminDashBoard=function(req,res)
 {

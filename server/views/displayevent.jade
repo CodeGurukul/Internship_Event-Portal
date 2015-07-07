@@ -13,9 +13,9 @@ block main
 					p Start Time: #{val.profile.time}
 					p Duration: #{val.profile.duration}
 					p Description: #{val.profile.desc}
-					p Category: #{val.profile.categorys}
+					p Category: #{val.profile.category}
 					if(user)
-						if(val.organizerId ==user._id)
+						if(val.organizerId == user._id)
 							form(action='/add-invite/'+val._id method='post')
 								h2 Invite
 								input.form-control(type='text' placeholder='One Email at a time' name="eventInvite")

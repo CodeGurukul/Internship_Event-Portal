@@ -1,5 +1,19 @@
+//nodemailer is used for sending mails
+var nodemailer=require('nodemailer');
+
 var Event = require('../models/Event');
 var User = require('../models/User');
+
+// for nodemailer
+// create reusable transporter object using SMTP transport 
+var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: 'explara.event.invite@gmail.com', //new mail id made for the sake of project
+        pass: 'aakashankitchintan' // by default emails will be sent from this id
+    }
+});
+
 exports.getAddEvent = function(req,res){
         if(req.user)
         {
@@ -49,6 +63,11 @@ exports.postAddEvent = function(req,res){
                          res.redirect('/view-event');
                     }); 
                  }
+             User.findByIdAndUpdate(req.user._id,{$push: {"eventsCreated": eve._id},type:'eventAdmin'},
+            function(err, model)
+            {
+                 res.redirect('/view-event');
+            });
        
         });     
         
@@ -65,28 +84,51 @@ exports.getViewEvents = function(req,res){
 
 exports.postAddInvite = function(req,res){
     var index =req.user.eventsCreated.indexOf(req.params.id)
-    console.log(index);
             if(index!=-1)
              {       
-                console.log(index);
-                User.find({email:req.body.eventInvite},function(err,user){
-                    if(user[0])
+                Event.find({_id:req.params.id},function(err,events)
                     {
-                        User.findByIdAndUpdate(user[0]._id,{$push: {"invites": req.params.id}},
-                        function(err, model)
-                         {
-                            res.redirect('/view-event');
+                        User.find({email:req.body.eventInvite},function(err,user){
+                            if(user[0])
+                            {
+                                // setup e-mail data with unicode symbols 
+                                var htmlMailBody = 
+                                '<h3>Invitation to "'
+                                 + events[0].profile.title + '"</h3> <p>Hi there, you have an Invitation for an event sent from explara .<br />signin to <a href="localhost:3000">explara</a> to know more.</p>';
+                                var textMailBody = 'Hello ' + user[0].profile.name + ', you are invited to event :' + events[0].profile.title + 'from explara';
+                                var mailOptions = 
+                                {
+                                    from: 'Explara <explara.event.invite@gmail.com>', // sender address 
+                                    to: req.body.eventInvite, // list of receivers 
+                                    subject: 'Invitation ', // Subject line 
+                                    text: textMailBody, // plaintext body alt for html 
+                                    html: htmlMailBody,
+                                };
+
+                                // send mail with defined transport object 
+                                transporter.sendMail(mailOptions, function(error, info){
+                                    if(error){
+                                        return console.log(error);
+                                    }
+                                    console.log('Message sent: ' + info.response);
+                                });
+                                
+                                User.findByIdAndUpdate(user[0]._id,{$push: {"invites": req.params.id}},
+                                function(err, model)
+                                 {
+                                    res.redirect('/dashboard');
+                                });
+                            }
+                            else
+                            {
+                                console.log('User not found');
+                                res.redirect('/dashboard');
+                            }
+
+
+
                         });
-                    }
-                    else
-                    {
-                        console.log('User not found');
-                        res.redirect('/view-event');
-                    }
-
-
-
-                });
+                    });
             }
             else
             {
@@ -98,7 +140,6 @@ exports.postAddInvite = function(req,res){
 
 exports.postConfirmEvent = function(req,res){
         
-        // console.log("hkau na=asdjgAJKS");
         if(req.body.options=='confirm')
         {
             Event.findByIdAndUpdate(req.params.id,{$push: {"attendees": req.user._id}},

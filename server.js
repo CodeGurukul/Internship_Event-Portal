@@ -37,8 +37,8 @@ var done       =       false;
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'explara.event.invite@gmail.com',
-        pass: 'aakashankitchintan'
+        user: 'explara.event.invite@gmail.com', //new mail id made for the sake of project
+        pass: 'aakashankitchintan' // by default emails will be sent from this id
     }
 });
 
@@ -133,6 +133,15 @@ app.post('/api/photo',function(req,res){
   
 });
 
+
+// //temop code remove after use
+// var num = 5;
+// var mailBody = 'Hello user, you are invited to event id :'+ num + 'bye'
+// console.log(mailBody);
+// //temop code remove after use
+
+
+
 // ===================================== nodemailer code starts =====================================
 // setup e-mail data with unicode symbols 
 var mailOptions = {
@@ -144,13 +153,13 @@ var mailOptions = {
 };
 
 // send mail with defined transport object 
-transporter.sendMail(mailOptions, function(error, info){
+/*transporter.sendMail(mailOptions, function(error, info){
     if(error){
         return console.log(error);
     }
     console.log('Message sent: ' + info.response);
 });
-
+*/
 // ====================================== nodemailer code ends ======================================
 
 
