@@ -79,38 +79,63 @@ exports.getDashBoard=function(req,res)
                                       }
 
                                     }
-                                Home.find(function(err,homes){
-                                  res.render('dashboard',{invites:invites,eventsCreated:eventsCreated,attending:attending,homes:homes});
-                                });
-
-                                    // res.render('view-event',{event:events});
-
-
-
-
-
-
+                                  res.render('dashboard',{invites:invites,eventsCreated:eventsCreated,attending:attending});
                                 });  
-
-
-
-                              
-
-                                  
-                                  
                            }
                       });
-
-                 // shows value inside the array as wanted
-
-
                 }
     });
-
-             // shows null value why? the variable is in the scope as its declaration 
-
-
 };
+
+exports.getAdminDashBoard=function(req,res)
+{
+if(req.user.type=="admin")
+{
+  User.find(function(err,allUsers){
+    Event.find(function(err,allEvents){
+       var att=[];
+        for(var i=0;i<allEvents.length;i++)
+        {
+            
+          att=att.concat(allEvents[i].attendees);
+        }
+        User.find({'_id': { $in: att}} ,function(err,users){
+          
+            for(var i=0;i<allEvents.length;i++)
+              {
+                allEvents[i]["att"]=[];
+                for(var j=0;j<users.length;j++)
+                {
+                  if(allEvents[i].attendees.indexOf(users[j]._id)!=-1)
+                  {
+                    allEvents[i].att.push(users[j]);
+
+                  }
+                }
+
+              }
+              Home.find(function(err,homes){
+            res.render('adminDashboard',{allUsers:allUsers,allEvents:allEvents,homes:homes}); 
+             });
+              //home is the mesagges from contact us page
+          });
+    });
+   
+  });
+}
+else
+{
+  res.redirect('/');
+}
+};
+
+
+
+
+
+
+
+
 
 
 exports.postSignIn = function(req,res, next){

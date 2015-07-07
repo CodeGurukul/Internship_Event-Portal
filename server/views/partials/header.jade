@@ -138,6 +138,9 @@ nav#navbarid.navbar.navbar-invers.navbar-top(role='navigation')
         else
               li 
                 h3#name #{user.profile.name}
+              if(user.type=='admin')
+                li
+                  a#dash(href="/adminDashboard") Cpanel
               li
                 a#dash(href="/dashboard") Dashboard
               if(user)            

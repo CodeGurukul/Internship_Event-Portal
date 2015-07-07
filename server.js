@@ -75,6 +75,8 @@ app.post('/signup', userController.postSignUp);
 app.post('/signin', userController.postSignIn);
 app.get('/signout',userController.getSignOut);
 app.get('/dashboard',userController.getDashBoard);
+app.get('/adminDashboard',userController.getAdminDashBoard);
+app.get('/deletuser-event/:eid/:uid',eventController.getDeleteUserEvent);
 
 
 app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email', 'user_location'] }));

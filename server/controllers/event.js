@@ -33,7 +33,6 @@ exports.postAddEvent = function(req,res){
             //The Magic!
         eve.save(function(err)
         {
-
              User.findByIdAndUpdate(req.user._id,{$push: {"eventsCreated": eve._id},type:'eventAdmin'},
             function(err, model)
              {
@@ -154,4 +153,18 @@ exports.postDeleteEvent=function(req,res)
             res.redirect('/view-event');
         });
 
+}
+exports.getDeleteUserEvent=function(req,res)
+{
+    Event.findByIdAndUpdate(req.params.eid,{$pull: {"attendees":req.params.uid}},
+                function(err, model)
+                 {
+                   
+                        User.findByIdAndUpdate(req.params.uid,{$pull: {"invites": req.params.eid},$pull: {"eventsCreated": req.params.eid}},
+                            function(err, model)
+                            {
+                                res.redirect('/adminDashboard'); 
+                            });
+
+                });  
 }
