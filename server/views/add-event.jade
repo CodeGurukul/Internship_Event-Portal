@@ -8,7 +8,7 @@ block main
 
   #jumbo3.container.jumbotron
     .row
-      .col-md-6.col-md-offset-4
+      .col-md-6.col-md-offset-3
 
         form(action='/add-event' method='post')
 
@@ -37,11 +37,12 @@ block main
             textarea.form-control(rows='3' placeholder='description' name="eventDescription")
             //- input.form-control(type='text' rows ='3' placeholder='description' name="eventDescription")
           br
-          
           .form-group
+            label(for='Location') Where is the event?:
             .loc
               input#autocomplete.form-control(placeholder='Enter Location', onfocus='geolocate()', type='text',name="eventLocation")
-
+          br
+          br
           label(for='dropdown') Type of event
           select.form-control#dropcat(name="eventCategory" required)
             option(value='Conference') Conference
@@ -51,6 +52,10 @@ block main
             option(value='Meet Ups') Meet Ups
             |   
             option(value='Workshops') Workshops
-
-        
-          button#submitaddevent.btn.btn-success(type='submit') Submit
+          br
+          br
+          br
+          .row
+            .col-md-4.col-md-offset-4
+              .form-group
+                button.btn.btn-center.btn-block.btn-success.btn-lg.btn-right(type='submit') Submit
