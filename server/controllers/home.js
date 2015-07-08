@@ -31,3 +31,9 @@ exports.getAboutUs = function(req,res){
 
              res.render('aboutus');
 }
+exports.postDeleteMessage=function(req,res)
+{
+  Home.remove({_id:req.params.mid},function(err){
+    res.redirect('/adminDashboard');
+  });
+}
