@@ -49,7 +49,7 @@ exports.postAddEvent = function(req,res){
         {
                    if(req.user.type!='admin')
                 {
-                     User.findByIdAndUpdate(req.user._id,{$push: {"eventsCreated": eve._id},type:'eventAdmin'},
+                     User.findByIdAndUpdate(req.user._id,{$push: {"eventsCreated": eve._id}},
                     function(err, model)
                      {
                          res.redirect('/view-event');
@@ -63,8 +63,6 @@ exports.postAddEvent = function(req,res){
                          res.redirect('/view-event');
                     }); 
                  }
-           
-       
         });     
         
     }

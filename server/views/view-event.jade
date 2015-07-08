@@ -13,8 +13,4 @@ block main
           p Category: #{val.profile.categorys}
           form(action="/display-event/"+val._id method="post")
               button.btn.btn-default(type='submit') Details
-          if(user)
-             if(user.type=="admin")           
-                form(action="/delete-event/"+val._id method="post")
-                    button.btn.btn-default(type='submit') Delete    
-    hr    
+          

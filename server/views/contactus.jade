@@ -4,7 +4,7 @@ block main
     .row
         .col-md-6
           .well.well-sm
-            form.form-horizontal(method='post')
+            form.form-horizontal(actions="/contactus" method='post')
               fieldset
                 legend.text-center.header Contact us
                 |                         
@@ -18,7 +18,7 @@ block main
                 |                         
                 .form-group
                   .col-md-10.col-md-offset-1
-                    input#email.form-control(name='email', type='text', placeholder='Email Address')
+                    input#email.form-control(name='email', type='email', placeholder='Email Address')
                 |                         
                 .form-group
                   .col-md-10.col-md-offset-1

@@ -168,6 +168,4 @@ var mailOptions = {
 
 //to confirm that the abpve code runs perfectly
 app.listen(3000);
-console.log("Express server is listening at port 3000");
-
-
+console.log("Express server is listening at port 3000");  

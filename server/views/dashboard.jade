@@ -63,6 +63,7 @@ block main
 				if(eventsCreated.length==0)
 					h3#jumbo3.jumbotron You have not created any events
 				else
+					-var value=0
 					each val in eventsCreated
 						if(val)
 							#jumbo3.jumbotron
@@ -79,15 +80,14 @@ block main
 									button.btn.btn-primary(type='submit') Cancel-Event
 								form#details(action="/display-event/"+val._id method="post")
 									button.btn.btn-default(type='submit') Details 		
-								button#attendi.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#myModal') Attendees
-								#myModal.modal.fade.bs-modal-xs(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+								button#attendi.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#myModal'+value) Attendees
+								.modal.fade.bs-modal-xs(id="myModal"+value tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
 									.modal-dialog
 										.modal-content
 											.modal-header
 												button.close(type='button', data-dismiss='modal', aria-hidden='true')
 												| ×
-												h4#myModalLabel.modal-title
-												| People Attending My Event
+												h4#attendeesmodal.modal-title People Attending My Event
 												.modal-body
 													each item in val.att 
 														.container-fluid
@@ -99,8 +99,8 @@ block main
 														hr(style="height:1px;border:none;color:#333;background-color:#333;") 
 												.modal-footer
 													button.btn.btn-default(type='button', data-dismiss='modal')| Close
+								-value++
 												
-
 
 
 
