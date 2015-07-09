@@ -94,6 +94,8 @@ app.get('/signout',userController.getSignOut);
 app.get('/dashboard',userController.getDashBoard);
 app.get('/adminDashboard',userController.getAdminDashBoard);
 app.get('/deletuser-event/:eid/:uid',eventController.getDeleteUserEvent);
+app.post('/delete-message/:mid',homeController.postDeleteMessage);
+
 app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email', 'user_location'] }));
 app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/' }), function(req, res) {
   res.redirect(req.session.returnTo || '/');

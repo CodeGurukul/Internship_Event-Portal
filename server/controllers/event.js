@@ -67,8 +67,6 @@ exports.postAddEvent = function(req,res){
                          res.redirect('/view-event');
                     }); 
                  }
-            
-       
         });     
         
     }

@@ -13,6 +13,13 @@ block main
 							p email : #{val.email}
 							p phone : #{val.phone}
 							p message : #{val.message}
+						form#deletemessage(action="/delete-message/"+val._id method="post")
+									button.btn.btn-primary(type='submit') Delete Message
+
+		else
+			.jumbotron
+				.panel-body
+					h1 No messages
 	h2#heading3 All  events:
 				if(allEvents.length==0)
 					h3#jumbo3.jumbotron You have not created any events
