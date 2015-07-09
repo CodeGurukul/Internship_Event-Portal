@@ -77,6 +77,7 @@ app.get('/contactus', homeController.getContactUs);
 app.post('/contactus', homeController.postContactUs);
 app.get('/add-event', eventController.getAddEvent);
 app.post('/add-event', eventController.postAddEvent);
+app.post('/join-event/:id', eventController.postJoinEvent);
 app.post('/display-event/:id', eventController.postDisplayEvent);
 app.get('/display-event/:id', eventController.postDisplayEvent);
 app.post('/add-invite/:id', eventController.postAddInvite);

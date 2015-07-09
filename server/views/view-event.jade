@@ -13,4 +13,5 @@ block main
           p Category: #{val.profile.categorys}
           form(action="/display-event/"+val._id method="post")
               button.btn.btn-default(type='submit') Details
-          
+          form(action="/join-event/"+val._id method="post")
+              button.btn.btn-default(type='submit') Join

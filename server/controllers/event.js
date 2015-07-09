@@ -70,6 +70,18 @@ exports.postAddEvent = function(req,res){
         });     
         
     }
+    exports.postJoinEvent=function(req,res)
+    {
+         User.findByIdAndUpdate(req.user._id,{$push: {"invites": req.params.id}},
+            function(err, model)
+             {
+                Event.findByIdAndUpdate(req.params.id,{$push: {"attendees": req.user._id}},
+                function(err, model)
+                 {
+                    res.redirect('/dashboard'); 
+                });
+            }) ;  
+        }
 
 exports.getViewEvents = function(req,res){
 
@@ -184,7 +196,6 @@ exports.postUnregisterEvent= function(req,res){
        Event.findByIdAndUpdate(req.params.id,{$pull: {"attendees":req.user._id}},
                 function(err, model)
                  {
-                   
                         User.findByIdAndUpdate(req.user._id,{$pull: {"invites": req.params.id},$pull: {"eventsCreated": req.params.id}},
                             function(err, model)
                             {

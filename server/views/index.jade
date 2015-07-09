@@ -46,7 +46,6 @@ block main
 
         each item in events
           if(item.profile.category==val)
-<<<<<<< HEAD
             .box1.col-md-3(href='/display-event/'+item._id)
                 h1= item.profile.title
                   if(item.img.name)
@@ -57,23 +56,8 @@ block main
                   p= item.profile.desc
                   form(action="/display-event/"+item._id method="post")
                     button.btn.btn-default(type='submit') Details 
-=======
-            .span.animated.shake
-              .box1.col-md-3(href='/display-event/'+item._id)
-                  h1= item.profile.title
-                    |    
-                    img(src='http://www.wpthemegenerator.com/wp-content/uploads/2012/06/Image.jpg')
-                    |         
-                    p= item.profile.location
-                    p= item.profile.category
-                    p= item.profile.desc
-                    form(action="/display-event/"+item._id method="post")
-                      button.btn.btn-default(type='submit') Details 
->>>>>>> 0f01d2677a02dced46d7367feed97a6acf7aad37
 
-                    |  
-                    |        
-                    br
+          
           
             //- 
             //-  
