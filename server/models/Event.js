@@ -17,11 +17,20 @@ profile:{
     time:String,
     duration:String,
     desc:String,
-    category:String,
-    img: String
-    
-    }
-
+    category:String
+    },
+          img:{ 
+              fieldname: String,
+              originalname: String,
+              name: String,
+              encoding: String,
+              mimetype: String,
+              path: String,
+              extension: String,
+              size: Number,
+              truncated: Boolean,
+              buffer: Buffer
+             }
 });
 
 // Compile Schema into a mongoose Model

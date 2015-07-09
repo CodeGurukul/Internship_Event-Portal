@@ -33,6 +33,10 @@ exports.postAddEvent = function(req,res){
             organizerEmail:req.user.email,
             attendees:[(req.user._id)],
             status:false,
+            img:{
+                name: "defaultevent.png"
+            },
+
             profile:{
                     title:req.body.eventName,
                     location:req.body.eventLocation,

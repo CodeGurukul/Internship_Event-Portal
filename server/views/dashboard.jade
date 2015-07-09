@@ -72,6 +72,8 @@ block main
 									p Location: #{val.profile.location}
 									p Cateory: #{val.profile.category}
 									p Description: #{val.profile.desc}
+									if(val.img.name)
+										img(src="#{val.img.name}")
 									if(val.status) 
 										P Status :Cancelled
 								form#unregeve(action="/unregister-event/"+val._id method="post")
@@ -79,7 +81,10 @@ block main
 								form#canceleve(action="/cancel-event/"+val._id method="post")
 									button.btn.btn-primary(type='submit') Cancel-Event
 								form#details(action="/display-event/"+val._id method="post")
-									button.btn.btn-default(type='submit') Details 		
+									button.btn.btn-default(type='submit') Details 
+								form#uploadForm(enctype='multipart/form-data', action='/api/photo/'+val._id, method='post')
+									input(type='file', name='userPhoto')
+									input(type='submit', value='Upload Image', name='submit')		
 								button#attendi.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#myModal'+value) Attendees
 								.modal.fade.bs-modal-xs(id="myModal"+value tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
 									.modal-dialog

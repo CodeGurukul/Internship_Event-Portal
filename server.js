@@ -94,29 +94,17 @@ app.get('/signout',userController.getSignOut);
 app.get('/dashboard',userController.getDashBoard);
 app.get('/adminDashboard',userController.getAdminDashBoard);
 app.get('/deletuser-event/:eid/:uid',eventController.getDeleteUserEvent);
-
-
 app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email', 'user_location'] }));
 app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/' }), function(req, res) {
   res.redirect(req.session.returnTo || '/');
 });
-//app.get('/events/:id',eventController.getEventById);
-
-//req=request =>HTTP REQUEST object
-//res=response =>HTTP RESPONSE object
-// app.get('/auth/google', passport.authenticate('google', {scope: profile.email}), function(req, res) {
-//     // Return user back to client
-//     // res.send(req.user);
-//     console.log("howdy im inside serv.js file");
-// });
-
 
 app.get('/auth/google', passport.authenticate('google',  { scope:  ['profile' , 'email' , 'https://www.googleapis.com/auth/plus.login']}));
 app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }), function(req, res) {
 res.redirect(req.session.returnTo || '/');
   });
 
-app.use(multer({ dest: './uploads/',
+app.use(multer({ dest: 'public',
  rename: function (fieldname, filename) {
     return filename+Date.now();
   },
@@ -129,11 +117,45 @@ onFileUploadComplete: function (file) {
 }
 }));
 
+//Dont module it giving error and anamolous behaviour
+app.post('/api/photo/:id',function(req,res){
+  if(done==true)
+  {
+    console.log(req.params.id)
+    console.log(req.files.userPhoto);
+          
+        Event.findByIdAndUpdate(req.params.id,
+          {
+            
+                  img:
+                      {
+                        fieldname: req.files.userPhoto.fieldname,
+                        originalname: req.files.userPhoto.originalname,
+                        name: req.files.userPhoto.name,
+                        encoding: req.files.userPhoto.encoding,
+                        mimetype: req.files.userPhoto.mimetype,
+                        path: req.files.userPhoto.path,
+                       extension: req.files.userPhoto.extension,
+                        size: req.files.userPhoto.size,
+                        truncated: req.files.userPhoto.truncated
+                        // buffer:req.files.userPhoto.buffer
+                      } 
+            },
+            function(err, model)
+             {
+              if(err)
+              {
+                
+               console.log(err)
+               }
+               else
+               {
+                res.redirect('/dashboard'); 
+              }
+              });
 
-app.post('/api/photo',function(req,res){
-  
+  }
 });
-
 
 // //temop code remove after use
 // var num = 5;
