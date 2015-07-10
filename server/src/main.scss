@@ -253,12 +253,13 @@ background-size: cover;
    background-image: url("../images/dashboard1.png"), url("../images/dashboard2.png");
 background-repeat: repeat-x, repeat;
 background-size: cover;
+
 }
 #heading3
 {
     color: rgb(255, 100, 48);
 }
-#uploadForm
+#uploadform
 {
   position: relative;
   left: 36px;
@@ -270,9 +271,12 @@ background-size: cover;
 #panelbck
 {
   color: white;
-   background-image: url("../images/dashboard1.png"), url("../images/dashboard2.png");
-background-repeat: repeat-x, repeat;
-background-size: cover;
+   // box-shadow: 1px;
+   box-shadow: 14px 13px 59px black;
+    background-image: url("../images/dashboard1.png"), url("../images/dashboard2.png");
+ background-repeat: repeat-x, repeat;
+ background-size: cover;
+
 }
 .panel-title
 {
