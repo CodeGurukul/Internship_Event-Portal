@@ -6,12 +6,16 @@ block main
       .col-md-6.col-md-offset-4.text-center
     each val in event
       .row
-        #jumboview.col-md-6.col-md-offset-4.jumbotron
+        #jumboview.col-md-6.col-md-offset-3.jumbotron
           p Title:#{val.profile.title}
           p Location: #{val.profile.location}
           p Description: #{val.profile.desc}
-          p Category: #{val.profile.categorys}
+          p Category: #{val.profile.category}
+          if(val.profile.privateEvent)
+            p Requires Invitation : yes
+          else
+            p Requires Invitation : No
+            form(action="/join-event/"+val._id method="post")
+                button.btn.btn-default(type='submit') Join
           form(action="/display-event/"+val._id method="post")
               button.btn.btn-default(type='submit') Details
-          form(action="/join-event/"+val._id method="post")
-              button.btn.btn-default(type='submit') Join

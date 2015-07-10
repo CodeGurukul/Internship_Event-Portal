@@ -17,7 +17,8 @@ profile:{
     time:String,
     duration:String,
     desc:String,
-    category:String
+    category:String,
+    privateEvent:Boolean,
     },
           img:{ 
               fieldname: String,
