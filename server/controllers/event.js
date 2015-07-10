@@ -132,6 +132,27 @@ exports.postAddInvite = function(req,res){
                             }
                             else
                             {
+                                var htmlMailBody = 
+                                '<h3>Invitation to "'
+                                 + events[0].profile.title + '"</h3> <p>Hi there, you have an Invitation for an event sent from explara .<br />signin to <a href="'+hostName+':3000">explara</a> to know more.</p>';
+                                var textMailBody = 'Hello , you are invited to event :' + events[0].profile.title + 'from explara';
+                                var mailOptions = 
+                                {
+                                    from: 'Explara <explara.event.invite@gmail.com>', // sender address 
+                                    to: req.body.eventInvite, // list of receivers 
+                                    subject: 'Invitation ', // Subject line 
+                                    text: textMailBody, // plaintext body alt for html 
+                                    html: htmlMailBody,
+                                };
+
+                                // send mail with defined transport object 
+                                transporter.sendMail(mailOptions, function(error, info){
+                                    if(error){
+                                        return console.log(error);
+                                    }
+                                    console.log('Message sent: ' + info.response);
+                                });
+                                
                                 console.log('User not found');
                                 res.redirect('/dashboard');
                             }
