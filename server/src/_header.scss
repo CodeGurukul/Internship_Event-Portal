@@ -36,14 +36,17 @@
 {
 	  position: relative;
   top: 10px;
+  color:rgb(253, 95, 29);
+  background-color:cornsilk;
 }
 #navdropdown
 {
 	position: relative;
-  top: 8px;
+  top: 10px;
   font-size: 22px;
   border-left: 2px solid grey;
   padding-left: 15px;
+  color:rgb(253, 95, 29);
   /* width: 100%	*/
   }
   #viewEvent
@@ -51,9 +54,19 @@
   	  font-size: 22px;
   position: relative;
   top: 10px;
-  border-left: 2px solid gray;  	
+  border-left: 2px solid gray; 
+  color:rgb(253, 95, 29);
+
   
 
+}
+#cpanel
+{
+   font-size: 22px;
+  position: relative;
+  top: 10px;
+  border-left: 2px solid gray; 
+  color:rgb(253, 95, 29);
 }
       #locationField, #controls {
         position: relative;
@@ -133,6 +146,7 @@
 }
 #dash
   {
+    color:rgb(253, 95, 29);
       font-size: 22px;
   position: relative;
   top: 10px;
@@ -142,6 +156,7 @@
 }
 #addevent
   {
+    color:rgb(253, 95, 29);
       font-size: 22px;
   position: relative;
   top: 10px;
@@ -151,6 +166,7 @@
 }
 #signout
   {
+    color:rgb(253, 95, 29);
       font-size: 22px;
   position: relative;
   top: 10px;
@@ -163,6 +179,7 @@
   font-size: 24px;
   right: 12px;
   top: 2px;
+  color:rgb(228, 242, 244);
 }
 #drop
 {

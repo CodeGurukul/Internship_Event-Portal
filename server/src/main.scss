@@ -79,28 +79,37 @@ ul#nav li.current a { color: #F06000; }
 {
      position: relative;
   left: 37px;
-    bottom: 4px;
+    bottom: 2px;
 }
 #canceleve
 {
    position: relative;
   left: 37px;
-   top:8px;
-
-     bottom: 6px;
+   top:4px;
 }
 #details
 {
    position: relative;
   left: 37px;
-   top: 17px;
+   top: 5px;
 }
 #attendi
 {
    position: relative;
-  left: 37px;
-    top: 25px;
+  left: 36px;
+    top: 5px;
 }
+#abouhead
+{
+  background-image: url("../images/dashboard1.png"), url("../images/dashboard2.png");
+background-repeat: repeat-x, repeat;
+background-size: cover;
+}
+#abou{
+  color:white;
+  font-size: 16px;
+}
+
 #submitaddevent
 {
   position: relative;
@@ -218,63 +227,98 @@ a{
 
 #jumbo1
 {
-   color: white;
-   background: url('../images/dashboard.jpg') no-repeat center center;
+   color: black;
+   background-image: url("../images/dashboard1.png"), url("../images/dashboard2.png");
+background-repeat: repeat-x, repeat;
+background-size: cover;
 }
 #heading1
 {
-   color: rgb(192, 125, 61);
+    color: rgb(255, 100, 48);
 }
 #jumbo2
 {
-   color: white;
-   background: url('../images/dashboard.jpg') no-repeat center center;
+   color: black;
+   background-image: url("../images/dashboard1.png"), url("../images/dashboard2.png");
+background-repeat: repeat-x, repeat;
+background-size: cover;
 }
 #heading2
 {
-   color: rgb(192, 125, 61);
+   color: rgb(255, 100, 48);
 }
 #jumbo3
 {
-   color: white;
-   background: url('../images/dashboard.jpg') no-repeat center center;
+   color: black;
+   background-image: url("../images/dashboard1.png"), url("../images/dashboard2.png");
+background-repeat: repeat-x, repeat;
+background-size: cover;
 }
 #heading3
 {
-   color: rgb(192, 125, 61);
+    color: rgb(255, 100, 48);
+}
+#uploadForm
+{
+  position: relative;
+  left: 36px;
 }
 #userdethead
 {
-  color: rgb(192, 125, 61); 
+   color: rgb(255, 100, 48);
 }
 #panelbck
 {
-   background: url('../images/dashboard.jpg') no-repeat center center;
+  color: white;
+   background-image: url("../images/dashboard1.png"), url("../images/dashboard2.png");
+background-repeat: repeat-x, repeat;
+background-size: cover;
+}
+.panel-title
+{
+  font-weight: 800;
 }
 #panelhead
 {
     
-  color: white;
-   background: url('../images/dashboard.jpg') no-repeat center center;
+  color:rgb(33, 61, 147);
+
+  background-image: url("../images/dashboard1.png"), url("../images/dashboard2.png");
+background-repeat: repeat-x, repeat;
+   background-size: cover;
 
 }
 #panelbody
 {
-    color: white;
+    color: black;
+}
+#unreg
+{
+  position: relative;
+  left: 36px;
+}
+#detbut
+{
+  position: relative;
+  left: 36;
 }
 #jumboadd
 {
-   background: url('../images/dashboard.jpg') no-repeat center center;
+   background-image: url("../images/dashboard1.png"), url("../images/dashboard2.png");
+background-repeat: repeat-x, repeat;
+   background-size: cover;
 }
 #jumboview
 {
-   background: url('../images/dashboard.jpg') no-repeat center center;
-   color: rgb(113, 219, 180);
+   background-image: url("../images/dashboard1.png"), url("../images/dashboard2.png");
+background-repeat: repeat-x, repeat;
+   background-size: cover;
 }
 
 #headingin
 {
-  color: rgb(222, 47, 47);
+
+  color: rgb(248, 255, 155);
   text-align: right;
 }
 .attendeesname
@@ -285,3 +329,12 @@ a{
 {
   color: black;
 }
+
+
+
+body{
+background-image: url("../images/zenbg-1.png"), url("../images/zenbg-2.png");
+background-repeat: repeat-x, repeat;
+
+}   
+
