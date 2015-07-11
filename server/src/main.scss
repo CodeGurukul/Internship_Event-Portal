@@ -227,10 +227,10 @@ a{
 
 #jumbo1
 {
-   color: black;
-   background-image: url("../images/dashboard1.png"), url("../images/dashboard2.png");
-background-repeat: repeat-x, repeat;
-background-size: cover;
+    background-color: transparent;
+ box-shadow: 29px -1px 82px 2px black;
+   text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
+  color: white;
 }
 #heading1
 {
@@ -238,10 +238,10 @@ background-size: cover;
 }
 #jumbo2
 {
-   color: black;
-   background-image: url("../images/dashboard1.png"), url("../images/dashboard2.png");
-background-repeat: repeat-x, repeat;
-background-size: cover;
+    background-color: transparent;
+ box-shadow: 29px -1px 82px 2px black;
+   text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
+  color: white;
 }
 #heading2
 {
@@ -249,10 +249,10 @@ background-size: cover;
 }
 #jumbo3
 {
-   color: black;
-   background-image: url("../images/dashboard1.png"), url("../images/dashboard2.png");
-background-repeat: repeat-x, repeat;
-background-size: cover;
+    background-color: transparent;
+ box-shadow: 29px -1px 82px 2px black;
+   text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
+  color: white;
 
 }
 #heading3
@@ -272,10 +272,10 @@ background-size: cover;
 {
   color: white;
    // box-shadow: 1px;
-   box-shadow: 14px 13px 59px black;
-    background-image: url("../images/dashboard1.png"), url("../images/dashboard2.png");
- background-repeat: repeat-x, repeat;
- background-size: cover;
+   background-color: transparent;
+ box-shadow: 29px -1px 82px 2px black;
+   text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
+  color: white;
 
 }
 .panel-title
@@ -284,17 +284,18 @@ background-size: cover;
 }
 #panelhead
 {
-    
-  color:rgb(33, 61, 147);
-
-  background-image: url("../images/dashboard1.png"), url("../images/dashboard2.png");
-background-repeat: repeat-x, repeat;
-   background-size: cover;
+    background-color: transparent;
+ box-shadow: 29px -1px 82px 2px black;
+   text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
+  color: white;
 
 }
 #panelbody
 {
-    color: black;
+     background-color: transparent;
+ box-shadow: 29px -1px 82px 2px black;
+   text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
+  color: white;
 }
 #unreg
 {
@@ -314,9 +315,11 @@ background-repeat: repeat-x, repeat;
 }
 #jumboview
 {
-   background-image: url("../images/dashboard1.png"), url("../images/dashboard2.png");
-background-repeat: repeat-x, repeat;
-   background-size: cover;
+   background-color: transparent;
+ box-shadow: 29px -1px 82px 2px black;
+   text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
+  color: white;
+
 }
 
 #headingin
