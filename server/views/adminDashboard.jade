@@ -2,13 +2,13 @@ extends ./includes/layout
 block main
 
 	if(user.type=="admin")
-		h2 You have the following messages 
+		h2#heading3 You have the following messages 
 		each val in homes
 			if(val)
-				.panel.panel-primary
-					.panel-heading
+				#panelbck.panel.panel-primary
+					#panelhead.panel-heading
 						h1.panel-title #{val.firstName} #{val.lastName}
-					.panel-body
+					#panelbody.panel-body
 						ul
 							p email : #{val.email}
 							p phone : #{val.phone}
@@ -17,8 +17,8 @@ block main
 									button.btn.btn-primary(type='submit') Delete Message
 
 		else
-			.jumbotron
-				.panel-body
+			#panelbody.jumbotron
+				#panelbody.panel-body
 					h1 No messages
 	h2#heading3 All  events:
 				if(allEvents.length==0)
@@ -89,12 +89,13 @@ block main
 												.modal-footer
 													button.btn.btn-default(type='button', data-dismiss='modal')| Close	
 
-	h2 All Users
+	h2#heading3 All Users
 		each user in allUsers
-			p= user.profile.name
-			p= user.email
-			form#details(action="/delete-user/"+user._id method="post")
-				button.btn.btn-default(type='submit') Delete 	
+			#jumbo3.jumbotron
+				p= user.profile.name
+				p= user.email
+				form#details(action="/delete-user/"+user._id method="post")
+					button.btn.btn-default(type='submit') Delete 	
 
 
 
