@@ -7,14 +7,17 @@ footer{
 	  position: relative;
   top: -24px;
   color:  #f8ff9b;
+  text-shadow: 1px 1px 1px #000, 7px 7px 94px rgb(0, 0, 0);
 }
+
 #conto{
 	  position: relative;
 
 }
 #footerjumbo
 {
-	background-color: rgb(22, 31, 68);
+	 background-color: transparent;
+ box-shadow: 29px -1px 82px 2px black;
 }
 #lastp
 {color: rgb(213, 152, 152);

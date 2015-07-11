@@ -40,7 +40,7 @@ block main
   .container
     each val in ['Conference','Hackathon','Meet Ups','Workshops']
       .row
-        hr(style="  border-top: 5px solid #C1FFFB")
+        hr(style="  border-top: 5px solid #A7F3EF")
         if(val=='Conference')
           h2#headingin
             i.fa.fa-suitcase
@@ -61,16 +61,17 @@ block main
 
         each item in events
           if(item.profile.category==val)
-            .box1.col-md-3(href='/display-event/'+item._id)
-                h1= item.profile.title
-                  if(item.img.name)
-                    img(src='#{item.img.name}')
-                  |         
-                  p= item.profile.location
-                  p= item.profile.category
-                  p= item.profile.desc
-                  form(action="/display-event/"+item._id method="post")
-                    button.btn.btn-default(type='submit') Details 
+            .animated.zoomInDown
+              .box1.col-md-3(href='/display-event/'+item._id)
+                  h1= item.profile.title
+                    if(item.img.name)
+                      img(src='#{item.img.name}')
+                    |         
+                    p= item.profile.location
+                    p= item.profile.category
+                    p= item.profile.desc
+                    form(action="/display-event/"+item._id method="post")
+                      button.btn.btn-default(type='submit') Details 
 
           
           
