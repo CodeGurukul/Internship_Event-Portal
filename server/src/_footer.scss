@@ -6,6 +6,7 @@ footer{
 #fa{
 	  position: relative;
   top: -24px;
+  color:  #f8ff9b;
 }
 #conto{
 	  position: relative;
@@ -13,10 +14,14 @@ footer{
 }
 #footerjumbo
 {
-	background: url('../images/footer.jpg') no-repeat center center;
+	background-color: rgb(22, 31, 68);
 }
 #lastp
 {color: rgb(213, 152, 152);
   font-weight: 800;
   font-size: 20px;
+}
+#footera
+{
+	color: #f8ff9b;
 }
