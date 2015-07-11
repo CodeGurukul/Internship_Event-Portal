@@ -1,6 +1,6 @@
 //nodemailer is used for sending mails
 var nodemailer=require('nodemailer');
-
+var hostName = require('os').hostname();
 var Event = require('../models/Event');
 var User = require('../models/User');
 
@@ -96,7 +96,7 @@ exports.getViewEvents = function(req,res){
 exports.postAddInvite = function(req,res){
     var index =req.user.eventsCreated.indexOf(req.params.id)
             if(index!=-1)
-             {       
+            {       
                 Event.find({_id:req.params.id},function(err,events)
                     {
                         User.find({email:req.body.eventInvite},function(err,user){
@@ -105,7 +105,7 @@ exports.postAddInvite = function(req,res){
                                 // setup e-mail data with unicode symbols 
                                 var htmlMailBody = 
                                 '<h3>Invitation to "'
-                                 + events[0].profile.title + '"</h3> <p>Hi there, you have an Invitation for an event sent from explara .<br />signin to <a href="localhost:3000">explara</a> to know more.</p>';
+                                 + events[0].profile.title + '"</h3> <p>Hi there, you have an Invitation for an event sent from explara .<br />signin to <a href="'+hostName+':3000">explara</a> to know more.</p>';
                                 var textMailBody = 'Hello ' + user[0].profile.name + ', you are invited to event :' + events[0].profile.title + 'from explara';
                                 var mailOptions = 
                                 {
