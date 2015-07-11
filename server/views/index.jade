@@ -17,7 +17,7 @@ block main
             h3 Hackathons
         li
           div(data-image='1/img/6-s.jpg')
-      h2 EXPLARA
+      h2 EXPLARA 
     nav#nav-wrap
     a.mobile-btn(href='#nav-wrap', title='Show navigation') Show navigation
       | &#x9;      
@@ -40,8 +40,23 @@ block main
   .container
     each val in ['Conference','Hackathon','Meet Ups','Workshops']
       .row
-        h2#headingin= val
         hr(style="  border-top: 5px solid #A7F3EF")
+        if(val=='Conference')
+          h2#headingin
+            i.fa.fa-suitcase
+            =' '+ val
+        if(val=='Hackathon')
+          h2#headingin
+            i.fa.fa-user-secret
+            =' '+ val
+        if(val=='Meet Ups')
+          h2#headingin
+            i.fa.fa-coffee
+            =' '+ val
+        if(val=='Workshops')
+          h2#headingin
+            i.fa.fa-cogs
+            =' '+ val
 
 
         each item in events

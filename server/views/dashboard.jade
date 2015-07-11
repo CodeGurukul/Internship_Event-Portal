@@ -10,9 +10,15 @@ block main
 						h1.panel-title #{user.profile.name}
 					#panelbody.panel-body
 						ul
-							li Email:   #{user.email}
-							li Gender:  #{user.profile.gender}
-							li location:#{user.profile.location}
+							p
+								icon.fa.fa-envelope-o Email:   #{user.email}
+							p
+								if(user.profile.gender=='male')
+									icon.fa.fa-male 	Gender:  #{user.profile.gender}
+								else
+									icon.fa.fa-female 	Gender:  #{user.profile.gender}
+							p
+								icon.fa.fa-location-arrow 	 location:#{user.profile.location}
 				hr
 				
 				h2#heading1 You are invited to the following events:

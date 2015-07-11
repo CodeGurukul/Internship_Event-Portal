@@ -16,6 +16,10 @@ block main
           else
             p Requires Invitation : No
             form(action="/join-event/"+val._id method="post")
-                button.btn.btn-default(type='submit') Join
+                button.btn.btn-default(type='submit') 
+                  i.fa.fa-plus-circle
+                  |   Join
           form(action="/display-event/"+val._id method="post")
-              button.btn.btn-default(type='submit') Details
+              button.btn.btn-default(type='submit') 
+                i.fa.fa-info-circle
+                |   Details

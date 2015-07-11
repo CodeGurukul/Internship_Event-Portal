@@ -47,7 +47,11 @@ nav#navbarid.navbar.navbar-invers.navbar-top(role='navigation')
       ul.nav.navbar-nav.navbar-right
         if(!user)
             li
-                button#navbutton.btn.btn-primary.btn-lg(href='#signup', data-toggle='modal', data-target='.bs-modal-sm') Sign In/Register
+                button#navbutton.btn.btn-primary.btn-lg(href='#signup', data-toggle='modal', data-target='.bs-modal-sm') 
+                  i.fa.fa-user
+                  | Sign In/ 
+                  i.fa.fa-user-plus
+                  | Register
            
                 #myModal.modal.fade.bs-modal-sm(tabindex='-1', role='dialog', aria-labelledby='mySmallModalLabel', aria-hidden='true' onload='initialize()')
                     .modal-dialog.modal-sm
