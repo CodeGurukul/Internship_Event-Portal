@@ -74,8 +74,8 @@
         text-align: left;
       }
       #autocomplete {
-        position: absolute;
-        top: 0px;
+        position: relative;
+          top: -186px;;
         left: 0px;
         width: 55%;
         z-index:1050;
