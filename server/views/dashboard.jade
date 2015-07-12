@@ -91,7 +91,7 @@ block main
 									p Cateory: #{val.profile.category}
 									p Description: #{val.profile.desc}
 									if(val.img.name)
-										img(src="#{val.img.name}")
+										img#dashimage(src="#{val.img.name}")
 									if(val.status) 
 										P Status :Cancelled
 								form#unregeve(action="/unregister-event/"+val._id method="post")
