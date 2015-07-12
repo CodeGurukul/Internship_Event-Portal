@@ -109,13 +109,18 @@ ul#nav li.current a { color: #F06000; }
 }
 #abouhead
 {
-  background-image: url("../images/dashboard1.png"), url("../images/dashboard2.png");
-background-repeat: repeat-x, repeat;
-background-size: cover;
+   background-color: transparent;
+ box-shadow: 29px -1px 82px 2px black;
+   text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
+  color: white;
 }
 #abou{
   color:white;
   font-size: 16px;
+   background-color: transparent;
+ box-shadow: 29px -1px 82px 2px black;
+   text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
+  
 }
 
 #submitaddevent
