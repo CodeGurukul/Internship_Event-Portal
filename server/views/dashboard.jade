@@ -1,5 +1,6 @@
 extends ./includes/layout
 block main
+	hr
 	h1#userdethead Profile:
 	hr
 	#userdet.container.bcks
@@ -10,17 +11,19 @@ block main
 						h1.panel-title #{user.profile.name}
 						hr
 					#panelbody.panel-body
-						ul
-							p
-								icon.fa.fa-envelope-o            Email:   #{user.email}
-							p
-								if(user.profile.gender=='male')
-									icon.fa.fa-male 	Gender:  #{user.profile.gender}
-								else
-									icon.fa.fa-female 	Gender:  #{user.profile.gender}
-							p
-								icon.fa.fa-location-arrow 	 location:#{user.profile.location}
-	hr
+						.row
+							.col-md-6-fluid.userpanelimg
+								img.img-circle(src='#{user.profile.picture}')
+							.col-md-6
+								p
+									icon.fa.fa-envelope-o      Email:   #{user.email}
+								p
+									if(user.profile.gender=='male')
+										icon.fa.fa-male 	Gender:  #{user.profile.gender}
+									else
+										icon.fa.fa-female 	Gender:  #{user.profile.gender}
+								p
+									icon.fa.fa-location-arrow 	 location:#{user.profile.location}
 	.container
 		.row
 			.col-md-12			
