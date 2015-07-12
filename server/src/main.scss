@@ -278,7 +278,7 @@ a{
   color: white;
    // box-shadow: 1px;
    background-color: transparent;
- box-shadow: 29px -1px 82px 2px black;
+ border-color: transparent;
    text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
   color: white;
 
@@ -290,7 +290,7 @@ a{
 #panelhead
 {
     background-color: transparent;
- box-shadow: 29px -1px 82px 2px black;
+ border-color: transparent;
    text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
   color: white;
 
@@ -298,7 +298,7 @@ a{
 #panelbody
 {
      background-color: transparent;
- box-shadow: 29px -1px 82px 2px black;
+ 
    text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
   color: white;
 }
@@ -346,4 +346,8 @@ background-repeat: repeat-x, repeat;
 body{
 background-image: url("../images/background1.png"), url("../images/background2.png");
 background-repeat: repeat-x, repeat;
+}
+.bcks
+{
+  box-shadow: 14px 14px 89px black;
 }
