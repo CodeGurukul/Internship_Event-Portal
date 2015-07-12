@@ -52,7 +52,7 @@ block main
 											|  Reject-Event
 									button#option3.btn.btn-primary(type='submit') Submit
 								form(action="/display-event/"+val._id method="post")
-									button.btn.btn-default(type='submit') Details
+									button.btn.btn-custom(type='submit') Details
 	.container
 		.row
 			.col-md-12								
@@ -73,7 +73,7 @@ block main
 								form(action="/unregister-event/"+val._id method="post")
 									button#unreg.btn.btn-primary(type='submit') Unregister-Event
 								form(action="/display-event/"+val._id method="post")
-									button#detbut.btn.btn-default(type='submit') Details 	
+									button#detbut.btn.btn-custom(type='submit') Details 	
 	.container
 		.row
 			.col-md-12						
@@ -99,7 +99,7 @@ block main
 								form#canceleve(action="/cancel-event/"+val._id method="post")
 									button.btn.btn-primary(type='submit') Cancel-Event
 								form#details(action="/display-event/"+val._id method="post")
-									button.btn.btn-default(type='submit') Details 
+									button.btn.btn-custom(type='submit') Details 
 								form#uploadform(enctype='multipart/form-data', action='/api/photo/'+val._id, method='post')
 									input(type='file', name='userPhoto')
 									input(type='submit', value='Upload Image', name='submit')		

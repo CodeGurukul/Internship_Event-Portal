@@ -3,7 +3,7 @@ block main
   hr
   .container
     .row
-      .col-md-6.col-md-offset-4.text-center
+      .col-md-6.col-md-offset-3.text-center
     each val in event
       .row
         #jumboview.col-md-6.col-md-offset-3.jumbotron
@@ -15,11 +15,13 @@ block main
             p Requires Invitation : yes
           else
             p Requires Invitation : No
-            form(action="/join-event/"+val._id method="post")
-                button.btn.btn-default(type='submit') 
-                  i.fa.fa-plus-circle
-                  |   Join
-          form(action="/display-event/"+val._id method="post")
-              button.btn.btn-default(type='submit') 
-                i.fa.fa-info-circle
-                |   Details
+            .col-xs-6.col-sm-4.col-md-4.col-lg-4
+              form(action="/join-event/"+val._id method="post")
+                  button.btn.btn-custom(type='submit') 
+                    i.fa.fa-plus-circle
+                    |   Join
+          .col-xs-6.col-sm-4.col-md-4.col-lg-4
+            form(action="/display-event/"+val._id method="post")
+                button.btn.btn-custom(type='submit') 
+                  i.fa.fa-info-circle
+                  |   Details
