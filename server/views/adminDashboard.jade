@@ -105,7 +105,7 @@ block main
 							.col-md-6
 								p Name : #{users.profile.name}
 								p Email :#{users.email}
-								form#details(action="/delete-user/"+user._id method="post")
+								form#details(action="/delete-user/"+users._id method="post")
 									button.btn.btn-default(type='submit') Delete 	
 
 
