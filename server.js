@@ -148,7 +148,8 @@ app.post('/api/photo/:id',function(req,res){
              {
               if(err)
               {
-                
+                console/log("error at server");
+                res.redirect('/dashboard');
                console.log(err)
                }
                else

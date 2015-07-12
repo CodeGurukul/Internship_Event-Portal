@@ -19,14 +19,19 @@ exports.postSignUp = function(req,res){
                     }, 
             email:req.body.userEmail, 
             password:req.body.userPassword});
-            user.save();
-          res.redirect('/');
+
+            user.save(function(err,done){
+              console.log("hello");
+              res.redirect('/');
+            });
+          
         
             
 }
 
 exports.getDashBoard=function(req,res)
   {
+
 
   Event.find({'_id': { $in: req.user.invites}},function(err,events)
     {
@@ -144,7 +149,7 @@ exports.postSignIn = function(req,res, next){
     passport.authenticate('local',function(err, user, info) {
       if (err) return next(err);
       if (!user) {
-        console.log('errors');
+        console.log('errors at post signin ');
         return res.redirect('/');
       }
       req.logIn(user, function(err) {

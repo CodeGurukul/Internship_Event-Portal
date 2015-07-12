@@ -1,101 +1,112 @@
 extends ./includes/layout
 block main
+	.container
+		.row
+			.col-md-12
+				if(user.type=="admin")
+					h2#heading3 You have the following messages 
+					if(homes.length!==0)
+						each val in homes
+							#panelbck.panel.panel-primary
+								#panelhead.panel-heading
+									h1.panel-title #{val.firstName} #{val.lastName}
+								#panelbody.panel-body
+									ul
+										p email : #{val.email}
+										p phone : #{val.phone}
+										p message : #{val.message}
+									form#deletemessage(action="/delete-message/"+val._id method="post")
+												button.btn.btn-primary(type='submit') Delete Message
 
-	if(user.type=="admin")
-		h2#heading3 You have the following messages 
-		each val in homes
-			if(val)
-				#panelbck.panel.panel-primary
-					#panelhead.panel-heading
-						h1.panel-title #{val.firstName} #{val.lastName}
-					#panelbody.panel-body
-						ul
-							p email : #{val.email}
-							p phone : #{val.phone}
-							p message : #{val.message}
-						form#deletemessage(action="/delete-message/"+val._id method="post")
-									button.btn.btn-primary(type='submit') Delete Message
-
-		else
-			#panelbody.jumbotron
-				#panelbody.panel-body
-					h1 No messages
-	h2#heading3 All  events:
-				if(allEvents.length==0)
-					h3#jumbo3.jumbotron You have not created any events
-				else
-					each val in allEvents
-						if(val)
-							#jumbo3.jumbotron
-								ul
-									p Name :#{val.profile.title}
-									p Location: #{val.profile.location}
-									p Cateory: #{val.profile.category}
-									p Description: #{val.profile.desc}
-									if(val.status) 
-										P Status :Cancelled
-								form#canceleve(action="/cancel-event/"+val._id method="post")
-									button.btn.btn-primary(type='submit') Cancel-Event
-								form#details(action="/display-event/"+val._id method="post")
-									button.btn.btn-default(type='submit') Details 		
-								form#details(action="/delete-event/"+val._id method="post")
-									button.btn.btn-default(type='submit') Delete 		
-								
-									
-								button#attendi.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#myModal') Attendees
-								
-
-
-								#myModal.modal.fade.bs-modal-xs(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
-									.modal-dialog
-										.modal-content
-											.modal-header
-												button.close(type='button', data-dismiss='modal', aria-hidden='true')
-												| ×
-												h4#attendeesmodal.modal-title People Attending My Event
-												.modal-body
-													each item in val.att 
-														.container-fluid
-															.row
-																.col-md-6.attendeesimg
-																	img.img-circle(src=item.profile.picture)
-																.col-md-6
-																	h3.attendeesname #{item.profile.name}
-														hr(style="height:1px;border:none;color:#333;background-color:#333;") 
-												.modal-footer
-													button.btn.btn-default(type='button', data-dismiss='modal')| Close	
-
-								button#attendi.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#kick') Kick
-								
+					else
+						#panelbody.jumbotron
+							#panelbody.panel-body
+								h1 No messages
+	.container
+		.row
+			.col-md-12
+				h2#heading3 All Events:
+							if(allEvents.length==0)
+								h3#jumbo3.jumbotron You have not created any events
+							else
+								each val in allEvents
+									if(val)
+										#jumbo3.jumbotron
+											ul
+												p Name :#{val.profile.title}
+												p Location: #{val.profile.location}
+												p Cateory: #{val.profile.category}
+												p Description: #{val.profile.desc}
+												if(val.status) 
+													P Status :Cancelled
+											form#canceleve(action="/cancel-event/"+val._id method="post")
+												button.btn.btn-primary(type='submit') Cancel-Event
+											form#details(action="/display-event/"+val._id method="post")
+												button.btn.btn-default(type='submit') Details 		
+											form#details(action="/delete-event/"+val._id method="post")
+												button.btn.btn-default(type='submit') Delete 		
+											
+												
+											button#attendi.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#myModal') Attendees
+											
 
 
-								#kick.modal.fade.bs-modal-xs(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
-									.modal-dialog
-										.modal-content
-											.modal-header
-												button.close(type='button', data-dismiss='modal', aria-hidden='true')
-												| ×
-												h4#attendeesmodal.modal-title Click the User To Kick From Event
-												.modal-body
-													each item in val.att 
-														a(href="/deletuser-event/"+val._id+'/'+item._id method="post")
-															.container-fluid
-																.row
-																	.col-md-6.attendeesimg
-																		img.img-circle(src=item.profile.picture)
-																	.col-md-6
-																		h3.attendeesname #{item.profile.name}
-														hr(style="height:1px;border:none;color:#333;background-color:#333;") 
-												.modal-footer
-													button.btn.btn-default(type='button', data-dismiss='modal')| Close	
+											#myModal.modal.fade.bs-modal-xs(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+												.modal-dialog
+													.modal-content
+														.modal-header
+															button.close(type='button', data-dismiss='modal', aria-hidden='true')
+															| ×
+															h4#attendeesmodal.modal-title People Attending My Event
+															.modal-body
+																each item in val.att 
+																	.container-fluid
+																		.row
+																			.col-md-6.attendeesimg
+																				img.img-circle(src=item.profile.picture)
+																			.col-md-6
+																				h3.attendeesname #{item.profile.name}
+																	hr(style="height:1px;border:none;color:#333;background-color:#333;") 
+															.modal-footer
+																button.btn.btn-default(type='button', data-dismiss='modal')| Close	
 
-	h2#heading3 All Users
-		each user in allUsers
-			#jumbo3.jumbotron
-				p= user.profile.name
-				p= user.email
-				form#details(action="/delete-user/"+user._id method="post")
-					button.btn.btn-default(type='submit') Delete 	
+											button#attendi.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#kick') Kick
+											
+
+
+											#kick.modal.fade.bs-modal-xs(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+												.modal-dialog
+													.modal-content
+														.modal-header
+															button.close(type='button', data-dismiss='modal', aria-hidden='true')
+															| ×
+															h4#attendeesmodal.modal-title Click the User To Kick From Event
+															.modal-body
+																each item in val.att 
+																	a(href="/deletuser-event/"+val._id+'/'+item._id method="post")
+																		.container-fluid
+																			.row
+																				.col-md-6.attendeesimg
+																					img.img-circle(src=item.profile.picture)
+																				.col-md-6
+																					h3.attendeesname #{item.profile.name}
+																	hr(style="height:1px;border:none;color:#333;background-color:#333;") 
+															.modal-footer
+																button.btn.btn-default(type='button', data-dismiss='modal')| Close
+
+	.container
+		.row
+			.col-md-12
+				h2#heading3 All Users
+					each users in allUsers
+						.row#jumbo3.jumbotron
+							.col-md-6
+								img.img-circle(src=('#{users.profile.picture}'))
+							.col-md-6
+								p Name : #{users.profile.name}
+								p Email :#{users.email}
+								form#details(action="/delete-user/"+user._id method="post")
+									button.btn.btn-default(type='submit') Delete 	
 
 
 
