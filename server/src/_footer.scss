@@ -1,3 +1,11 @@
+//custom colors 
+$col1 : #2eafb0;
+$col2 : #6ec1c2;
+$col3 : #f1831d;
+$col4 : #7f2b82;
+$col5 : #e41a6a;
+
+
 footer{
   p{
     border-top: 1px solid #d7e0e2;
@@ -7,7 +15,7 @@ footer{
 	  position: relative;
   top: -24px;
   color:  #f8ff9b;
-  text-shadow: 1px 1px 1px #000, 7px 7px 94px rgb(0, 0, 0);
+  // text-shadow: 1px 1px 1px #000, 7px 7px 94px rgb(0, 0, 0);
 }
 
 #conto{
@@ -16,8 +24,8 @@ footer{
 }
 #footerjumbo
 {
-	 background-color: transparent;
- box-shadow: 29px -1px 82px 2px black;
+  background-color: $col4;
+  /*box-shadow: 29px -1px 82px 2px black;*/
 }
 #lastp
 {color:#f8ff9b;

@@ -2,9 +2,10 @@ extends ./includes/layout
 block main
 	.container
 		.row
-			.col-md-12
+			.col-md-12.bg-color5
 				if(user.type=="admin")
-					h2#heading3 You have the following messages 
+					h2.color4#heading3 You have the following messages 
+						hr(style="  border-top: 5px solid #6ec1c2; width: inherit")
 					if(homes.length!==0)
 						each val in homes
 							#panelbck.panel.panel-primary
@@ -31,7 +32,7 @@ block main
 							else
 								each val in allEvents
 									if(val)
-										#jumbo3.jumbotron
+										#jumbo3.jumbotron.bg-color2
 											ul
 												p Name :#{val.profile.title}
 												p Location: #{val.profile.location}
@@ -40,14 +41,12 @@ block main
 												if(val.status) 
 													P Status :Cancelled
 											form#canceleve(action="/cancel-event/"+val._id method="post")
-												button.btn.btn-primary(type='submit') Cancel-Event
+												button.btn.btn-custom4(type='submit') Cancel-Event
 											form#details(action="/display-event/"+val._id method="post")
 												button.btn.btn-custom(type='submit') Details 		
-											form#details(action="/delete-event/"+val._id method="post")
-												button.btn.btn-default(type='submit') Delete 		
 											
 												
-											button#attendi.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#myModal') Attendees
+											button#attendi.btn.btn-custom3.btn-lg(data-toggle='modal', data-target='#myModal') Attendees
 											
 
 
@@ -68,9 +67,9 @@ block main
 																				h3.attendeesname #{item.profile.name}
 																	hr(style="height:1px;border:none;color:#333;background-color:#333;") 
 															.modal-footer
-																button.btn.btn-default(type='button', data-dismiss='modal')| Close	
+																button.btn.btn-custom3(type='button', data-dismiss='modal')| Close	
 
-											button#attendi.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#kick') Kick
+											button#attendi.btn.btn-custom3.btn-lg(data-toggle='modal', data-target='#kick') Kick
 											
 
 
@@ -94,19 +93,24 @@ block main
 															.modal-footer
 																button.btn.btn-default(type='button', data-dismiss='modal')| Close
 
+											form#details(style='margin-top:30px')(action="/delete-event/"+val._id method="post")
+												button.btn.btn-delete(type='submit') 
+													i.fa.fa-times.fa-2x 		
 	.container
 		.row
 			.col-md-12
 				h2#heading3 All Users
 					each users in allUsers
-						.row#jumbo3.jumbotron
+						.row#jumbo3.jumbotron.bg-color3
 							.col-md-6
 								img.img-circle(src=('#{users.profile.picture}'))
 							.col-md-6
 								p Name : #{users.profile.name}
 								p Email :#{users.email}
 								form#details(action="/delete-user/"+users._id method="post")
-									button.btn.btn-default(type='submit') Delete 	
+									button.btn.btn-delete(type='submit')  
+										i.fa.fa-times.fa-2x 		
+
 
 
 

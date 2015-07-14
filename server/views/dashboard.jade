@@ -3,7 +3,7 @@ block main
 	hr
 	h1#userdethead Profile:
 	hr
-	#userdet.container.bcks
+	#userdet.container.bcks.bg-color4
 		.row
 			.col-md-12
 				#panelbck.panel.panel-primary
@@ -29,11 +29,11 @@ block main
 			.col-md-12			
 				h2#heading1 You are invited to the following events:
 				if(invites.length==0)
-					h3#jumbo3.jumbotron No Invitations
+					h3#jumbo3.jumbotron.bg-color2 No Invitations
 				else
 					each val in invites
 						if(val)
-							#jumbo1.jumbotron
+							#jumbo1.jumbotron.bg-color2
 								ul
 									p Name :#{val.profile.title}
 									p Location: #{val.profile.location}
@@ -50,19 +50,19 @@ block main
 										label#option2.btn.btn-primary
 											input(type='radio', name='options', autocomplete='off' value='reject')
 											|  Reject-Event
-									button#option3.btn.btn-primary(type='submit') Submit
+									button#option3.btn.btn-custom3(type='submit') Submit
 								form(action="/display-event/"+val._id method="post")
 									button.btn.btn-custom(type='submit') Details
 	.container
 		.row
-			.col-md-12								
+			.col-md-12							
 				h2#heading2 You are attending to the following events:
 				if(attending.length==0)
-					h3#jumbo2.jumbotron You are Not attending  any events
+					h3#jumbo2.jumbotron.bg-color3 You are Not attending  any events
 				else
 					each val in attending
 						if(val)
-							#jumbo2.jumbotron
+							#jumbo2.jumbotron.bg-color3
 								ul
 									p Name :#{val.profile.title}
 									p Location: #{val.profile.location}
@@ -71,20 +71,22 @@ block main
 									if(val.status)
 										P Status :Cancelled
 								form(action="/unregister-event/"+val._id method="post")
-									button#unreg.btn.btn-primary(type='submit') Unregister-Event
+									button#unreg.btn.btn-delete(type='submit') 
+										i.fa.fa-times.fa-2x 		
+	
 								form(action="/display-event/"+val._id method="post")
 									button#detbut.btn.btn-custom(type='submit') Details 	
 	.container
 		.row
-			.col-md-12						
+			.col-md-12			
 				h2#heading3 You created the following events:
 				if(eventsCreated.length==0)
-					h3#jumbo3.jumbotron You have not created any events
+					h3#jumbo3.jumbotron.bg-color5 You have not created any events
 				else
 					-var value=0
 					each val in eventsCreated
 						if(val)
-							#jumbo3.jumbotron
+							#jumbo3.jumbotron.bg-color5
 								ul
 									p Name :#{val.profile.title}
 									p Location: #{val.profile.location}
@@ -103,7 +105,7 @@ block main
 								form#uploadform(enctype='multipart/form-data', action='/api/photo/'+val._id, method='post')
 									input(type='file', name='userPhoto')
 									input(type='submit', value='Upload Image', name='submit')		
-								button#attendi.btn.btn-primary.btn-lg(data-toggle='modal', data-target='#myModal'+value) Attendees
+								button#attendi.btn.btn-custom(data-toggle='modal', data-target='#myModal'+value) Attendees
 								.modal.fade.bs-modal-xs(id="myModal"+value tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
 									.modal-dialog
 										.modal-content
@@ -121,7 +123,7 @@ block main
 																	h3.attendeesname #{item.profile.name}
 														hr(style="height:1px;border:none;color:#333;background-color:#333;") 
 												.modal-footer
-													button.btn.btn-default(type='button', data-dismiss='modal')| Close
+													button.btn.btn-custom3(type='button', data-dismiss='modal')| Close
 								-value++
 												
 

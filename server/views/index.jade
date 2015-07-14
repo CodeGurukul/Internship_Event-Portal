@@ -40,29 +40,49 @@ block main
   .container
     each val in ['Conference','Hackathon','Meet Ups','Workshops']
       .row
-        hr(style="  border-top: 5px solid #A7F3EF")
         if(val=='Conference')
-          h2#headingin
+          h2.color3#headingin
             i.fa.fa-suitcase
             =' '+ val
         if(val=='Hackathon')
-          h2#headingin
+          h2#headingin.color4
             i.fa.fa-user-secret
             =' '+ val
         if(val=='Meet Ups')
-          h2#headingin
+          h2#headingin.color5
             i.fa.fa-coffee
             =' '+ val
         if(val=='Workshops')
-          h2#headingin
+          h2#headingin.color3
             i.fa.fa-cogs
             =' '+ val
-
+        hr(style="  border-top: 5px solid #6ec1c2; width: inherit")
 
         each item in events
           if(item.profile.category==val)
             .animated.zoomInDown
-              .box1.col-md-3(href='/display-event/'+item._id)
+              if(val=='Hackathon')
+                -color = 4
+              if(val=='Conference')
+                -color = 3
+              if(val=='Meet Ups')
+                -color = 5
+              if(val=='Workshops')
+                -color = 3
+              .box1.col-md-3(class='bg-color#{color}')(href='/display-event/'+item._id)
+                  h1= item.profile.title
+                    if(item.img.name)
+                      img(src='#{item.img.name}')
+                    |         
+                    p= item.profile.location
+                    p= item.profile.category
+                    p= item.profile.desc
+                    form(action="/display-event/"+item._id method="post")
+                      button.btn.btn-custom(type='submit') Details 
+//- 
+          if(item.profile.category=='Hackathon')
+            .animated.zoomInDown
+              .box1.col-md-3.bg-color4(href='/display-event/'+item._id)
                   h1= item.profile.title
                     if(item.img.name)
                       img(src='#{item.img.name}')
@@ -73,6 +93,32 @@ block main
                     form(action="/display-event/"+item._id method="post")
                       button.btn.btn-custom(type='submit') Details 
 
+          if(item.profile.category=='MeetUps')
+            .animated.zoomInDown
+              .box1.col-md-3.bg-color5(href='/display-event/'+item._id)
+                if(item.profile.category=='MeetUps')
+                  h1= item.profile.title
+                    if(item.img.name)
+                      img(src='#{item.img.name}')
+                    |         
+                    p= item.profile.location
+                    p= item.profile.category
+                    p= item.profile.desc
+                    form(action="/display-event/"+item._id method="post")
+                      button.btn.btn-custom(type='submit') Details 
+
+          if(item.profile.category=='Workshops')
+            .animated.zoomInDown
+              .box1.col-md-3.bg-color3(href='/display-event/'+item._id)
+                  h1= item.profile.title
+                    if(item.img.name)
+                      img(src='#{item.img.name}')
+                    |         
+                    p= item.profile.location
+                    p= item.profile.category
+                    p= item.profile.desc
+                    form(action="/display-event/"+item._id method="post")
+                      button.btn.btn-custom(type='submit') Details 
           
           
             //- 

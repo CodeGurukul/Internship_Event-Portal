@@ -7,7 +7,8 @@ $col5 : #e41a6a;
 
 #signin
 {
-	.butpos
+  margin-top: 10px;
+  .butpos
 	{
 		text-align: center;
 	}
@@ -18,6 +19,11 @@ $col5 : #e41a6a;
    margin-left: 10px;
  }
 }
+#close
+{
+  margin-top: -30px;
+}
+
 
 /*navbar definitions*/
 #navbarid {

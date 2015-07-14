@@ -96,7 +96,7 @@
                                           input#passwordinput.form-control(required='', name='password', type='password', placeholder='password')
                                       .control-group
                                         .controls
-                                          button#signin.btn.btn-success(name='signin' type='submit') Sign In
+                                          button#signin.btn.btn-custom(name='signin' type='submit') Sign In
                               #signup.tab-pane.fade
                                 form.form-horizontal(action='/signup' method='post')
                                   fieldset
@@ -139,7 +139,9 @@
                                         button.btn.btn-success(name='confirmsignup') Sign Up
                           .modal-footer
                             center
-                              button.btn.btn-default(type='button', data-dismiss='modal') Close
+                              button.btn.btn-delete#close(type='button', data-dismiss='modal') 
+                                i.fa.fa-times.fa-2x     
+
           else
                 li 
                   h3#name #{user.profile.name}

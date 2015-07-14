@@ -106,20 +106,21 @@ ul#nav li.current a { color: #F06000; }
    position: relative;
   left: 36px;
     top: 5px;
+  margin-right: 15px;
 }
 #abouhead
 {
    background-color: transparent;
- box-shadow: 29px -1px 82px 2px black;
-   text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
+ /*box-shadow: 29px -1px 82px 2px black;*/
+   /*text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);*/
   color: white;
 }
 #abou{
   color:white;
   font-size: 16px;
    background-color: transparent;
- box-shadow: 29px -1px 82px 2px black;
-   text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
+ /*box-shadow: 29px -1px 82px 2px black;*/
+   /*text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);*/
   
 }
 
@@ -157,7 +158,7 @@ ul#nav li.current a { color: #F06000; }
     min-height: 200px;
     position:relative;
     display: inline-block;
-    background: -webkit-gradient(linear, 0% 20%, 0% 1000%, from(#fff), to(#fff), color-stop(.1,#f3f3f3));
+    /*background: -webkit-gradient(linear, 0% 20%, 0% 1000%, from(#fff), to(#fff), color-stop(.1,#f3f3f3));*/
     border: 1px solid #ccc;
     -webkit-box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.1) inset;
     -webkit-border-bottom-right-radius: 6px 50px;    
@@ -206,7 +207,7 @@ h1{
     font-size: 20px;
     font-weight: bold;
     margin-top: 5px; 
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    /*text-shadow: 1px 1px 3px rgba(0,0,0,0.3);*/
 }
 
 a{
@@ -242,58 +243,60 @@ a{
 #jumbo1
 {
     background-color: transparent;
- box-shadow: 29px -1px 82px 2px black;
-   text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
+ /*box-shadow: 29px -1px 82px 2px black;*/
+   /*text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);*/
   color: white;
 }
 #heading1
 {
-    text-shadow: 2px 3px 9px #011010, 7px 7px 94px rgb(1, 16, 16);
-   color: rgb(255, 100, 48);
+    /*text-shadow: 2px 3px 9px #011010, 7px 7px 94px rgb(1, 16, 16);*/
+   /*color: rgb(255, 100, 48);*/
+   color: black;
 }
 #jumbo2
 {
-    background-color: transparent;
- box-shadow: 29px -1px 82px 2px black;
-   text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
+    /*background-color: transparent;*/
+ /*box-shadow: 29px -1px 82px 2px black;*/
+   /*text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);*/
   color: white;
 }
 #heading2
 {
-   text-shadow: 2px 3px 9px #011010, 7px 7px 94px rgb(1, 16, 16);
+   /*text-shadow: 2px 3px 9px #011010, 7px 7px 94px rgb(1, 16, 16);*/
    color: rgb(255, 100, 48);
  }
 #jumbo3
 {
-    background-color: transparent;
- box-shadow: 29px -1px 82px 2px black;
-   text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
+    /*background-color: transparent;*/
+ /*box-shadow: 29px -1px 82px 2px black;*/
+   /*text-sha*/dow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
   color: white;
 
 }
 #heading3
 {
-    text-shadow: 2px 3px 9px #011010, 7px 7px 94px rgb(1, 16, 16);
-   color: rgb(255, 100, 48);
+    /*text-sha*/dow: 2px 3px 9px #011010, 7px 7px 94px rgb(1, 16, 16);
+   /*color: rgb(255, 100, 48);*/
 }
 #uploadform
 {
   position: relative;
   left: 36px;
+  padding-top: 30px;
 }
 #userdethead
 {
 
-   text-shadow: 2px 3px 9px #011010, 7px 7px 94px rgb(1, 16, 16);
+   /*text-sha*/dow: 2px 3px 9px #011010, 7px 7px 94px rgb(1, 16, 16);
    color: rgb(255, 100, 48);
 }
 #panelbck
 {
   color: white;
-   // box-shadow: 1px;
+   /*// box-shadow: 1px;*/
    background-color: transparent;
  border-color: transparent;
-   text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
+   /*text-sha*/dow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
   color: white;
 
 }
@@ -305,7 +308,7 @@ a{
 {
     background-color: transparent;
  border-color: transparent;
-   text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
+   /*text-sha*/dow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
   color: white;
 
 }
@@ -313,7 +316,7 @@ a{
 {
      background-color: transparent;
  
-   text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
+   /*text-sha*/dow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
   color: white;
 }
 #unreg
@@ -334,18 +337,18 @@ background-repeat: repeat-x, repeat;
 }
 #jumboview
 {
-   background-color: transparent;
- box-shadow: 29px -1px 82px 2px black;
-   text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
-  color: white;
-
+  background-color: $col3;
+  padding-bottom: 28px;
+  margin-top: 20px;
+  /*box-shadow: 29px -1px 82px 2px black;*/
+  /*text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);*/
+  color:  white; 
 }
 
 #headingin
 {
-
-  color: rgb(248, 255, 155);
-  text-align: right;
+  /*color: rgb(248, 255, 155);*/
+  text-align: center;
 }
 .attendeesname
 {
@@ -356,13 +359,29 @@ background-repeat: repeat-x, repeat;
   color: black;
 }
 //for all color classes
-.color1
-{
-  color: $col1;
-}
 .bg-color1
 {
   background-color: $col1;
+}
+.bg-color2
+{
+  background-color: $col2;
+} 
+.bg-color3
+{
+  background-color: $col3;
+}
+.bg-color4
+{
+  background-color: $col4;
+}
+.bg-color5
+{
+  background-color: $col5;
+}
+.color1
+{
+  color: $col1;
 }
 .color2
 {
@@ -384,34 +403,82 @@ background-repeat: repeat-x, repeat;
 .btn-custom 
 {
   box-sizing: border-box;
-  width: 125px;
+  width: 150px;
   height: 45px;
   background-image: -webkit-linear-gradient(rgba( 46, 175, 176, 1), rgba( 46, 175, 176, 1));
   background-image: linear-gradient(rgba( 46, 175, 176, 1),rgba( 46, 175, 176, 1));
   border-radius: 30px;
   box-shadow: 0px 10px 0px 0px #f1831d;
   -moz-box-sizing: border-box;
+  color: white;
+  font-size: 19px;
   :active.btn-custom, :active, :focus
   {
     box-sizing: border-box;
-    width: 125px;
+    width: 150px;
     height: 45px;
     background-image: -webkit-linear-gradient(rgba( 46, 175, 176, 1), rgba( 46, 175, 176, 1));
     background-image: linear-gradient(rgba( 46, 175, 176, 1),rgba( 46, 175, 176, 1));
     border-radius: 30px;
-    box-shadow: 0px 0px 0px 0px #f1831d;
+    /*box-shadow: 0px 0px 0px 0px #f1831d;*/
+    -moz-box-sizing: border-box;
+  };
+}
+.btn-custom4
+{
+  box-sizing: border-box;
+  width: 150px;
+  height: 45px;
+  background-image: -webkit-linear-gradient(rgba( 46, 175, 176, 1), rgba( 46, 175, 176, 1));
+  background-image: linear-gradient(rgba( 46, 175, 176, 1),rgba( 46, 175, 176, 1));
+  border-radius: 30px;
+  box-shadow: 0px 10px 0px 0px $col4;
+  -moz-box-sizing: border-box;
+  color: white;
+  font-size: 19px;
+  :active.btn-custom, :active, :focus
+  {
+    box-sizing: border-box;
+    width: 150px;
+    height: 45px;
+    background-image: -webkit-linear-gradient(rgba( 46, 175, 176, 1), rgba( 46, 175, 176, 1));
+    background-image: linear-gradient(rgba( 46, 175, 176, 1),rgba( 46, 175, 176, 1));
+    border-radius: 30px;
+    /*box-shadow: 0px 0px 0px 0px #f1831d;*/
     -moz-box-sizing: border-box;
   };
 }
 
+.btn-custom3{
+  box-sizing: border-box;
+  width: 150px;
+  height: 45px;
+  background-image: -webkit-linear-gradient(rgba( 127, 43, 130, 1), rgba( 127, 43, 130, 1));
+  background-image: linear-gradient(rgba( 127, 43, 130, 1),rgba( 127, 43, 130, 1));
+  border-radius: 30px;
+  box-shadow: 0px 10px 0px 0px #f1831d;
+  color: white;
+  -moz-box-sizing: border-box;
+  :active.btn-custom, :active, :focus
+  {
+    box-sizing: border-box;
+    width: 150px;
+    height: 45px;
+    background-image: -webkit-linear-gradient(rgba( 46, 175, 176, 1), rgba( 46, 175, 176, 1));
+    background-image: linear-gradient(rgba( 46, 175, 176, 1),rgba( 46, 175, 176, 1));
+    border-radius: 30px;
+    /*box-shadow: 0px 0px 0px 0px #f1831d;*/
+    -moz-box-sizing: border-box;
+  };
+}
 
 body{
-background-image: url("../images/background1.png"), url("../images/background2.png");
-background-repeat: repeat-x, repeat;
+/*background-image: url("../images/background1.png"), url("../images/background2.png");*/
+/*background-repeat: repeat-x, repeat;*/
 }
 .bcks
 {
-  box-shadow: 14px 14px 89px black;
+  /*box-shadow: 14px 14px 89px black;*/
 }
 .userpanelimg
 {
@@ -425,4 +492,16 @@ background-repeat: repeat-x, repeat;
 {
   height: 300px;
   width: 300px;
+}
+
+.btn-delete {
+  box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+  background-image: -webkit-linear-gradient(rgba( 228, 26, 106, 1), rgba( 228, 26, 106, 1));
+  background-image: linear-gradient(rgba( 228, 26, 106, 1),rgba( 228, 26, 106, 1));
+  border-radius: 100px;
+  box-shadow: 0px 10px 0px 0px #f1831d;
+  -moz-box-sizing: border-box;
+  color: black;
 }
