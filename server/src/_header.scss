@@ -33,7 +33,7 @@ $col5 : #e41a6a;
   background-repeat: repeat-x;
   background-image: -webkit-linear-gradient(rgba( 46, 175, 176, 1), rgba( 46, 175, 176, 1));
   background-image: linear-gradient(rgba( 46, 175, 176, 1),rgba( 46, 175, 176, 1));
-  box-shadow: 0px 10px 0px 0px #f1831d;
+  box-shadow: 0px 10px 0px 0px $col1;
   -moz-box-sizing: border-box;
 }
 #navimg
@@ -55,10 +55,11 @@ $col5 : #e41a6a;
 }
 #navbutton
 {
-	  position: relative;
-  top: 10px;
-  color:rgb(253, 95, 29);
-  background-color:cornsilk;
+	position: relative;
+  top: 2px;
+  border-radius: 30px;
+  color:white;
+  background-color:$col4;
 }
 #navdropdown
 {
@@ -197,7 +198,7 @@ $col5 : #e41a6a;
   position: relative;
   font-size: 24px;
   right: 12px;
-  top: 2px;
+  top: 20px;
   color:rgb(228, 242, 244);
 }
 #drop

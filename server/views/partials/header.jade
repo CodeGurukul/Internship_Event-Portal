@@ -79,7 +79,7 @@
                                 p
                               #signin.tab-pane.fade.active.in
                                 .block1
-                                  a#fbid.button.btn.btn-primary.butpos(href="/auth/facebook") Sign in with Facebook
+                                  a.btn.button.btn-primary.butpos#fbid(href="/auth/facebook") Sign in with Facebook
                                   a#googleid.button.btn.btn-primary.butpos(href="/auth/google") Sign in with Google plus
                                   form.form-horizontal(action="/signin" method="post")
                                     fieldset
@@ -96,7 +96,7 @@
                                           input#passwordinput.form-control(required='', name='password', type='password', placeholder='password')
                                       .control-group
                                         .controls
-                                          button#signin.btn.btn-custom(name='signin' type='submit') Sign In
+                                          button(style="margin-bottom:19px")#signin.btn.butpos.btn-custom1(name='signin' type='submit') Sign In
                               #signup.tab-pane.fade
                                 form.form-horizontal(action='/signup' method='post')
                                   fieldset

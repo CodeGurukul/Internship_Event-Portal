@@ -3,10 +3,11 @@ block main
  .contactusform.container
     .row
         .col-md-6
-          .well.well-sm
+          .well.well-sm.bg-color1
             form.form-horizontal(actions="/contactus" method='post')
               fieldset
-                legend.text-center.header Contact us
+                legend.text-center
+                  h3 Contact us
                 |                         
                 .form-group
                   .col-md-10.col-md-offset-1
@@ -26,16 +27,17 @@ block main
                 |                         
                 .form-group
                   .col-md-10.col-md-offset-1
-                    textarea#message.form-control(name='message', placeholder='Enter your massage for us here. We will get back to you within 2 business days.', rows='7')
+                    textarea#message.form-control(name='message', placeholder='Enter your massage for us here. We will get back to you within 2 business days.', rows='6')
                 |                         
                 .form-group
                   .col-md-12.text-center
-                    button.btn.btn-custom.btn-lg(type='submit') Submit
+                    button.btn.btn-custom3.btn-lg(type='submit') Submit
         |         
         .col-md-6
           div
-            .panel.panel-default
-              .text-center.header Our Office
+            .panel.panel-default.bg-color1
+              legend.text-center.page-header.bg-color1 
+                h3 Our Office
               |                     
               .panel-body.text-center
                 h4 Address
@@ -49,7 +51,9 @@ block main
                   br
                   |                         9821748021
                   br
-                  |                        	dhongadeaakash@hotmail.com
+                  |                         dhongadeaakash@hotmail.com
+                  br
+                  |                         chintanmistry.00@gmail.com
                   br
                 |                         
                 hr

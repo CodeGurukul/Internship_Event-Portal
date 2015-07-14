@@ -52,7 +52,7 @@ block main
 											|  Reject-Event
 									button#option3.btn.btn-custom3(type='submit') Submit
 								form(action="/display-event/"+val._id method="post")
-									button.btn.btn-custom(type='submit') Details
+									button.btn.btn-custom1(type='submit') Details
 	.container
 		.row
 			.col-md-12							
@@ -75,7 +75,7 @@ block main
 										i.fa.fa-times.fa-2x 		
 	
 								form(action="/display-event/"+val._id method="post")
-									button#detbut.btn.btn-custom(type='submit') Details 	
+									button#detbut.btn.btn-custom4(type='submit') Details 	
 	.container
 		.row
 			.col-md-12			
@@ -101,11 +101,11 @@ block main
 								form#canceleve(action="/cancel-event/"+val._id method="post")
 									button.btn.btn-primary(type='submit') Cancel-Event
 								form#details(action="/display-event/"+val._id method="post")
-									button.btn.btn-custom(type='submit') Details 
+									button.btn.btn-custom1(type='submit') Details 
 								form#uploadform(enctype='multipart/form-data', action='/api/photo/'+val._id, method='post')
 									input(type='file', name='userPhoto')
 									input(type='submit', value='Upload Image', name='submit')		
-								button#attendi.btn.btn-custom(data-toggle='modal', data-target='#myModal'+value) Attendees
+								button#attendi.btn.btn-custom1(data-toggle='modal', data-target='#myModal'+value) Attendees
 								.modal.fade.bs-modal-xs(id="myModal"+value tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
 									.modal-dialog
 										.modal-content

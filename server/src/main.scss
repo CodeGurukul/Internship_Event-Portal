@@ -110,7 +110,7 @@ ul#nav li.current a { color: #F06000; }
 }
 #abouhead
 {
-   background-color: transparent;
+   /*background-color: transparent;*/
  /*box-shadow: 29px -1px 82px 2px black;*/
    /*text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);*/
   color: white;
@@ -118,7 +118,7 @@ ul#nav li.current a { color: #F06000; }
 #abou{
   color:white;
   font-size: 16px;
-   background-color: transparent;
+   /*background-color: transparent;*/
  /*box-shadow: 29px -1px 82px 2px black;*/
    /*text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);*/
   
@@ -175,6 +175,10 @@ ul#nav li.current a { color: #F06000; }
     -webkit-transform: translate(-35px,-40px)
                         skew(0deg,30deg)
                         rotate(-25deg);
+}
+.box{
+  position:relative;
+    display: inline-block;
 }
 
 .box1:after{
@@ -242,7 +246,7 @@ a{
 
 #jumbo1
 {
-    background-color: transparent;
+    /*background-color: transparent;*/
  /*box-shadow: 29px -1px 82px 2px black;*/
    /*text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);*/
   color: white;
@@ -269,7 +273,7 @@ a{
 {
     /*background-color: transparent;*/
  /*box-shadow: 29px -1px 82px 2px black;*/
-   /*text-sha*/dow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);
+   /*text-shadow: 2px 3px 9px #1A3DBE, 7px 7px 94px rgb(1, 16, 16);*/
   color: white;
 
 }
@@ -400,7 +404,7 @@ background-repeat: repeat-x, repeat;
   color: $col5;
 }
 /*buttton made by chintan*/
-.btn-custom 
+.btn-custom1 
 {
   box-sizing: border-box;
   width: 150px;
@@ -412,7 +416,7 @@ background-repeat: repeat-x, repeat;
   -moz-box-sizing: border-box;
   color: white;
   font-size: 19px;
-  :active.btn-custom, :active, :focus
+  :active.btn-custom1, :active, :focus
   {
     box-sizing: border-box;
     width: 150px;
@@ -436,7 +440,7 @@ background-repeat: repeat-x, repeat;
   -moz-box-sizing: border-box;
   color: white;
   font-size: 19px;
-  :active.btn-custom, :active, :focus
+  :active.btn-custom4, :active, :focus
   {
     box-sizing: border-box;
     width: 150px;
@@ -459,7 +463,7 @@ background-repeat: repeat-x, repeat;
   box-shadow: 0px 10px 0px 0px #f1831d;
   color: white;
   -moz-box-sizing: border-box;
-  :active.btn-custom, :active, :focus
+  :active.btn-custom3, :active, :focus
   {
     box-sizing: border-box;
     width: 150px;
@@ -503,5 +507,10 @@ body{
   border-radius: 100px;
   box-shadow: 0px 10px 0px 0px #f1831d;
   -moz-box-sizing: border-box;
-  color: black;
+  color: white;
+}
+
+.marg10
+{
+  /*margin:10px 10px 10px 10px;*/
 }

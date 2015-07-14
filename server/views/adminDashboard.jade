@@ -32,70 +32,75 @@ block main
 							else
 								each val in allEvents
 									if(val)
-										#jumbo3.jumbotron.bg-color2
+										#jumbo3.jumbotron.bg-color2.box
 											ul
 												p Name :#{val.profile.title}
 												p Location: #{val.profile.location}
 												p Cateory: #{val.profile.category}
-												p Description: #{val.profile.desc}
+												p Description: #{val.profile.desc}  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem fugit sit eum aperiam consectetur veritatis quaerat cum dolorem, maxime doloremque mollitia, delectus repellendus blanditiis officiis obcaecati ducimus soluta quisquam vero.
 												if(val.status) 
 													P Status :Cancelled
-											form#canceleve(action="/cancel-event/"+val._id method="post")
-												button.btn.btn-custom4(type='submit') Cancel-Event
-											form#details(action="/display-event/"+val._id method="post")
-												button.btn.btn-custom(type='submit') Details 		
-											
+											.col-xs-12.col-sm-6.col-md-6.col-lg-6
+												form#canceleve(action="/cancel-event/"+val._id method="post")
+													button.btn.btn-custom4(type='submit') Cancel-Event
+											.col-xs-12.col-sm-6.col-md-6.col-lg-6
+												form#details(action="/display-event/"+val._id method="post")
+													button.btn.btn-custom1(type='submit') Details 		
 												
-											button#attendi.btn.btn-custom3.btn-lg(data-toggle='modal', data-target='#myModal') Attendees
-											
+											.col-xs-12.col-sm-12.col-md-12.col-lg-12
+												h3  
+												h3
+											.col-xs-12.col-sm-6.col-md-6.col-lg-6
+												button#attendi.btn.btn-custom3.btn-lg(data-toggle='modal', data-target='#myModal') Attendees
+												
 
 
-											#myModal.modal.fade.bs-modal-xs(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
-												.modal-dialog
-													.modal-content
-														.modal-header
-															button.close(type='button', data-dismiss='modal', aria-hidden='true')
-															| ×
-															h4#attendeesmodal.modal-title People Attending My Event
-															.modal-body
-																each item in val.att 
-																	.container-fluid
-																		.row
-																			.col-md-6.attendeesimg
-																				img.img-circle(src=item.profile.picture)
-																			.col-md-6
-																				h3.attendeesname #{item.profile.name}
-																	hr(style="height:1px;border:none;color:#333;background-color:#333;") 
-															.modal-footer
-																button.btn.btn-custom3(type='button', data-dismiss='modal')| Close	
-
-											button#attendi.btn.btn-custom3.btn-lg(data-toggle='modal', data-target='#kick') Kick
-											
-
-
-											#kick.modal.fade.bs-modal-xs(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
-												.modal-dialog
-													.modal-content
-														.modal-header
-															button.close(type='button', data-dismiss='modal', aria-hidden='true')
-															| ×
-															h4#attendeesmodal.modal-title Click the User To Kick From Event
-															.modal-body
-																each item in val.att 
-																	a(href="/deletuser-event/"+val._id+'/'+item._id method="post")
+												#myModal.modal.fade.bs-modal-xs(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+													.modal-dialog
+														.modal-content
+															.modal-header
+																button.close(type='button', data-dismiss='modal', aria-hidden='true')
+																| ×
+																h4#attendeesmodal.modal-title People Attending My Event
+																.modal-body
+																	each item in val.att 
 																		.container-fluid
 																			.row
 																				.col-md-6.attendeesimg
 																					img.img-circle(src=item.profile.picture)
 																				.col-md-6
 																					h3.attendeesname #{item.profile.name}
-																	hr(style="height:1px;border:none;color:#333;background-color:#333;") 
-															.modal-footer
-																button.btn.btn-default(type='button', data-dismiss='modal')| Close
+																		hr(style="height:1px;border:none;color:#333;background-color:#333;") 
+																.modal-footer
+																	button.btn.btn-custom3(type='button', data-dismiss='modal')| Close	
+	
+											.col-xs-12.col-sm-6.col-md-6.col-lg-6
+												button#attendi.btn.btn-custom3.btn-lg(data-toggle='modal', data-target='#kick') Kick
 
-											form#details(style='margin-top:30px')(action="/delete-event/"+val._id method="post")
-												button.btn.btn-delete(type='submit') 
-													i.fa.fa-times.fa-2x 		
+												#kick.modal.fade.bs-modal-xs(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+													.modal-dialog
+														.modal-content
+															.modal-header
+																button.close(type='button', data-dismiss='modal', aria-hidden='true')
+																| ×
+																h4#attendeesmodal.modal-title Click the User To Kick From Event
+																.modal-body
+																	each item in val.att 
+																		a(href="/deletuser-event/"+val._id+'/'+item._id method="post")
+																			.container-fluid
+																				.row
+																					.col-md-6.attendeesimg
+																						img.img-circle(src=item.profile.picture)
+																					.col-md-6
+																						h3.attendeesname #{item.profile.name}
+																		hr(style="height:1px;border:none;color:#333;background-color:#333;") 
+																.modal-footer
+																	button.btn.btn-default(type='button', data-dismiss='modal')| Close
+
+											.col-xs-12.col-sm-6.col-md-6.col-lg-6
+												form#details(style='margin-top:30px')(action="/delete-event/"+val._id method="post")
+													button.btn.btn-delete(type='submit') 
+														i.fa.fa-times.fa-2x 		
 	.container
 		.row
 			.col-md-12

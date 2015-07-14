@@ -63,13 +63,17 @@ block main
             .animated.zoomInDown
               if(val=='Hackathon')
                 -color = 4
+                -btcolor = 1
               if(val=='Conference')
                 -color = 3
+                -btcolor = 4
               if(val=='Meet Ups')
                 -color = 5
+                -btcolor = 1
               if(val=='Workshops')
+                -btcolor = 4
                 -color = 3
-              .box1.col-md-3(class='bg-color#{color}')(href='/display-event/'+item._id)
+              .box1.col-md-3(class='bg-color#{color}')(style="color:#dddad6")(href='/display-event/'+item._id)
                   h1= item.profile.title
                     if(item.img.name)
                       img(src='#{item.img.name}')
@@ -78,7 +82,7 @@ block main
                     p= item.profile.category
                     p= item.profile.desc
                     form(action="/display-event/"+item._id method="post")
-                      button.btn.btn-custom(type='submit') Details 
+                      button.btn(class='btn-custom#{btcolor}')(type='submit') Details 
 //- 
           if(item.profile.category=='Hackathon')
             .animated.zoomInDown
